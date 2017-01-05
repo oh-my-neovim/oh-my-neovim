@@ -31,7 +31,7 @@ if [ -f ~/.vimrc ] || [ -h ~/.vimrc ]; then
 fi
 
 printf "${BLUE}Downloading .vimrc gist file from github...${NORMAL}\n"
-curl -o ~/.vimrc -L https://gist.githubusercontent.com/yacut/8760f45ee9a484c1b3cbcdf2755cb220/raw
+curl -o ~/.vimrc -L https://raw.githubusercontent.com/yacut/workspace/master/.vimrc
 printf "${GREEN}Vim config upgraded!${NORMAL}\n"
 
 printf "${BLUE}Updating plugins...${NORMAL}\n"
