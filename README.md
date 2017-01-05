@@ -3,6 +3,7 @@
 ### Upgrade vim config
 
 ##### Dependencies:
+- https://github.com/neovim/neovim/wiki/Installing-Neovim
 - install node npm editorconfig
 - https://github.com/ryanoasis/nerd-fonts#font-installation
 - npm install -g eslint jsonlint tern
