@@ -11,11 +11,11 @@
 
 ##### Upgrade .vimrc file in home directory:
 
-`sh -c "$(curl -fsSL https://gist.githubusercontent.com/yacut/452f975be7fc37070c13651a329ddb90/raw/upgrade_vim_config.sh)"`
+`sh -c "$(curl -fsSL https://gist.githubusercontent.com/yacut/452f975be7fc37070c13651a329ddb90/raw/)"`
 
 > Install plugins: `nvim -c ":PlugInstall" -c ":qa"`
 
 ### Setup new nodejs project
 ##### Create .editorconfig, .eslintrc and .tern-project files in current folder:
 
-`sh -c "$(curl -fsSL https://gist.githubusercontent.com/yacut/7b11313234b76bed38b8b4dfc7a0ee24/raw/create_config_files_for_nodejs_project.sh)"`
+`sh -c "$(curl -fsSL https://gist.githubusercontent.com/yacut/7b11313234b76bed38b8b4dfc7a0ee24/raw/)"`
