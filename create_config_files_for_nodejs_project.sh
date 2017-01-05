@@ -25,12 +25,12 @@ fi
 set -e
 
 printf "${GREEN}Downloading .editorconfig gist file from github...${NORMAL}\n"
-curl -O -L https://gist.githubusercontent.com/yacut/06336cb696d6a3d90a8c616568d042d2/raw
+curl -O -L https://raw.githubusercontent.com/yacut/workspace/master/.editorconfig
 
 printf "${GREEN}Downloading .eslintrc gist file from github...${NORMAL}\n"
-curl -O -L https://gist.githubusercontent.com/yacut/dd7dc37afd9d28b53205ca4e8b55312e/raw
+curl -O -L https://raw.githubusercontent.com/yacut/workspace/master/.eslintrc
 
 printf "${GREEN}Downloading .tern-project gist file from github...${NORMAL}\n"
-curl -O -L https://gist.githubusercontent.com/yacut/eb88f02b9fa31db77baae2cede568517/raw
+curl -O -L https://raw.githubusercontent.com/yacut/workspace/master/.tern-project
 
 printf "${GREEN}Config files for nodejs project created!${NORMAL}\n"
