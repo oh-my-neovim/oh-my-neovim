@@ -1,0 +1,22 @@
+{
+  "libs": [
+    "browser",
+    "chai",
+    "browser",
+    "jquery",
+    "ecma5",
+    "ecma6"
+  ],
+  "ecmaVersion": 6,
+  "loadEagerly": [],
+  "async": true,
+  "plugins": {
+    "complete_strings": {},
+    "node": {},
+    "node_resolve": {},
+    "modules": {},
+    "requirejs": {},
+    "doc_comment": {},
+    "es_modules": true
+  }
+}
