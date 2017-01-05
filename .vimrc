@@ -153,13 +153,13 @@ set gdefault
 set incsearch
 set showmatch
 set hlsearch
-let g:airline#extensions#branch#format = 1
+let g:far#source = 'ack'
 
 nnoremap <leader><space> :noh<cr>
 nnoremap <leader>q :q<CR>
 
 " JSON
-let g:far#source = 'ack'
+let g:vim_json_syntax_conceal = 0
 
 " Neomake
 autocmd! BufWritePost,BufEnter * Neomake
