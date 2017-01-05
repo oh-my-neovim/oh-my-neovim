@@ -13,7 +13,6 @@
 
 `sh -c "$(curl -fsSL https://gist.githubusercontent.com/yacut/452f975be7fc37070c13651a329ddb90/raw/)"`
 
-> Install plugins: `nvim -c ":PlugInstall" -c ":qa"`
 
 ### Setup new nodejs project
 ##### Create .editorconfig, .eslintrc and .tern-project files in current folder:
