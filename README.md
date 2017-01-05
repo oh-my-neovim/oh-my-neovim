@@ -13,8 +13,9 @@
 
 `sh -c "$(curl -fsSL https://gist.githubusercontent.com/yacut/452f975be7fc37070c13651a329ddb90/raw)"`
 
-### Setup new nodejs project
+> Install plugins: `nvim -c ":PlugInstall" -c ":qa"`
 
+### Setup new nodejs project
 ##### Create .editorconfig, .eslintrc and .tern-project files in current folder:
 
 `sh -c "$(curl -fsSL https://gist.githubusercontent.com/yacut/7b11313234b76bed38b8b4dfc7a0ee24/raw)"`
