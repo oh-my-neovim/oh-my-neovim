@@ -42,7 +42,7 @@ Plug 'sjl/gundo.vim'
 Plug 'godlygeek/tabular'
 Plug 'easymotion/vim-easymotion'
 Plug 'BufOnly.vim'
-Plug 'bronson/vim-trailing-whitespace'
+" Plug 'bronson/vim-trailing-whitespace'
 
 " for coding style
 Plug 'editorconfig/editorconfig-vim'
