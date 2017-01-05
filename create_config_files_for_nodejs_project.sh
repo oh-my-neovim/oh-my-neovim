@@ -28,9 +28,9 @@ printf "${GREEN}Downloading .editorconfig gist file from github...${NORMAL}\n"
 curl -O -L https://raw.githubusercontent.com/yacut/workspace/master/.editorconfig
 
 printf "${GREEN}Downloading .eslintrc gist file from github...${NORMAL}\n"
-curl -O -L https://raw.githubusercontent.com/yacut/workspace/master/.eslintrc
+curl -O -L https://raw.githubusercontent.com/yacut/workspace/master/nodejs/.eslintrc
 
 printf "${GREEN}Downloading .tern-project gist file from github...${NORMAL}\n"
-curl -O -L https://raw.githubusercontent.com/yacut/workspace/master/.tern-project
+curl -O -L https://raw.githubusercontent.com/yacut/workspace/master/nodejs/.tern-project
 
 printf "${GREEN}Config files for nodejs project created!${NORMAL}\n"
