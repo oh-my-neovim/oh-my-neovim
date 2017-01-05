@@ -1,4 +1,4 @@
-## My workspace scripts
+## My workspace
 
 ### Upgrade vim config
 
