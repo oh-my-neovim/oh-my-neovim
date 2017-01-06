@@ -52,12 +52,12 @@ fi
 
 OSTYPE=$(uname)
 if [ "$OSTYPE" == "Darwin" ]; then
-  if [ ! -f "~/Library/Fonts/Sauce Code Pro Nerd Font Complete.ttf" ]; then
+  if [ ! -f ~/Library/Fonts/Sauce\ Code\ Pro\ Nerd\ Font\ Complete.ttf ]; then
     printf "${BLUE}Downloading Sauce Code Pro Nerd Font Complete.ttf to ~/Library/Fonts folder...${NORMAL}\n"
     cd ~/Library/Fonts && curl -fLo "Sauce Code Pro Nerd Font Complete.ttf" https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/SourceCodePro/Regular/complete/Sauce%20Code%20Pro%20Nerd%20Font%20Complete.ttf;
   fi
 else
-  if [ ! -f "~/.local/share/fonts/Sauce Code Pro Nerd Font Complete.ttf" ]; then
+  if [ ! -f ~/.local/share/fonts/Sauce\ Code\ Pro\ Nerd\ Font\ Complete.ttf ]; then
     printf "${BLUE}Downloading Sauce Code Pro Nerd Font Complete.ttf to ~/.local/share/fonts folder...${NORMAL}\n"
     mkdir -p ~/.local/share/fonts;
     cd ~/.local/share/fonts && curl -fLo "Sauce Code Pro Nerd Font Complete.ttf" https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/SourceCodePro/Regular/complete/Sauce%20Code%20Pro%20Nerd%20Font%20Complete.ttf;
