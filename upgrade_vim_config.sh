@@ -50,6 +50,13 @@ if [ ! -f ~/.config/nvim/init.vim ] || [ ! -h ~/.config/nvim/init.vim ]; then
   ln -s ~/.vimrc ~/.config/nvim/init.vim
 fi
 
+if [ "$(uname)" == "Darwin" ]; then
+  cd ~/Library/Fonts && curl -fLo "Droid Sans Mono for Powerline Nerd Font Complete.otf" https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/SourceCodePro/Regular/complete/Sauce%20Code%20Pro%20Nerd%20Font%20Complete.ttf;
+else
+  mkdir -p ~/.local/share/fonts;
+  cd ~/.local/share/fonts && curl -fLo "Droid Sans Mono for Powerline Nerd Font Complete.otf" https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/SourceCodePro/Regular/complete/Sauce%20Code%20Pro%20Nerd%20Font%20Complete.ttf;
+fi
+
 printf "${BLUE}Updating plugins...${NORMAL}\n"
 hash nvim >/dev/null 2>&1 || {
   echo "Error: neovim is not installed"
