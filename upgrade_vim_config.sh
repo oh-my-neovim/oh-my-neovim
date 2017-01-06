@@ -30,6 +30,12 @@ if [ -f ~/.vimrc ] || [ -h ~/.vimrc ]; then
   mv -f ~/.vimrc ~/.vimrc.pre-upgrade;
 fi
 
+printf "${BLUE}Looking for plug.vim file...${NORMAL}\n"
+if [ ! -f ~/.vim/autoload/plug.vim ]; then
+  printf "${YELLOW}plug.vim not found...${NORMAL} ${GREEN}Downloading it from github...${NORMAL}\n";
+  curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim;
+fi
+
 printf "${BLUE}Downloading .vimrc gist file from github...${NORMAL}\n"
 curl -o ~/.vimrc -L https://raw.githubusercontent.com/yacut/workspace/master/.vimrc
 printf "${GREEN}Vim config upgraded!${NORMAL}\n"
