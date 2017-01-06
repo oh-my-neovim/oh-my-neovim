@@ -26,12 +26,12 @@ Plug 'iCyMind/NeoSolarized'
 " for searching
 Plug 'L9'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'mileszs/ack.vim'
-Plug 'dkprice/vim-easygrep'
-Plug 'tyok/nerdtree-ack'
-Plug 'eugen0329/vim-esearch'
+Plug 'rking/ag.vim'
+Plug 'taiansu/nerdtree-ag'
 Plug 'brooth/far.vim'
 Plug 'https://github.com/will133/vim-dirdiff.git'
+Plug 'dkprice/vim-easygrep'
+Plug 'eugen0329/vim-esearch'
 
 " for tooling
 Plug 'xolox/vim-misc'
