@@ -51,12 +51,16 @@ if [ ! -f ~/.config/nvim/init.vim ] || [ ! -h ~/.config/nvim/init.vim ]; then
 fi
 
 if [ "$(uname)" == "Darwin" ]; then
-  printf "${BLUE}Downloading Sauce Code Pro Nerd Font Complete.ttf to ~/Library/Fonts folder...${NORMAL}\n"
-  cd ~/Library/Fonts && curl -fLo "Sauce Code Pro Nerd Font Complete.ttf" https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/SourceCodePro/Regular/complete/Sauce%20Code%20Pro%20Nerd%20Font%20Complete.ttf;
+  if [ ! -f ~/Library/Fonts/Sauce\ Code\ Pro\ Nerd\ Font\ Complete.ttf ]; then
+    printf "${BLUE}Downloading Sauce Code Pro Nerd Font Complete.ttf to ~/Library/Fonts folder...${NORMAL}\n"
+    cd ~/Library/Fonts && curl -fLo "Sauce Code Pro Nerd Font Complete.ttf" https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/SourceCodePro/Regular/complete/Sauce%20Code%20Pro%20Nerd%20Font%20Complete.ttf;
+  fi
 else
-  printf "${BLUE}Downloading Sauce Code Pro Nerd Font Complete.ttf to ~/.local/share/fonts folder...${NORMAL}\n"
-  mkdir -p ~/.local/share/fonts;
-  cd ~/.local/share/fonts && curl -fLo "Sauce Code Pro Nerd Font Complete.ttf" https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/SourceCodePro/Regular/complete/Sauce%20Code%20Pro%20Nerd%20Font%20Complete.ttf;
+  if [ ! -f ~/.local/share/fonts/Sauce\ Code\ Pro\ Nerd\ Font\ Complete.ttf ]; then
+    printf "${BLUE}Downloading Sauce Code Pro Nerd Font Complete.ttf to ~/.local/share/fonts folder...${NORMAL}\n"
+    mkdir -p ~/.local/share/fonts;
+    cd ~/.local/share/fonts && curl -fLo "Sauce Code Pro Nerd Font Complete.ttf" https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/SourceCodePro/Regular/complete/Sauce%20Code%20Pro%20Nerd%20Font%20Complete.ttf;
+  fi
 fi
 
 printf "${BLUE}Updating plugins...${NORMAL}\n"
