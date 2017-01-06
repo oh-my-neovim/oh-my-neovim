@@ -40,6 +40,16 @@ printf "${BLUE}Downloading .vimrc gist file from github...${NORMAL}\n"
 curl -o ~/.vimrc -L https://raw.githubusercontent.com/yacut/workspace/master/.vimrc
 printf "${GREEN}Vim config upgraded!${NORMAL}\n"
 
+printf "${BLUE}Checking neovim links${NORMAL}\n"
+if [ ! -d ~/.config/nvim ] || [ ! -h ~/.config/nvim ]; then
+  printf "${GREEN}Creating ~/.config/nvim link.${NORMAL}\n";
+  ln -s ~/.vim ~/.config/nvim
+fi
+if [ ! -f ~/.config/nvim/init.vim ] || [ ! -h ~/.config/nvim/init.vim ]; then
+  printf "${GREEN}Creating ~/.config/nvim/init.vim link.${NORMAL}\n";
+  ln -s ~/.vimrc ~/.config/nvim/init.vim
+fi
+
 printf "${BLUE}Updating plugins...${NORMAL}\n"
 hash nvim >/dev/null 2>&1 || {
   echo "Error: neovim is not installed"
