@@ -50,8 +50,8 @@ if [ ! -f ~/.config/nvim/init.vim ] || [ ! -h ~/.config/nvim/init.vim ]; then
   ln -s ~/.vimrc ~/.config/nvim/init.vim
 fi
 
-OSTYPE=$(uname)
-if [ "$OSTYPE" == "Darwin" ]; then
+OS_TYPE=$(uname)
+if [ "$OS_TYPE" = Darwin ]; then
   if [ ! -f ~/Library/Fonts/SauceCodePro\ Nerd\ Font.ttf ]; then
     printf "${BLUE}Downloading SauceCodePro Nerd Font.ttf to ~/Library/Fonts folder...${NORMAL}\n"
     cd ~/Library/Fonts && curl -fLo "SauceCodePro Nerd Font.ttf" https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/SourceCodePro/Regular/complete/Sauce%20Code%20Pro%20Nerd%20Font%20Complete.ttf;
