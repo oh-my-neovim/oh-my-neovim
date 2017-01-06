@@ -1,7 +1,7 @@
 " ~/.vimrc
 
 " Dependencies:
-" 1) install node npm editorconfig
+" 1) install node npm editorconfig ag ack
 " 2) https://github.com/ryanoasis/nerd-fonts#font-installation
 " 3) npm install -g eslint jsonlint tern
 " 4) pip install yamllint ansible-lint
@@ -153,7 +153,7 @@ set gdefault
 set incsearch
 set showmatch
 set hlsearch
-let g:far#source = 'ack'
+let g:far#source = 'agnvim'
 
 nnoremap <leader><space> :noh<cr>
 nnoremap <leader>q :q<CR>
