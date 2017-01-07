@@ -8,6 +8,8 @@
 - https://github.com/ryanoasis/nerd-fonts#font-installation
 - npm install -g eslint jsonlint tern
 - pip install yamllint ansible-lint
+- https://github.com/ggreer/the_silver_searcher#installing
+- optional ack package: http://beyondgrep.com/install/
 
 ##### Upgrade .vimrc file in home directory:
 
