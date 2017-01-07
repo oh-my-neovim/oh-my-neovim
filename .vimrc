@@ -16,7 +16,7 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-" for interface
+" interface and themes
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'vim-airline/vim-airline'
@@ -25,17 +25,16 @@ Plug 'ryanoasis/vim-devicons'
 "Plug 'altercation/vim-colors-solarized'
 Plug 'iCyMind/NeoSolarized'
 
-" for searching
+" search and replace
 Plug 'L9'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'rking/ag.vim'
 Plug 'taiansu/nerdtree-ag'
 Plug 'brooth/far.vim'
-Plug 'https://github.com/will133/vim-dirdiff.git'
-Plug 'dkprice/vim-easygrep'
 Plug 'eugen0329/vim-esearch'
+Plug 'https://github.com/will133/vim-dirdiff.git'
 
-" for tooling
+" tooling
 Plug 'xolox/vim-misc'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'xolox/vim-session'
@@ -46,11 +45,11 @@ Plug 'easymotion/vim-easymotion'
 Plug 'BufOnly.vim'
 " Plug 'bronson/vim-trailing-whitespace'
 
-" for coding style
+" coding style
 Plug 'editorconfig/editorconfig-vim'
 Plug 'majutsushi/tagbar'
 
-" for git integration
+" git integration
 Plug 'tpope/vim-fugitive'
 Plug 'idanarye/vim-merginal'
 Plug 'airblade/vim-gitgutter'
@@ -63,30 +62,35 @@ Plug 'chase/vim-ansible-yaml'
 Plug 'tpope/vim-markdown'
 Plug 'evanmiller/nginx-vim-syntax'
 Plug 'ekalinin/dockerfile.vim'
-Plug 'elubow/cql-vim'
 
-" for syntax checkers
+" syntax checkers
 Plug 'benekastah/neomake'
 
-" for python
+" python
 Plug 'zchee/deoplete-jedi'
 
-" for java
+" java
 Plug 'artur-shaik/vim-javacomplete2'
 Plug 'derekwyatt/vim-scala'
 
-" for javascript
+" javascript and nodejs
 Plug 'pangloss/vim-javascript'
 Plug 'moll/vim-node'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 Plug 'carlitux/deoplete-ternjs', {'do': 'cd ~/.vim && npm install tern@latest'}
-Plug 'leafgarland/typescript-vim'
-Plug 'mxw/vim-jsx'
 Plug 'heavenshell/vim-jsdoc'
-Plug 'elzr/vim-json'
 Plug 'maksimr/vim-jsbeautify'
 Plug 'ruanyl/vim-fixmyjs'
+
+" json
+Plug 'elzr/vim-json'
+
+" react
+Plug 'mxw/vim-jsx'
+
+" typescript
+Plug 'leafgarland/typescript-vim'
 
 call plug#end()
 
@@ -98,10 +102,6 @@ let g:tern#arguments = ["--persistent"]
 let g:tern_request_timeout = 120
 set completeopt-=preview
 "autocmd CompleteDone * pclose!
-
-" Move preview window
-" set splitbelow
-" set splitright
 
 " Highlight settings
 syntax on
@@ -141,6 +141,7 @@ nnoremap <leader>- :vertical resize -5<cr>
 nnoremap <leader><leader>+ :resize +5<cr>
 nnoremap <leader><leader>- :resize -5<cr>
 set backspace=indent,eol,start
+
 " Press Enter on completion does a new line
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 inoremap <silent><expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
@@ -230,12 +231,11 @@ let g:gitgutter_override_sign_column_highlight = 0
 cabbrev gitv Gitv
 let g:Gitv_OpenHorizontal = 1
 let g:Gitv_WrapLines = 1
-nmap <leader>gv :GV<CR>
-nmap <leader>gV :GV?<CR>
-vmap <leader>gV :GV?<CR>
 nmap <leader><leader>v :Gitv<CR>
 nmap <leader><leader>V :Gitv!<CR>
 vmap <leader><leader>V :Gitv!<CR>
+
+" Merginal
 nmap <leader><leader>m :MerginalToggle<CR>
 
 "Autofix on save
@@ -287,10 +287,6 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 " tagbar
 nmap <F8> :TagbarToggle<CR>
 
-" EasyGrep
-let g:EasyGrepRecursive=1
-let g:EasyGrepFilesToExclude=".svn,.git,node_modules"
-
 " Session
 let g:session_autosave = 'yes'
 let g:session_autosave_periodic = 5
@@ -300,30 +296,7 @@ let g:session_autoload = 'yes'
 function! XMLBeautify()
     silent %!xmllint --format -
 endfunction
+autocmd FileType xml nnoremap <leader>jb :call XMLBeautify()<cr>
 
 "Javacomplete
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
-nmap <leader>jI <Plug>(JavaComplete-Imports-AddMissing)
-nmap <leader>jR <Plug>(JavaComplete-Imports-RemoveUnused)
-nmap <leader>ji <Plug>(JavaComplete-Imports-AddSmart)
-nmap <leader>jii <Plug>(JavaComplete-Imports-Add)
-imap <C-j>I <Plug>(JavaComplete-Imports-AddMissing)
-imap <C-j>R <Plug>(JavaComplete-Imports-RemoveUnused)
-imap <C-j>i <Plug>(JavaComplete-Imports-AddSmart)
-imap <C-j>ii <Plug>(JavaComplete-Imports-Add)
-nmap <leader>jM <Plug>(JavaComplete-Generate-AbstractMethods)
-imap <C-j>jM <Plug>(JavaComplete-Generate-AbstractMethods)
-nmap <leader>jA <Plug>(JavaComplete-Generate-Accessors)
-nmap <leader>js <Plug>(JavaComplete-Generate-AccessorSetter)
-nmap <leader>jg <Plug>(JavaComplete-Generate-AccessorGetter)
-nmap <leader>ja <Plug>(JavaComplete-Generate-AccessorSetterGetter)
-nmap <leader>jts <Plug>(JavaComplete-Generate-ToString)
-nmap <leader>jeq <Plug>(JavaComplete-Generate-EqualsAndHashCode)
-nmap <leader>jc <Plug>(JavaComplete-Generate-Constructor)
-nmap <leader>jcc <Plug>(JavaComplete-Generate-DefaultConstructor)
-imap <C-j>s <Plug>(JavaComplete-Generate-AccessorSetter)
-imap <C-j>g <Plug>(JavaComplete-Generate-AccessorGetter)
-imap <C-j>a <Plug>(JavaComplete-Generate-AccessorSetterGetter)
-vmap <leader>js <Plug>(JavaComplete-Generate-AccessorSetter)
-vmap <leader>jg <Plug>(JavaComplete-Generate-AccessorGetter)
-vmap <leader>ja <Plug>(JavaComplete-Generate-AccessorSetterGetter)
