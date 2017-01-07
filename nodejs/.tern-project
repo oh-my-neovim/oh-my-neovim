@@ -3,20 +3,35 @@
     "browser",
     "chai",
     "browser",
-    "jquery",
-    "ecma5",
-    "ecma6"
+    "jquery"
   ],
   "ecmaVersion": 6,
-  "loadEagerly": [],
   "async": true,
   "plugins": {
-    "complete_strings": {},
-    "node": {},
+    "complete_strings": {
+      "maxLength": 15
+    },
+    "doc_comment": {
+      "fullDocs": true,
+      "strong": false
+    },
+    "node": {
+      "dontLoad": "",
+      "load": "",
+      "modules": ""
+    },
     "node_resolve": {},
-    "modules": {},
-    "requirejs": {},
-    "doc_comment": {},
-    "es_modules": true
+    "modules": {
+      "dontLoad": "",
+      "load": "",
+      "modules": ""
+    },
+    "es_modules": {},
+    "requirejs": {
+      "baseURL": "",
+      "paths": "",
+      "override": ""
+    },
+    "commonjs": {}
   }
 }
