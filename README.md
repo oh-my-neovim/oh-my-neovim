@@ -4,7 +4,7 @@
 
 ##### Dependencies:
 - https://github.com/neovim/neovim/wiki/Installing-Neovim
-- install node npm editorconfig
+- install node npm editorconfig xmllint
 - https://github.com/ryanoasis/nerd-fonts#font-installation
 - npm install -g eslint jsonlint tern
 - pip install yamllint ansible-lint
