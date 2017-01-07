@@ -1,10 +1,12 @@
 " ~/.vimrc
 
 " Dependencies:
-" 1) install node npm editorconfig ag ack
+" 1) install node npm editorconfig 
 " 2) https://github.com/ryanoasis/nerd-fonts#font-installation
 " 3) npm install -g eslint jsonlint tern
 " 4) pip install yamllint ansible-lint
+" 5) https://github.com/ggreer/the_silver_searcher#installing
+" 6) optional ack package: http://beyondgrep.com/install/
 "
 " Load vim-plug
 if empty(glob("~/.vim/autoload/plug.vim"))
