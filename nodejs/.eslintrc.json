@@ -6,6 +6,7 @@
         "es6": true,
         "amd": true
     },
+
     "globals": {
         "fetch": true,
         "describe": false,

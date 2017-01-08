@@ -11,6 +11,7 @@ if [ -t 1 ] && [ -n "$ncolors" ] && [ "$ncolors" -ge 8 ]; then
   BLUE="$(tput setaf 4)"
   BOLD="$(tput bold)"
   NORMAL="$(tput sgr0)"
+
 else
   RED=""
   GREEN=""
@@ -28,7 +29,7 @@ printf "${GREEN}Downloading .editorconfig gist file from github...${NORMAL}\n"
 curl -O -L https://raw.githubusercontent.com/yacut/workspace/master/.editorconfig
 
 printf "${GREEN}Downloading .eslintrc gist file from github...${NORMAL}\n"
-curl -O -L https://raw.githubusercontent.com/yacut/workspace/master/nodejs/.eslintrc
+curl -O -L https://raw.githubusercontent.com/yacut/workspace/master/nodejs/.eslintrc.json
 
 printf "${GREEN}Downloading .tern-project gist file from github...${NORMAL}\n"
 curl -O -L https://raw.githubusercontent.com/yacut/workspace/master/nodejs/.tern-project
