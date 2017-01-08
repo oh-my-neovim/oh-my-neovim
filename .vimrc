@@ -1,7 +1,7 @@
 " ~/.vimrc
 
 " Dependencies:
-" 1) install node npm editorconfig 
+" 1) install node npm editorconfig
 " 2) https://github.com/ryanoasis/nerd-fonts#font-installation
 " 3) npm install -g eslint jsonlint tern
 " 4) pip install yamllint ansible-lint
@@ -95,7 +95,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'fatih/vim-go'
 
 " webdevicons must be loaded last
-Plug 'ryanoasis/vim-webdevicons'
+Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 " for javascript
