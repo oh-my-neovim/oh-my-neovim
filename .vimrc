@@ -21,7 +21,6 @@ Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'ryanoasis/vim-devicons'
 "Plug 'altercation/vim-colors-solarized'
 Plug 'iCyMind/NeoSolarized'
 
@@ -95,6 +94,8 @@ Plug 'leafgarland/typescript-vim'
 " go
 Plug 'fatih/vim-go'
 
+" webdevicons must be loaded last
+Plug 'ryanoasis/vim-webdevicons'
 call plug#end()
 
 " for javascript
@@ -116,6 +117,7 @@ set background=light
 "set t_Co=256
 let g:neosolarized_vertSplitBgTrans = 0
 let g:gitgutter_override_sign_column_highlight = 0
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 colorscheme NeoSolarized
 
 " System settings
