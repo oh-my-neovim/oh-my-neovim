@@ -66,8 +66,8 @@ fi
 
 printf "${BLUE}Updating plugins...${NORMAL}\n"
 hash nvim >/dev/null 2>&1 || {
-  echo "Error: neovim is not installed"
+  echo "\nError: neovim is not installed"
   exit 1
 }
 nvim -c ":PlugUpdate" -c ":qa!" --headless
-printf "${GREEN}Plugins updated!${NORMAL}\n"
+printf "\n\n${GREEN}Plugins updated!${NORMAL}\n"
