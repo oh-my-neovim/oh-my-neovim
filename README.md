@@ -10,6 +10,15 @@
 - pip install yamllint ansible-lint
 - https://github.com/ggreer/the_silver_searcher#installing
 - optional ack package: http://beyondgrep.com/install/
+- optional for React: 
+      - npm install -g babel-eslint eslint-plugin-react
+      - add to .eslintrc:
+          ```
+          "plugins": [
+              "react"
+          ],
+          "parser": "babel-eslint"
+          ```
 
 ##### Upgrade .vimrc file in home directory:
 
