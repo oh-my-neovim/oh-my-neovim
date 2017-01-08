@@ -43,7 +43,7 @@ Plug 'sjl/gundo.vim'
 Plug 'godlygeek/tabular'
 Plug 'easymotion/vim-easymotion'
 Plug 'BufOnly.vim'
-" Plug 'bronson/vim-trailing-whitespace'
+Plug 'ntpeters/vim-better-whitespace'
 
 " coding style
 Plug 'editorconfig/editorconfig-vim'
@@ -104,7 +104,9 @@ let g:tern#command = ["tern"]
 let g:tern#arguments = ["--persistent"]
 let g:tern_request_timeout = 120
 set completeopt-=preview
-"autocmd CompleteDone * pclose!
+
+" auto whitespace cleaning
+autocmd BufWritePre * StripWhitespace
 
 " Highlight settings
 syntax on
