@@ -110,22 +110,23 @@ set completeopt-=preview
 let g:better_whitespace_filetypes_blacklist=['diff', 'gitcommit', 'unite', 'qf', 'help', 'far_vim', 'writable_search', 'vimfiler', 'vim-plug']
 autocmd BufWritePre * StripWhitespace
 
-" Highlight settings
+" Interface settings
 syntax on
 set background=light
+map <F5> :let &background = ( &background == "dark"? "light" : "dark" )<CR>
 "let g:solarized_termcolors=256
 "set t_Co=256
 let g:neosolarized_vertSplitBgTrans = 0
 let g:gitgutter_override_sign_column_highlight = 0
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 colorscheme NeoSolarized
-
-" System settings
-let mapleader = ','
 set encoding=utf-8
 set langmenu=en_US
 let $LANG = 'en_US'
 set guifont=SauceCodePro\ Nerd\ Font:h13
+
+" Mapping
+let mapleader = ','
 set number
 set tabstop=4
 set shiftwidth=4
@@ -149,10 +150,12 @@ nnoremap <leader>- :vertical resize -5<cr>
 nnoremap <leader><leader>+ :resize +5<cr>
 nnoremap <leader><leader>- :resize -5<cr>
 set backspace=indent,eol,start
-
+nnoremap <leader><space> :noh<cr>
+nnoremap <leader>q :q<CR>
 " Press Enter on completion does a new line
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 inoremap <silent><expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+" Encode/Decode base64
 vnoremap <leader>64e c<c-r>=system('base64',@")<cr><esc>
 vnoremap <leader>64d c<c-r>=system('base64 --decode',@")<cr><esc>
 
@@ -167,9 +170,6 @@ set showmatch
 set hlsearch
 let g:far#source = 'agnvim'
 
-nnoremap <leader><space> :noh<cr>
-nnoremap <leader>q :q<CR>
-
 " JSON
 let g:vim_json_syntax_conceal = 0
 
@@ -181,19 +181,6 @@ let g:neomake_yaml_enabled_makers = ['yamllint']
 let g:neomake_ansible_enabled_makers = ['ansible-lint']
 let g:neomake_css_enabled_makers = ['csslint']
 "let g:neomake_verbose = 3
-
-" youcompleteme
-let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_autoclose_preview_window_after_completion = 0
-let g:ycm_min_num_of_chars_for_completion = 1
-let g:ycm_allow_changing_updatetime = 0
-
-" Command T settings
-let g:CommandTInputDebounce = 200
-let g:CommandTFileScanner = "watchman"
-let g:CommandTWildIgnore = &wildignore . ",**/bower_components/*" . ",**/node_modules/*" . ",**/vendor/*" . ",**/*.log"
-let g:CommandTMaxHeight = 30
-let g:CommandTMaxFiles = 500000
 
 " Ctrlp
 nnoremap <leader>t :CtrlP<cr>
@@ -231,6 +218,20 @@ let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#branch#format = 1
+
+" Fugitive mapping
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gc :Gcommit -v -q<CR>
+nnoremap <leader>gd :Gdiff<CR>
+nnoremap <leader>gb :Git branch<Space>
+nnoremap <leader>go :Git checkout<Space>
+nnoremap <leader>gps :Gpush<CR>
+nnoremap <leader>gpl :Gpull<CR>
+nnoremap <leader>gm :Gmerge<CR>
+" <F11> moves to previous change location,
+map <F11> [c
+" <F12> moves to next change location,
+map <F12> ]c
 
 " GitGutter
 let g:gitgutter_override_sign_column_highlight = 0
@@ -274,20 +275,6 @@ let g:multi_cursor_exit_from_insert_mode=0
 
 " Save file after lost focus
 au FocusLost * :wa
-
-" fugitive git bindings
-nnoremap <leader>gs :Gstatus<CR>
-nnoremap <leader>gc :Gcommit -v -q<CR>
-nnoremap <leader>gd :Gdiff<CR>
-nnoremap <leader>gb :Git branch<Space>
-nnoremap <leader>go :Git checkout<Space>
-nnoremap <leader>gps :Gpush<CR>
-nnoremap <leader>gpl :Gpull<CR>
-nnoremap <leader>gm :Gmerge<CR>
-" <F11> moves to previous change location,
-" <F12> moves to next change location,
-map <F11> [c
-map <F12> ]c
 
 " Do not use Editor config with remote files
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
