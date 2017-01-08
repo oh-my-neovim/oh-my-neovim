@@ -92,6 +92,9 @@ Plug 'mxw/vim-jsx'
 " typescript
 Plug 'leafgarland/typescript-vim'
 
+" go
+Plug 'fatih/vim-go'
+
 call plug#end()
 
 " for javascript
