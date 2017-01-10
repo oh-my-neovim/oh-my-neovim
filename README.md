@@ -10,12 +10,12 @@
 
 `sh -c "$(curl -fsSL https://raw.githubusercontent.com/yacut/workspace/master/upgrade_workspace.sh)"`
 
-- Get lastest .vimrc
+- Get lastest [.vimrc](https://github.com/yacut/workspace/blob/master/.vimrc)
 - Check links for neovim
 - Install nodejs, yarn, editorconfig, ternjs, eslint, jsonlint, yamllint, ansible-lint, xmllint, eslint-babel
-- Get latest Nerd Fonts (Source Code Pro)
-- Get ohmyzsh if not installed
-- Set agnoster theme for zsh and activate plugins: git node npm yarn gulp docker docker-compose kubectl pip brew debian
+- Get latest Nerd Fonts: [Source Code Pro](https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/SourceCodePro/font-info.md)
+- Get [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) if not installed
+- Set [agnoster theme](https://github.com/robbyrussell/oh-my-zsh/wiki/Themes#agnoster) for zsh and activate [plugins](https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins): git node npm yarn gulp docker docker-compose kubectl pip brew debian
 - Upgrade Vim plugins
 
 ### Create dotfiles for a nodejs project
