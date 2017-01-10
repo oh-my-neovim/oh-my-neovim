@@ -22,11 +22,11 @@
 
 #### Change to agnoster theme
 
-`sed -i "s/ZSH_THEME=\".*/ZSH_THEME=\"agnoster\"/g" ~/.zshrc`
+`sed -i "" "s/ZSH_THEME=\".*/ZSH_THEME=\"agnoster\"/g" ~/.zshrc`
 
 #### Add plugins
 
-`sed -i "s/plugins=(.*/plugins=(git node npm yarn gulp docker docker-compose kubectl pip brew debian)/g" ~/.zshrc`
+`sed -i "" "s/plugins=(.*/plugins=(git node npm yarn gulp docker docker-compose kubectl pip brew debian)/g" ~/.zshrc`
 
 ### Create dotfiles for a nodejs project
 
