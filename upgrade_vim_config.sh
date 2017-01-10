@@ -60,7 +60,7 @@ if [ "$OS_TYPE" = Darwin ]; then
   fi
   
   printf "${BLUE}Installing dependencies...${NORMAL}\n";
-  brew install node editorconfig the_silver_searcher libxml2 python python3;
+  brew install node yarn editorconfig the_silver_searcher libxml2 python python3;
   pip install yamllint ansible-lint;
   
   printf "${BLUE}Updating global npm packages...${NORMAL}\n";
