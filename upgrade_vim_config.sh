@@ -64,7 +64,8 @@ else
     mkdir -p ~/.local/share/fonts;
     cd ~/.local/share/fonts && \
       curl -fLo "SauceCodePro NF.ttf" https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/SourceCodePro/Regular/complete/Sauce%20Code%20Pro%20Nerd%20Font%20Complete%20Windows%20Compatible.ttf && \
-      curl -fLo "SauceCodePro NF Semibold.ttf" https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/SourceCodePro/Semibold/complete/Sauce%20Code%20Pro%20Semibold%20Nerd%20Font%20Complete%20Windows%20Compatible.ttf;
+      curl -fLo "SauceCodePro NF Semibold.ttf" https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/SourceCodePro/Semibold/complete/Sauce%20Code%20Pro%20Semibold%20Nerd%20Font%20Complete%20Windows%20Compatible.ttf && \
+      fc-cache -fv;
   fi
 fi
 
