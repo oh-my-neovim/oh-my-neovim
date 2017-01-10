@@ -111,11 +111,17 @@ let g:better_whitespace_filetypes_blacklist=['diff', 'gitcommit', 'unite', 'qf',
 autocmd BufWritePre * StripWhitespace
 
 " Interface settings
+if (empty($TMUX))
+  if (has("nvim"))
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  endif
+  if (has("termguicolors"))
+    set termguicolors
+  endif
+endif
 syntax on
-set background=light
+set background=dark
 map <F5> :let &background = ( &background == "dark"? "light" : "dark" )<CR>
-"let g:solarized_termcolors=256
-"set t_Co=256
 let g:neosolarized_vertSplitBgTrans = 0
 let g:gitgutter_override_sign_column_highlight = 0
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
