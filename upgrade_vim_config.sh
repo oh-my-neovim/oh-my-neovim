@@ -61,10 +61,10 @@ if [ "$OS_TYPE" = Darwin ]; then
   
   printf "${BLUE}Installing dependencies...${NORMAL}\n";
   brew install node yarn editorconfig the_silver_searcher libxml2 python python3;
-  pip install yamllint ansible-lint;
+  pip install --quiet yamllint ansible-lint;
   
   printf "${BLUE}Updating global npm packages...${NORMAL}\n";
-  npm install -g tern@latest eslint@latest jsonlint@latest babel-eslint@latest eslint-plugin-react@latest;
+  yarn global upgrade --no-progress tern eslint jsonlint babel-eslint eslint-plugin-react;
 fi
 
 if [ "$OS_TYPE" = Linux ]; then
@@ -92,10 +92,10 @@ if [ "$OS_TYPE" = Linux ]; then
       sudo wget https://dl.yarnpkg.com/rpm/yarn.repo -O /etc/yum.repos.d/yarn.repo
       sudo yum -y install nodejs yarn the_silver_searcher python-pip;
   fi
-  sudo pip install yamllint ansible-lint;
+  sudo pip install --quiet yamllint ansible-lint;
   
   printf "${BLUE}Updating global npm packages...${NORMAL}\n";
-  sudo npm install -g tern@latest eslint@latest jsonlint@latest babel-eslint@latest eslint-plugin-react@latest;
+  sudo yarn global upgrade --no-progress tern eslint jsonlint babel-eslint eslint-plugin-react;
 fi
 
 printf "${BLUE}Updating plugins...${NORMAL}\n"
