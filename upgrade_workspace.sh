@@ -99,7 +99,7 @@ if [ "$OS_TYPE" = Linux ]; then
 fi
 
 printf "${BLUE}Getting Oh My Zsh...${NORMAL}\n"
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"`
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 if [ "$OS_TYPE" = Darwin ]; then
   sed -i "" "s/ZSH_THEME=\".*/ZSH_THEME=\"agnoster\"/g" ~/.zshrc
   sed -i "" "s/plugins=(.*/plugins=(git node npm yarn gulp docker docker-compose kubectl pip brew debian)/g" ~/.zshrc
