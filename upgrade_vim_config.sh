@@ -33,7 +33,7 @@ fi
 printf "${BLUE}Looking for plug.vim file...${NORMAL}\n"
 if [ ! -f ~/.vim/autoload/plug.vim ]; then
   printf "${YELLOW}plug.vim not found...${NORMAL} ${GREEN}Downloading it from github...${NORMAL}\n";
-  curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim;
+  curl -sfLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim;
 fi
 
 printf "${BLUE}Downloading .vimrc gist file from github...${NORMAL}\n"
@@ -55,7 +55,7 @@ if [ "$OS_TYPE" = Darwin ]; then
   if [ ! -f ~/Library/Fonts/Sauce\ Code\ Pro\ Nerd\ Font\ Complete.ttf ]; then
     printf "${BLUE}Downloading Sauce Code Pro Nerd Fonts to ~/Library/Fonts folder...${NORMAL}\n"
     cd ~/Library/Fonts && \
-      curl -fLo "SourceCodePro.zip" https://github.com/ryanoasis/nerd-fonts/releases/download/v1.0.0/SourceCodePro.zip && \
+      curl -sfLo "SourceCodePro.zip" https://github.com/ryanoasis/nerd-fonts/releases/download/v1.0.0/SourceCodePro.zip && \
       unzip -o SourceCodePro.zip && rm SourceCodePro.zip;
   fi
   
@@ -72,15 +72,19 @@ if [ "$OS_TYPE" = Linux ]; then
     printf "${BLUE}Downloading Sauce Code Pro Nerd Fonts to ~/.local/share/fonts folder...${NORMAL}\n";
     mkdir -p ~/.local/share/fonts;
     cd ~/.local/share/fonts && \
-      curl -fLo "SourceCodePro.zip" https://github.com/ryanoasis/nerd-fonts/releases/download/v1.0.0/SourceCodePro.zip && \
+      curl -sfLo "SourceCodePro.zip" https://github.com/ryanoasis/nerd-fonts/releases/download/v1.0.0/SourceCodePro.zip && \
       unzip -o SourceCodePro.zip && rm SourceCodePro.zip;
   fi
   
   printf "${BLUE}Installing dependencies...${NORMAL}\n";
   if [ -f /etc/debian_version ]; then
+      if [ ! -f /etc/apt/sources.list.d/nodesource.list ]; then
+        curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash 
+      fi
       sudo apt-get install -y -q nodejs editorconfig silversearcher-ag libxml2-utils python-pip;
   elif [ -f /etc/redhat-release ]; then
       printf "${BLUE}Installing nodejs...${NORMAL}\n";
+      curl --silent --location https://rpm.nodesource.com/setup_6.x | bash -
       sudo yum -y install nodejs the_silver_searcher python-pip;
   fi
   sudo pip install yamllint ansible-lint;
