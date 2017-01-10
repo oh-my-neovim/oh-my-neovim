@@ -5,10 +5,8 @@
 ##### Dependencies:
 - https://github.com/neovim/neovim/wiki/Installing-Neovim
 - install node npm editorconfig xmllint
-- https://github.com/ryanoasis/nerd-fonts#font-installation
-- npm install -g eslint jsonlint tern
-- pip install yamllint ansible-lint
 - https://github.com/ggreer/the_silver_searcher#installing
+- optional install another font: https://github.com/ryanoasis/nerd-fonts#font-installation
 - optional ack package: http://beyondgrep.com/install/
 - optional for React: 
       - npm install -g babel-eslint eslint-plugin-react
