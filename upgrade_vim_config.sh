@@ -64,7 +64,7 @@ if [ "$OS_TYPE" = Darwin ]; then
   pip install --quiet yamllint ansible-lint;
   
   printf "${BLUE}Updating global npm packages...${NORMAL}\n";
-  yarn global upgrade --no-progress tern eslint jsonlint babel-eslint eslint-plugin-react;
+  yarn global upgrade tern eslint jsonlint babel-eslint eslint-plugin-react;
 fi
 
 if [ "$OS_TYPE" = Linux ]; then
@@ -95,7 +95,7 @@ if [ "$OS_TYPE" = Linux ]; then
   sudo pip install --quiet yamllint ansible-lint;
   
   printf "${BLUE}Updating global npm packages...${NORMAL}\n";
-  sudo yarn global upgrade --no-progress tern eslint jsonlint babel-eslint eslint-plugin-react;
+  sudo yarn global upgrade tern eslint jsonlint babel-eslint eslint-plugin-react;
 fi
 
 printf "${BLUE}Updating plugins...${NORMAL}\n"
