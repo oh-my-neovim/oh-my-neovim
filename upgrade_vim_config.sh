@@ -54,13 +54,17 @@ OS_TYPE=$(uname)
 if [ "$OS_TYPE" = Darwin ]; then
   if [ ! -f ~/Library/Fonts/SauceCodePro\ Nerd\ Font.ttf ]; then
     printf "${BLUE}Downloading SauceCodePro Nerd Font.ttf to ~/Library/Fonts folder...${NORMAL}\n"
-    cd ~/Library/Fonts && curl -fLo "SauceCodePro Nerd Font.ttf" https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/SourceCodePro/Regular/complete/Sauce%20Code%20Pro%20Nerd%20Font%20Complete.ttf;
+    cd ~/Library/Fonts && \
+      curl -fLo "SauceCodePro Nerd Font.ttf" https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/SourceCodePro/Regular/complete/Sauce%20Code%20Pro%20Nerd%20Font%20Complete.ttf && \
+      curl -fLo "SauceCodePro Semibold Nerd Font.ttf" https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/SourceCodePro/Semibold/complete/Sauce%20Code%20Pro%20Semibold%20Nerd%20Font%20Complete.ttf;
   fi
 else
   if [ ! -f ~/.local/share/fonts/SauceCodePro\ Nerd\ Font.ttf ]; then
     printf "${BLUE}Downloading SauceCodePro Nerd Font.ttf to ~/.local/share/fonts folder...${NORMAL}\n"
     mkdir -p ~/.local/share/fonts;
-    cd ~/.local/share/fonts && curl -fLo "SauceCodePro Nerd Font.ttf" https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/SourceCodePro/Regular/complete/Sauce%20Code%20Pro%20Nerd%20Font%20Complete.ttf;
+    cd ~/.local/share/fonts && \
+      curl -fLo "SauceCodePro Nerd Font.ttf" https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/SourceCodePro/Regular/complete/Sauce%20Code%20Pro%20Nerd%20Font%20Complete.ttf && \
+      curl -fLo "SauceCodePro Semibold Nerd Font.ttf" https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/SourceCodePro/Semibold/complete/Sauce%20Code%20Pro%20Semibold%20Nerd%20Font%20Complete.ttf;
   fi
 fi
 
