@@ -78,11 +78,9 @@ if [ "$OS_TYPE" = Linux ]; then
   
   printf "${BLUE}Installing dependencies...${NORMAL}\n";
   if [ -f /etc/debian_version ]; then
-      curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -;
-      sudo apt-get install -y -q nodejs editorconfig silversearcher-ag libxml2-utils;
+      sudo apt-get install -y -q node editorconfig silversearcher-ag libxml2-utils;
   elif [ -f /etc/redhat-release ]; then
       printf "${BLUE}Installing nodejs...${NORMAL}\n";
-      curl --silent --location https://rpm.nodesource.com/setup_7.x | bash -;
       sudo yum -y install nodejs the_silver_searcher;
   fi
   sudo pip install yamllint ansible-lint;
