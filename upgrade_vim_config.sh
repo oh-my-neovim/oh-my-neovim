@@ -78,7 +78,7 @@ if [ "$OS_TYPE" = Linux ]; then
   
   printf "${BLUE}Installing dependencies...${NORMAL}\n";
   if [ -f /etc/debian_version ]; then
-      sudo apt-get install -y -q node editorconfig silversearcher-ag libxml2-utils python-pip;
+      sudo apt-get install -y -q nodejs editorconfig silversearcher-ag libxml2-utils python-pip;
   elif [ -f /etc/redhat-release ]; then
       printf "${BLUE}Installing nodejs...${NORMAL}\n";
       sudo yum -y install nodejs the_silver_searcher python-pip;
