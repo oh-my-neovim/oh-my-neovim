@@ -98,10 +98,21 @@ if [ "$OS_TYPE" = Linux ]; then
   sudo yarn global upgrade tern eslint jsonlint babel-eslint eslint-plugin-react;
 fi
 
+printf "${BLUE}Getting Oh My Zsh...${NORMAL}\n"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"`
+if [ "$OS_TYPE" = Darwin ]; then
+  sed -i "" "s/ZSH_THEME=\".*/ZSH_THEME=\"agnoster\"/g" ~/.zshrc
+  sed -i "" "s/plugins=(.*/plugins=(git node npm yarn gulp docker docker-compose kubectl pip brew debian)/g" ~/.zshrc
+elif
+  sed -i "s/ZSH_THEME=\".*/ZSH_THEME=\"agnoster\"/g" ~/.zshrc
+  sed -i "s/plugins=(.*/plugins=(git node npm yarn gulp docker docker-compose kubectl pip brew debian)/g" ~/.zshrc
+fi
+
 printf "${BLUE}Updating plugins...${NORMAL}\n"
 hash nvim >/dev/null 2>&1 || {
   echo "\nError: neovim is not installed"
   exit 1
 }
 nvim -c ":PlugUpdate" -c ":qa!" --headless
-printf "\n\n${GREEN}Plugins updated!${NORMAL}\n"
+printf "\n${GREEN}Vim plugins updated!${NORMAL}\n"
+
