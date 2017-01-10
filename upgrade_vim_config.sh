@@ -58,14 +58,37 @@ if [ "$OS_TYPE" = Darwin ]; then
       curl -fLo "SourceCodePro.zip" https://github.com/ryanoasis/nerd-fonts/releases/download/v1.0.0/SourceCodePro.zip && \
       unzip -o SourceCodePro.zip && rm SourceCodePro.zip;
   fi
-else
+  
+  printf "${BLUE}Installing dependencies...${NORMAL}\n";
+  brew install node editorconfig the_silver_searcher libxml2;
+  pip install yamllint ansible-lint;
+  
+  printf "${BLUE}Updating global npm packages...${NORMAL}\n";
+  npm install -g tern@latest eslint@latest jsonlint@latest babel-eslint@latest eslint-plugin-react@latest;
+fi
+
+if [ "$OS_TYPE" = Linux ]; then
   if [ ! -f ~/.local/share/fonts/Sauce\ Code\ Pro\ Nerd\ Font\ Complete.ttf ]; then
-    printf "${BLUE}Downloading Sauce Code Pro Nerd Fonts to ~/.local/share/fonts folder...${NORMAL}\n"
+    printf "${BLUE}Downloading Sauce Code Pro Nerd Fonts to ~/.local/share/fonts folder...${NORMAL}\n";
     mkdir -p ~/.local/share/fonts;
     cd ~/.local/share/fonts && \
       curl -fLo "SourceCodePro.zip" https://github.com/ryanoasis/nerd-fonts/releases/download/v1.0.0/SourceCodePro.zip && \
       unzip -o SourceCodePro.zip && rm SourceCodePro.zip;
   fi
+  
+  printf "${BLUE}Installing dependencies...${NORMAL}\n";
+  if [ -f /etc/debian_version ]; then
+      curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -;
+      sudo apt-get install -y -q nodejs editorconfig silversearcher-ag libxml2-utils;
+  elif [ -f /etc/redhat-release ]; then
+      printf "${BLUE}Installing nodejs...${NORMAL}\n";
+      curl --silent --location https://rpm.nodesource.com/setup_7.x | bash -;
+      sudo yum -y install nodejs the_silver_searcher;
+  fi
+  sudo pip install yamllint ansible-lint;
+  
+  printf "${BLUE}Updating global npm packages...${NORMAL}\n";
+  sudo npm install -g tern@latest eslint@latest jsonlint@latest babel-eslint@latest eslint-plugin-react@latest;
 fi
 
 printf "${BLUE}Updating plugins...${NORMAL}\n"
