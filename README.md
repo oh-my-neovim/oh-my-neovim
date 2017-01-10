@@ -6,10 +6,15 @@
 - https://github.com/neovim/neovim/wiki/Installing-Neovim
 - optional install another font: https://github.com/ryanoasis/nerd-fonts#font-installation
 
-##### Upgrade .vimrc file in home directory:
+##### Upgrade workspace (Linux/MacOS):
 
-`sh -c "$(curl -fsSL https://raw.githubusercontent.com/yacut/workspace/master/upgrade_vim_config.sh)"`
+`sh -c "$(curl -fsSL https://raw.githubusercontent.com/yacut/workspace/master/upgrade_workspace.sh)"`
 
+- Get lastest .vimrc
+- Check links for neovim
+- Upgrade Vim plugins
+- Install nodejs, yarn, editorconfig, ternjs, eslint, jsonlint, yamllint, ansible-lint, xmllint, eslint-babel
+- Get latest Nerd Fonts (Source Code Pro)
 
 ### Create dotfiles for a nodejs project
 

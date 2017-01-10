@@ -58,11 +58,11 @@ if [ "$OS_TYPE" = Darwin ]; then
       curl -sfLo "SourceCodePro.zip" https://github.com/ryanoasis/nerd-fonts/releases/download/v1.0.0/SourceCodePro.zip && \
       unzip -o SourceCodePro.zip && rm SourceCodePro.zip;
   fi
-  
+
   printf "${BLUE}Installing dependencies...${NORMAL}\n";
   brew install node yarn editorconfig the_silver_searcher libxml2 python python3;
   pip install --quiet yamllint ansible-lint;
-  
+
   printf "${BLUE}Updating global npm packages...${NORMAL}\n";
   yarn global upgrade tern eslint jsonlint babel-eslint eslint-plugin-react;
 fi
@@ -75,11 +75,11 @@ if [ "$OS_TYPE" = Linux ]; then
       curl -sfLo "SourceCodePro.zip" https://github.com/ryanoasis/nerd-fonts/releases/download/v1.0.0/SourceCodePro.zip && \
       unzip -o SourceCodePro.zip && rm SourceCodePro.zip;
   fi
-  
+
   printf "${BLUE}Installing dependencies...${NORMAL}\n";
   if [ -f /etc/debian_version ]; then
       if [ ! -f /etc/apt/sources.list.d/nodesource.list ]; then
-        curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash 
+        curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash
       fi
       if [ ! -f /etc/apt/sources.list.d/yarn.list ]; then
         curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -;
@@ -93,7 +93,7 @@ if [ "$OS_TYPE" = Linux ]; then
       sudo yum -y install nodejs yarn the_silver_searcher python-pip;
   fi
   sudo pip install --quiet yamllint ansible-lint;
-  
+
   printf "${BLUE}Updating global npm packages...${NORMAL}\n";
   sudo yarn global upgrade tern eslint jsonlint babel-eslint eslint-plugin-react;
 fi
