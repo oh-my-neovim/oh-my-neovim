@@ -52,15 +52,15 @@ fi
 
 OS_TYPE=$(uname)
 if [ "$OS_TYPE" = Darwin ]; then
-  if [ ! -f ~/Library/Fonts/SauceCodePro\ Nerd\ Font.ttf ]; then
-    printf "${BLUE}Downloading SauceCodePro Nerd Fonts to ~/Library/Fonts folder...${NORMAL}\n"
+  if [ ! -f ~/Library/Fonts/Sauce\ Code\ Pro\ Nerd\ Font\ Complete.ttf ]; then
+    printf "${BLUE}Downloading Sauce Code Pro Nerd Fonts to ~/Library/Fonts folder...${NORMAL}\n"
     cd ~/Library/Fonts && \
       curl -fLo "SourceCodePro.zip" https://github.com/ryanoasis/nerd-fonts/releases/download/v1.0.0/SourceCodePro.zip && \
       unzip SourceCodePro.zip && rm SourceCodePro.zip;
   fi
 else
-  if [ ! -f ~/.local/share/fonts/SauceCodePro\ Nerd\ Font.ttf ]; then
-    printf "${BLUE}Downloading SauceCodePro Nerd Fonts to ~/.local/share/fonts folder...${NORMAL}\n"
+  if [ ! -f ~/.local/share/fonts/Sauce\ Code\ Pro\ Nerd\ Font\ Complete.ttf ]; then
+    printf "${BLUE}Downloading Sauce Code Pro Nerd Fonts to ~/.local/share/fonts folder...${NORMAL}\n"
     mkdir -p ~/.local/share/fonts;
     cd ~/.local/share/fonts && \
       curl -fLo "SourceCodePro.zip" https://github.com/ryanoasis/nerd-fonts/releases/download/v1.0.0/SourceCodePro.zip && \
