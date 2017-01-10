@@ -234,13 +234,8 @@ nnoremap <leader>go :Git checkout<Space>
 nnoremap <leader>gps :Gpush<CR>
 nnoremap <leader>gpl :Gpull<CR>
 nnoremap <leader>gm :Gmerge<CR>
-" <F11> moves to previous change location,
-map <F11> [c
-" <F12> moves to next change location,
-map <F12> ]c
-
-" GitGutter
-let g:gitgutter_override_sign_column_highlight = 0
+map <F11> [c " <F11> moves to previous change location
+map <F12> ]c " <F12> moves to next change location
 
 " Gitv
 cabbrev gitv Gitv
