@@ -16,9 +16,17 @@
 - Install nodejs, yarn, editorconfig, ternjs, eslint, jsonlint, yamllint, ansible-lint, xmllint, eslint-babel
 - Get latest Nerd Fonts (Source Code Pro)
 
-### Get oh my zsh
+### Get ohmyzsh
 
 `sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"`
+
+#### Change to agnoster theme
+
+`sed -i "s/ZSH_THEME=\".*/ZSH_THEME=\"agnoster\"/g" ~/.zshrc`
+
+#### Add plugins
+
+`sed -i "s/plugins=(.*/plugins=(git node npm yarn gulp docker docker-compose kubectl pip brew debian)/g" ~/.zshrc`
 
 ### Create dotfiles for a nodejs project
 
