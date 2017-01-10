@@ -16,6 +16,10 @@
 - Install nodejs, yarn, editorconfig, ternjs, eslint, jsonlint, yamllint, ansible-lint, xmllint, eslint-babel
 - Get latest Nerd Fonts (Source Code Pro)
 
+### Get oh my zsh
+
+`sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"`
+
 ### Create dotfiles for a nodejs project
 
 `sh -c "$(curl -fsSL https://raw.githubusercontent.com/yacut/workspace/master/nodejs/create_dotfiles.sh)"`
