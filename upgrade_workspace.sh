@@ -110,7 +110,7 @@ else
   sed -i "s/ZSH_THEME=\".*/ZSH_THEME=\"agnoster\"/g" ~/.zshrc
   sed -i "s/plugins=(.*/plugins=(git node npm yarn gulp docker docker-compose kubectl pip gem brew debian)/g" ~/.zshrc
 fi
-grep -q "PATH=\"$(ruby -e 'print Gem.user_dir')/bin:$PATH\"" ~/.zshrc || echo "PATH=\"$(ruby -e 'print Gem.user_dir')/bin:\$PATH\"" >> ~/.zshrc
+grep -q "PATH=\"$(ruby -e 'print Gem.user_dir')/bin:\$PATH\"" ~/.zshrc || echo "PATH=\"$(ruby -e 'print Gem.user_dir')/bin:\$PATH\"" >> ~/.zshrc
 
 printf "${BLUE}Updating neovim providers...${NORMAL}\n"
 pip2 install --quiet --user --upgrade neovim
