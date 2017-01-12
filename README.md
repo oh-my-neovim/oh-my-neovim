@@ -14,9 +14,14 @@
 - Check links for neovim
 - Install [nodejs](https://nodejs.org/en/download/package-manager/), [yarn](https://yarnpkg.com/en/docs/install), [editorconfig](http://editorconfig.org/), [ternjs](https://ternjs.net/), [eslint](http://eslint.org/), [jsonlint](http://jsonlint.com/), [yamllint](http://www.yamllint.com/), [ansible-lint](https://github.com/willthames/ansible-lint), [xmllint](http://xmlsoft.org/xmllint.html), [eslint-babel](https://github.com/babel/babel-eslint)
 - Get latest Nerd Fonts: [Source Code Pro](https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/SourceCodePro/font-info.md)
-- Get [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) if not installed
 - Set [agnoster theme](https://github.com/robbyrussell/oh-my-zsh/wiki/Themes#agnoster) for zsh and activate [plugins](https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins): git node npm yarn gulp docker docker-compose kubectl pip brew debian
 - Upgrade Vim plugins
+- Upgrade neovim providers
+- Upgrade global npm packages: tern eslint jsonlint babel-eslint eslint-plugin-react
+
+#### Get [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
+
+`sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"`
 
 ### Create dotfiles for a nodejs project
 

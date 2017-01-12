@@ -89,9 +89,7 @@ if [ "$OS_TYPE" = Linux ]; then
       sudo yum -y install nodejs yarn the_silver_searcher python-pip ruby ruby-devel gcc libffi-devel python-devel openssl-devel zsh
   fi
 fi
-printf "$(whoami)\n\n"
-printf "${BLUE}Getting Oh My Zsh...${NORMAL}\n"
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
 printf "${BLUE}Setting Zsh plugins, theme and PATH...${NORMAL}\n"
 if [ "$OS_TYPE" = Darwin ]; then
   sed -i "" "s/ZSH_THEME=\".*/ZSH_THEME=\"agnoster\"/g" ~/.zshrc
