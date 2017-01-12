@@ -73,7 +73,7 @@ if [ "$OS_TYPE" = Linux ]; then
   fi
 
   if [ -f /etc/debian_version ]; then
-      printf "${BLUE}Installing dependencies with apt - ${RED}sudo privileges required...${NORMAL}\n";
+      printf "${BLUE}Installing dependencies with apt - ${RED}sudo privileges are required...${NORMAL}\n";
       if [ ! -f /etc/apt/sources.list.d/nodesource.list ]; then
         curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash
       fi
@@ -83,7 +83,7 @@ if [ "$OS_TYPE" = Linux ]; then
       fi
       sudo apt-get install -y -q nodejs yarn editorconfig silversearcher-ag libxml2-utils python python3 python-pip xsel ruby ruby-dev build-essential libssl-dev libffi-dev python-dev zsh;
   elif [ -f /etc/redhat-release ]; then
-      printf "${BLUE}Installing dependencies with yum - ${RED}sudo privileges required...${NORMAL}\n";
+      printf "${BLUE}Installing dependencies with yum - ${RED}sudo privileges are required...${NORMAL}\n";
       curl --silent --location https://rpm.nodesource.com/setup_6.x | bash -
       sudo wget https://dl.yarnpkg.com/rpm/yarn.repo -O /etc/yum.repos.d/yarn.repo
       sudo yum -y install nodejs yarn the_silver_searcher python-pip ruby ruby-devel gcc libffi-devel python-devel openssl-devel zsh;
