@@ -61,11 +61,6 @@ if [ "$OS_TYPE" = Darwin ]; then
 
   printf "${BLUE}Installing dependencies with brew...${NORMAL}\n";
   brew install node yarn editorconfig the_silver_searcher libxml2 python python3 ruby zsh;
-  printf "${BLUE}Upgrading linting tools with pip...${NORMAL}\n";
-  pip install --quiet --user --upgrade yamllint ansible-lint;
-
-  printf "${BLUE}Updating global npm packages...${NORMAL}\n";
-  yarn global upgrade tern eslint jsonlint babel-eslint eslint-plugin-react;
 fi
 
 if [ "$OS_TYPE" = Linux ]; then
@@ -93,11 +88,6 @@ if [ "$OS_TYPE" = Linux ]; then
       sudo wget https://dl.yarnpkg.com/rpm/yarn.repo -O /etc/yum.repos.d/yarn.repo
       sudo yum -y install nodejs yarn the_silver_searcher python-pip ruby ruby-devel gcc libffi-devel python-devel openssl-devel zsh;
   fi
-  printf "${BLUE}Upgrading lint tools with pip...${NORMAL}\n";
-  pip install --quiet --user yamllint ansible-lint;
-
-  printf "${BLUE}Updating global npm packages - ${RED}sudo privileges required...${NORMAL}\n";
-  sudo yarn global upgrade tern eslint jsonlint babel-eslint eslint-plugin-react;
 fi
 
 printf "${BLUE}Getting Oh My Zsh...${NORMAL}\n"
@@ -110,7 +100,16 @@ else
   sed -i "s/ZSH_THEME=\".*/ZSH_THEME=\"agnoster\"/g" ~/.zshrc
   sed -i "s/plugins=(.*/plugins=(git node npm yarn gulp docker docker-compose kubectl pip gem brew debian)/g" ~/.zshrc
 fi
-grep -q "PATH=\"$(ruby -e 'print Gem.user_dir')/bin:\$PATH\"" ~/.zshrc || echo "PATH=\"$(ruby -e 'print Gem.user_dir')/bin:\$PATH\"" >> ~/.zshrc
+grep -q "export PATH=\"$(ruby -e 'print Gem.user_dir')/bin:\$PATH\"" ~/.zshrc || echo "export PATH=\"$(ruby -e 'print Gem.user_dir')/bin:\$PATH\"" >> ~/.zshrc
+
+printf "${BLUE}Updating global npm packages with yarn...${NORMAL}\n";
+mkdir -p ~/.yarn-global;
+yarn config set prefix ~/.yarn-global;
+grep -q "export PATH=\"~/.yarn-global/bin:\$PATH\"" ~/.zshrc || echo "export PATH=\"~/.yarn-global/bin:\$PATH\"" >> ~/.zshrc
+yarn global upgrade tern eslint jsonlint babel-eslint eslint-plugin-react --global-folder ~/.yarn-global;
+
+printf "${BLUE}Upgrading lint tools with pip...${NORMAL}\n";
+pip install --quiet --user --upgrade yamllint ansible-lint;
 
 printf "${BLUE}Updating neovim providers...${NORMAL}\n"
 pip2 install --quiet --user --upgrade neovim
