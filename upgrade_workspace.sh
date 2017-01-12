@@ -100,13 +100,16 @@ else
   sed -i "s/ZSH_THEME=\".*/ZSH_THEME=\"agnoster\"/g" ~/.zshrc
   sed -i "s/plugins=(.*/plugins=(git node npm yarn gulp docker docker-compose kubectl pip gem brew debian)/g" ~/.zshrc
 fi
-grep -q "export PATH=\"$(ruby -e 'print Gem.user_dir')/bin:\$PATH\"" ~/.zshrc || echo "export PATH=\"$(ruby -e 'print Gem.user_dir')/bin:\$PATH\"" >> ~/.zshrc
+grep -q "PATH=\"$(ruby -e 'print Gem.user_dir')/bin:\$PATH\"" ~/.zshrc || echo "PATH=\"$(ruby -e 'print Gem.user_dir')/bin:\$PATH\"" >> ~/.zshrc
 
 printf "${BLUE}Updating global npm packages with yarn...${NORMAL}\n"
 mkdir -p ~/.yarn-global
 yarn config set prefix ~/.yarn-global
-grep -q "export PATH=\"~/.yarn-global/bin:\$PATH\"" ~/.zshrc || echo "export PATH=\"~/.yarn-global/bin:\$PATH\"" >> ~/.zshrc
+npm config set prefix ~/.yarn-global
+grep -q "PATH=\"~/.yarn-global/bin:\$PATH\"" ~/.zshrc || echo "PATH=\"~/.yarn-global/bin:\$PATH\"" >> ~/.zshrc
 yarn global upgrade tern eslint jsonlint babel-eslint eslint-plugin-react --global-folder ~/.yarn-global
+
+PATH="~/.yarn-global/bin:$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 
 printf "${BLUE}Upgrading lint tools with pip...${NORMAL}\n"
 pip install --quiet --user --upgrade yamllint ansible-lint
@@ -114,7 +117,7 @@ pip install --quiet --user --upgrade yamllint ansible-lint
 printf "${BLUE}Updating neovim providers...${NORMAL}\n"
 pip2 install --quiet --user --upgrade neovim
 pip3 install --quiet --user --upgrade neovim
-PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH" gem install --user-install neovim
+gem install --user-install neovim
 
 printf "${BLUE}Updating plugins...${NORMAL}\n"
 hash nvim >/dev/null 2>&1 || {
