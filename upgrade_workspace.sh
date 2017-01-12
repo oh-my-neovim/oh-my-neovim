@@ -26,7 +26,7 @@ set -e
 
 printf "${BLUE}Looking for an existing vim config...${NORMAL}\n"
 if [ -f ~/.vimrc ] || [ -h ~/.vimrc ]; then
-  printf "${YELLOW}Found ~/.vimrc.${NORMAL} ${GREEN}Backing up to ~/.vimrc.pre-upgrade${NORMAL}\n";
+  printf "${YELLOW}Found ~/.vimrc. ${GREEN}Backing up to ~/.vimrc.pre-upgrade${NORMAL}\n";
   mv -f ~/.vimrc ~/.vimrc.pre-upgrade;
 fi
 
@@ -60,7 +60,7 @@ if [ "$OS_TYPE" = Darwin ]; then
   fi
 
   printf "${BLUE}Installing dependencies with brew...${NORMAL}\n";
-  brew install node yarn editorconfig the_silver_searcher libxml2 python python3 ruby;
+  brew install node yarn editorconfig the_silver_searcher libxml2 python python3 ruby zsh;
   printf "${BLUE}Upgrading linting tools with pip...${NORMAL}\n";
   pip install --quiet --user --upgrade yamllint ansible-lint;
 
@@ -86,12 +86,12 @@ if [ "$OS_TYPE" = Linux ]; then
         curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -;
         echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list;
       fi
-      sudo apt-get install -y -q nodejs yarn editorconfig silversearcher-ag libxml2-utils python python3 python-pip xsel ruby ruby-dev build-essential libssl-dev libffi-dev python-dev;
+      sudo apt-get install -y -q nodejs yarn editorconfig silversearcher-ag libxml2-utils python python3 python-pip xsel ruby ruby-dev build-essential libssl-dev libffi-dev python-dev zsh;
   elif [ -f /etc/redhat-release ]; then
       printf "${BLUE}Installing dependencies with yum - ${RED}sudo privileges required...${NORMAL}\n";
       curl --silent --location https://rpm.nodesource.com/setup_6.x | bash -
       sudo wget https://dl.yarnpkg.com/rpm/yarn.repo -O /etc/yum.repos.d/yarn.repo
-      sudo yum -y install nodejs yarn the_silver_searcher python-pip ruby ruby-devel gcc libffi-devel python-devel openssl-devel;
+      sudo yum -y install nodejs yarn the_silver_searcher python-pip ruby ruby-devel gcc libffi-devel python-devel openssl-devel zsh;
   fi
   printf "${BLUE}Upgrading lint tools with pip...${NORMAL}\n";
   pip install --quiet --user yamllint ansible-lint;
@@ -119,9 +119,10 @@ PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH" gem install --user-install neov
 
 printf "${BLUE}Updating plugins...${NORMAL}\n"
 hash nvim >/dev/null 2>&1 || {
-  echo "\nError: neovim is not installed"
+  echo "\n${RED}Error: neovim is not installed${NORMAL}"
   exit 1
 }
 nvim -c ":PlugUpdate" -c ":qa!" --headless
+nvim -c ":UpdateRemotePlugins" -c ":qa!" --headless
 printf "\n${GREEN}Vim plugins updated!${NORMAL}\n"
 
