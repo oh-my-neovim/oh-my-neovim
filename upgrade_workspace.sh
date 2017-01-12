@@ -106,10 +106,10 @@ printf "${BLUE}Updating global npm packages with yarn...${NORMAL}\n"
 mkdir -p ~/.yarn-global
 yarn config set prefix ~/.yarn-global
 npm config set prefix ~/.yarn-global
-grep -q "PATH=\"~/.yarn-global/bin:\$PATH\"" ~/.zshrc || echo "PATH=\"~/.yarn-global/bin:\$PATH\"" >> ~/.zshrc
+grep -q "PATH=\"$HOME/.yarn-global/bin:\$PATH\"" ~/.zshrc || echo "PATH=\"$HOME/.yarn-global/bin:\$PATH\"" >> ~/.zshrc
 yarn global upgrade tern eslint jsonlint babel-eslint eslint-plugin-react --global-folder ~/.yarn-global
 
-PATH="~/.yarn-global/bin:$(ruby -e 'print Gem.user_dir')/bin:$PATH"
+PATH="$HOME/.yarn-global/bin:$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 
 printf "${BLUE}Upgrading lint tools with pip...${NORMAL}\n"
 pip install --quiet --user --upgrade yamllint ansible-lint
