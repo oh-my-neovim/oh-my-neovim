@@ -12,6 +12,8 @@
 
 > Do not forget to set the "SauceCodePro NF" font and "Solarized Dark" color scheme in your terminal
 
+**What the script does:**
+
 - Get lastest [.vimrc](https://github.com/yacut/workspace/blob/master/.vimrc)
 - Check links for neovim
 - Install [nodejs](https://nodejs.org/en/download/package-manager/), [yarn](https://yarnpkg.com/en/docs/install), [editorconfig](http://editorconfig.org/), [ternjs](https://ternjs.net/), [eslint](http://eslint.org/), [jsonlint](http://jsonlint.com/), [yamllint](http://www.yamllint.com/), [ansible-lint](https://github.com/willthames/ansible-lint), [xmllint](http://xmlsoft.org/xmllint.html), [eslint-babel](https://github.com/babel/babel-eslint)
