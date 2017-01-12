@@ -26,14 +26,14 @@ set -e
 
 printf "${BLUE}Looking for an existing vim config...${NORMAL}\n"
 if [ -f ~/.vimrc ] || [ -h ~/.vimrc ]; then
-  printf "${YELLOW}Found ~/.vimrc. ${GREEN}Backing up to ~/.vimrc.pre-upgrade${NORMAL}\n";
-  mv -f ~/.vimrc ~/.vimrc.pre-upgrade;
+  printf "${YELLOW}Found ~/.vimrc. ${GREEN}Backing up to ~/.vimrc.pre-upgrade${NORMAL}\n"
+  mv -f ~/.vimrc ~/.vimrc.pre-upgrade
 fi
 
 printf "${BLUE}Looking for plug.vim file...${NORMAL}\n"
 if [ ! -f ~/.vim/autoload/plug.vim ]; then
-  printf "${YELLOW}plug.vim not found...${NORMAL} ${GREEN}Downloading it from github...${NORMAL}\n";
-  curl -sfLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim;
+  printf "${YELLOW}plug.vim not found...${NORMAL} ${GREEN}Downloading it from github...${NORMAL}\n"
+  curl -sfLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
 printf "${BLUE}Downloading .vimrc gist file from github...${NORMAL}\n"
@@ -42,11 +42,11 @@ printf "${GREEN}Vim config upgraded!${NORMAL}\n"
 
 printf "${BLUE}Checking neovim links${NORMAL}\n"
 if [ ! -d ~/.config/nvim ] || [ ! -h ~/.config/nvim ]; then
-  printf "${GREEN}Creating ~/.config/nvim link.${NORMAL}\n";
+  printf "${GREEN}Creating ~/.config/nvim link.${NORMAL}\n"
   ln -s ~/.vim ~/.config/nvim
 fi
 if [ ! -f ~/.config/nvim/init.vim ] || [ ! -h ~/.config/nvim/init.vim ]; then
-  printf "${GREEN}Creating ~/.config/nvim/init.vim link.${NORMAL}\n";
+  printf "${GREEN}Creating ~/.config/nvim/init.vim link.${NORMAL}\n"
   ln -s ~/.vimrc ~/.config/nvim/init.vim
 fi
 
@@ -56,40 +56,40 @@ if [ "$OS_TYPE" = Darwin ]; then
     printf "${BLUE}Downloading Sauce Code Pro Nerd Fonts to ~/Library/Fonts folder...${NORMAL}\n"
     cd ~/Library/Fonts && \
       curl -sfLo "SourceCodePro.zip" https://github.com/ryanoasis/nerd-fonts/releases/download/v1.0.0/SourceCodePro.zip && \
-      unzip -o SourceCodePro.zip && rm SourceCodePro.zip;
+      unzip -o SourceCodePro.zip && rm SourceCodePro.zip
   fi
 
-  printf "${BLUE}Installing dependencies with brew...${NORMAL}\n";
-  brew install node yarn editorconfig the_silver_searcher libxml2 python python3 ruby zsh;
+  printf "${BLUE}Installing dependencies with brew...${NORMAL}\n"
+  brew install node yarn editorconfig the_silver_searcher libxml2 python python3 ruby zsh
 fi
 
 if [ "$OS_TYPE" = Linux ]; then
   if [ ! -f ~/.local/share/fonts/Sauce\ Code\ Pro\ Nerd\ Font\ Complete.ttf ]; then
-    printf "${BLUE}Downloading Sauce Code Pro Nerd Fonts to ~/.local/share/fonts folder...${NORMAL}\n";
-    mkdir -p ~/.local/share/fonts;
+    printf "${BLUE}Downloading Sauce Code Pro Nerd Fonts to ~/.local/share/fonts folder...${NORMAL}\n"
+    mkdir -p ~/.local/share/fonts
     cd ~/.local/share/fonts && \
       curl -sfLo "SourceCodePro.zip" https://github.com/ryanoasis/nerd-fonts/releases/download/v1.0.0/SourceCodePro.zip && \
-      unzip -o SourceCodePro.zip && rm SourceCodePro.zip;
+      unzip -o SourceCodePro.zip && rm SourceCodePro.zip
   fi
 
   if [ -f /etc/debian_version ]; then
-      printf "${BLUE}Installing dependencies with apt - ${RED}sudo privileges are required...${NORMAL}\n";
+      printf "${BLUE}Installing dependencies with apt - ${RED}sudo privileges are required...${NORMAL}\n"
       if [ ! -f /etc/apt/sources.list.d/nodesource.list ]; then
         curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash
       fi
       if [ ! -f /etc/apt/sources.list.d/yarn.list ]; then
-        curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -;
-        echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list;
+        curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+        echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
       fi
-      sudo apt-get install -y -q nodejs yarn editorconfig silversearcher-ag libxml2-utils python python3 python-pip xsel ruby ruby-dev build-essential libssl-dev libffi-dev python-dev zsh;
+      sudo apt-get install -y -q nodejs yarn editorconfig silversearcher-ag libxml2-utils python python3 python-pip xsel ruby ruby-dev build-essential libssl-dev libffi-dev python-dev zsh
   elif [ -f /etc/redhat-release ]; then
-      printf "${BLUE}Installing dependencies with yum - ${RED}sudo privileges are required...${NORMAL}\n";
+      printf "${BLUE}Installing dependencies with yum - ${RED}sudo privileges are required...${NORMAL}\n"
       curl --silent --location https://rpm.nodesource.com/setup_6.x | bash -
       sudo wget https://dl.yarnpkg.com/rpm/yarn.repo -O /etc/yum.repos.d/yarn.repo
-      sudo yum -y install nodejs yarn the_silver_searcher python-pip ruby ruby-devel gcc libffi-devel python-devel openssl-devel zsh;
+      sudo yum -y install nodejs yarn the_silver_searcher python-pip ruby ruby-devel gcc libffi-devel python-devel openssl-devel zsh
   fi
 fi
-
+printf "$(whoami)\n\n"
 printf "${BLUE}Getting Oh My Zsh...${NORMAL}\n"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 printf "${BLUE}Setting Zsh plugins, theme and PATH...${NORMAL}\n"
@@ -102,14 +102,14 @@ else
 fi
 grep -q "export PATH=\"$(ruby -e 'print Gem.user_dir')/bin:\$PATH\"" ~/.zshrc || echo "export PATH=\"$(ruby -e 'print Gem.user_dir')/bin:\$PATH\"" >> ~/.zshrc
 
-printf "${BLUE}Updating global npm packages with yarn...${NORMAL}\n";
-mkdir -p ~/.yarn-global;
-yarn config set prefix ~/.yarn-global;
+printf "${BLUE}Updating global npm packages with yarn...${NORMAL}\n"
+mkdir -p ~/.yarn-global
+yarn config set prefix ~/.yarn-global
 grep -q "export PATH=\"~/.yarn-global/bin:\$PATH\"" ~/.zshrc || echo "export PATH=\"~/.yarn-global/bin:\$PATH\"" >> ~/.zshrc
-yarn global upgrade tern eslint jsonlint babel-eslint eslint-plugin-react --global-folder ~/.yarn-global;
+yarn global upgrade tern eslint jsonlint babel-eslint eslint-plugin-react --global-folder ~/.yarn-global
 
-printf "${BLUE}Upgrading lint tools with pip...${NORMAL}\n";
-pip install --quiet --user --upgrade yamllint ansible-lint;
+printf "${BLUE}Upgrading lint tools with pip...${NORMAL}\n"
+pip install --quiet --user --upgrade yamllint ansible-lint
 
 printf "${BLUE}Updating neovim providers...${NORMAL}\n"
 pip2 install --quiet --user --upgrade neovim
