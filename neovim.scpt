@@ -11,13 +11,12 @@
 on run {input, parameters}
 	tell application "System Events" to set terminalIsRunning to exists application process "iTerm2"
 	tell application "iTerm"
-		if terminalIsRunning is false then
+		if terminalIsRunning is false or windows = {} then
 			create window with default profile
+		else
+			create tab with default profile
 		end if
 		tell front window
-			if terminalIsRunning is true then
-				create tab with default profile
-			end if
 			activate
 			tell current session
 				if input as string is not equal to "" then
