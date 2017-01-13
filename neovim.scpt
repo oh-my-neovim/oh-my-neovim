@@ -9,7 +9,7 @@
 -- 5. In the Finder, right click on a file and select "Open With". In that window you can set meovim as a default
 
 on run {input, parameters}
-	tell application "System Events" to set terminalIsRunning to exists application process "iTerm"
+	tell application "System Events" to set terminalIsRunning to exists application process "iTerm2"
 	tell application "iTerm"
 		if terminalIsRunning is false then
 			create window with default profile
