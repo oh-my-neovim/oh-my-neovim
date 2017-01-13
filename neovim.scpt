@@ -20,7 +20,7 @@ on run {input, parameters}
 			end if
 			activate
 			tell current session
-				if length of input is equal to 1 then
+				if input as string is not equal to "" then
 					write text ("nvim " & quote & POSIX path of input & quote)
 				else
 					write text ("nvim")
