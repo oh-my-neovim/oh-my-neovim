@@ -9,12 +9,22 @@
 -- 5. In the Finder, right click on a file and select "Open With". In that window you can set meovim as a default
 
 on run {input, parameters}
+	tell application "System Events" to set terminalIsRunning to exists application process "iTerm"
 	tell application "iTerm"
+		if terminalIsRunning is false then
+			create window with default profile
+		end if
 		tell front window
-			create tab with default profile
+			if terminalIsRunning is true then
+				create tab with default profile
+			end if
 			activate
 			tell current session
-				write text ("nvim " & quote & POSIX path of input & quote)
+				if length of input is equal to 1 then
+					write text ("nvim " & quote & POSIX path of input & quote)
+				else
+					write text ("nvim")
+				end if
 			end tell
 		end tell
 	end tell
