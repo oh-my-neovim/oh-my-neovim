@@ -117,12 +117,14 @@ pip2 install --quiet --user --upgrade neovim
 pip3 install --quiet --user --upgrade neovim
 gem install --user-install neovim
 
-printf "${BLUE}Updating plugins...${NORMAL}\n"
 hash nvim >/dev/null 2>&1 || {
   echo "\n${RED}Error: neovim is not installed${NORMAL}\n"
   echo "${BLUE}https://github.com/neovim/neovim/wiki/Installing-Neovim${NORMAL}"
   exit 1
 }
+printf "${BLUE}Set nvim as default editor${NORMAL}\n"
+grep -q "export EDITOR='nvim'" ~/.zshrc || echo "export EDITOR='nvim'" >> ~/.zshrc
+printf "${BLUE}Updating plugins...${NORMAL}\n"
 nvim -c ":PlugUpdate" -c ":qa!" --headless
 nvim -c ":UpdateRemotePlugins" -c ":qa!" --headless
 printf "\n${GREEN}Vim plugins updated!${NORMAL}\n"

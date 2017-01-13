@@ -16,12 +16,12 @@
 
 - Get lastest [.vimrc](https://github.com/yacut/workspace/blob/master/.vimrc)
 - Check links for neovim
-- Install [nodejs](https://nodejs.org/en/download/package-manager/), [yarn](https://yarnpkg.com/en/docs/install), [editorconfig](http://editorconfig.org/), [ternjs](https://ternjs.net/), [eslint](http://eslint.org/), [jsonlint](http://jsonlint.com/), [yamllint](http://www.yamllint.com/), [ansible-lint](https://github.com/willthames/ansible-lint), [xmllint](http://xmlsoft.org/xmllint.html), [eslint-babel](https://github.com/babel/babel-eslint)
+- Install [nodejs](https://nodejs.org/en/download/package-manager/), [yarn](https://yarnpkg.com/en/docs/install), [editorconfig](http://editorconfig.org/), [ternjs](https://ternjs.net/), [eslint](http://eslint.org/), [jsonlint](http://jsonlint.com/), [yamllint](http://www.yamllint.com/), [ansible-lint](https://github.com/willthames/ansible-lint), [xmllint](http://xmlsoft.org/xmllint.html), [eslint-babel](https://github.com/babel/babel-eslint), gcc, python, python3, ruby, zsh
 - Get latest Nerd Fonts: [Source Code Pro](https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/SourceCodePro/font-info.md)
 - Set [agnoster theme](https://github.com/robbyrussell/oh-my-zsh/wiki/Themes#agnoster) for zsh and activate [plugins](https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins): git node npm yarn gulp docker docker-compose kubectl pip brew debian
 - Upgrade Vim plugins
 - Upgrade neovim providers
-- Upgrade global npm packages: tern eslint jsonlint babel-eslint eslint-plugin-react
+- Upgrade global npm packages with yarn
 
 #### Get [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
 
