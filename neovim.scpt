@@ -8,15 +8,19 @@
 -- 4. Save the application as neovim.app in your Applications folder
 -- 5. In the Finder, right click on a file and select "Open With". In that window you can set meovim as a default
 
-on run {input, parameters}
+on run {input}
 	tell application "System Events" to set terminalIsRunning to exists application process "iTerm2"
 	tell application "iTerm"
 		if terminalIsRunning is false or windows = {} then
 			create window with default profile
+			set windowsCreated to true
 		else
-			create tab with default profile
+			set windowsCreated to false
 		end if
 		tell front window
+			if not windowsCreated then
+				create tab with default profile
+			end if
 			activate
 			tell current session
 				if input as string is not equal to "" then
