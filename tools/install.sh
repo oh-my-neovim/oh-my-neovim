@@ -105,13 +105,13 @@ elif [ "$TEST_CURRENT_SHELL" = "bash" ]; then
 fi
 
 printf "${BLUE}Updating plugins...${NORMAL}\n"
-env nvim -c ":PlugUpdate" -c ":qa!" --headless || {
+env OH_MY_NEOVIM_PLUGINS="$OH_MY_NEOVIM_PLUGINS" nvim -c ":PlugInstall" -c ":qa!" --headless || {
   printf "Error: Update plugins failed\n"
-  printf "Please start nvim and run ':PlugUpdate' manually\n"
+  printf "Please start nvim and run ':PlugInstall' manually\n"
   exit 1
 }
 
-env nvim -c ":UpdateRemotePlugins" -c ":qa!" --headless || {
+env OH_MY_NEOVIM_PLUGINS="$OH_MY_NEOVIM_PLUGINS" nvim -c ":UpdateRemotePlugins" -c ":qa!" --headless || {
   printf "Error: Update remote plugins failed\n"
   printf "Please start nvim and run ':UpdateRemotePlugins' manually\n"
   exit 1
