@@ -33,20 +33,6 @@ if [ -d "$OH_MY_NEOVIM" ]; then
   exit
 fi
 
-# Set plugins
-if [ ! -n "$OH_MY_NEOVIM" ]; then
-  OH_MY_NEOVIM_PLUGINS='default'
-fi
-
-TEST_CURRENT_SHELL=$(expr "$SHELL" : '.*/\(.*\)')
-if [ "$TEST_CURRENT_SHELL" == "zsh" ]; then
-  grep -q "export OH_MY_NEOVIM=.*" ~/.zshrc || echo "export OH_MY_NEOVIM=$OH_MY_NEOVIM" >> ~/.zshrc
-  grep -q "export OH_MY_NEOVIM_PLUGINS=.*" ~/.zshrc || echo "export OH_MY_NEOVIM_PLUGINS=$OH_MY_NEOVIM_PLUGINS" >> ~/.zshrc
-elif [ "$TEST_CURRENT_SHELL" == "bash" ]; then
-  grep -q "export OH_MY_NEOVIM=.*" ~/.bashrc || echo "export OH_MY_NEOVIM=$OH_MY_NEOVIM" >> ~/.bashrc
-  grep -q "export OH_MY_NEOVIM_PLUGINS=.*" ~/.bashrc || echo "export OH_MY_NEOVIM_PLUGINS=$OH_MY_NEOVIM_PLUGINS" >> ~/.bashrc
-fi
-
 hash nvim >/dev/null 2>&1 || {
   echo "\n${RED}Error: neovim is not installed${NORMAL}\n"
   echo "${BLUE}https://github.com/neovim/neovim/wiki/Installing-Neovim${NORMAL}"
@@ -97,6 +83,27 @@ if [ ! -f ~/.vim/autoload/plug.vim ]; then
   curl -sfLo ~/.nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
+if [ ! -n "$OH_MY_NEOVIM_PLUGINS" ]; then
+  # Set plugins
+  AVAILABLE_PLUGINS=$(find $OH_MY_NEOVIM/templates/* -maxdepth 1 -type d -exec basename {} \; -exec echo {} \; -exec echo ON \;)
+  CHOOSED_PLUGINS=$(whiptail --checklist "Choose plugins to install" 28 70 20 ${AVAILABLE_PLUGINS} 3>&1 1>&2 2>&3)
+  exitstatus=$?
+  if [ $exitstatus = 0 ]; then
+    OH_MY_NEOVIM_PLUGINS=$(echo "$CHOOSED_PLUGINS"| tr -d '"')
+  else
+    OH_MY_NEOVIM_PLUGINS="default"
+  fi
+fi
+
+TEST_CURRENT_SHELL=$(expr "$SHELL" : '.*/\(.*\)')
+if [ "$TEST_CURRENT_SHELL" = "zsh" ]; then
+  grep -q "export OH_MY_NEOVIM=.*" ~/.zshrc || echo "export OH_MY_NEOVIM=$OH_MY_NEOVIM" >> ~/.zshrc
+  grep -q "export OH_MY_NEOVIM_PLUGINS=.*" ~/.zshrc || echo "export OH_MY_NEOVIM_PLUGINS=\"$OH_MY_NEOVIM_PLUGINS\"" >> ~/.zshrc
+elif [ "$TEST_CURRENT_SHELL" = "bash" ]; then
+  grep -q "export OH_MY_NEOVIM=.*" ~/.bashrc || echo "export OH_MY_NEOVIM=$OH_MY_NEOVIM" >> ~/.bashrc
+  grep -q "export OH_MY_NEOVIM_PLUGINS=.*" ~/.bashrc || echo "export OH_MY_NEOVIM_PLUGINS=\"$OH_MY_NEOVIM_PLUGINS\"" >> ~/.bashrc
+fi
+
 printf "${BLUE}Updating plugins...${NORMAL}\n"
 env nvim -c ":PlugUpdate" -c ":qa!" --headless || {
   printf "Error: Update plugins failed\n"
@@ -112,3 +119,4 @@ env nvim -c ":UpdateRemotePlugins" -c ":qa!" --headless || {
 
 printf "\n${GREEN}Oh my Neovim is now installed!${NORMAL}\n"
 printf "${GREEN}Please change the oh_my_neovim environments in your shell profile to select plugins, themes, and options.${NORMAL}\n"
+env $SHELL
