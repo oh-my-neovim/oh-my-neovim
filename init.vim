@@ -13,7 +13,6 @@ call plug#begin('~/.vim/plugged')
 
 " Your plugins can be load here
 Plug 'terryma/vim-multiple-cursors'
-Plug 'xolox/vim-session'
 Plug 'YankRing.vim'
 Plug 'sjl/gundo.vim'
 Plug 'godlygeek/tabular'
@@ -56,7 +55,3 @@ au FocusLost * :wa
 " tagbar
 nmap <F8> :TagbarToggle<CR>
 
-" Session
-let g:session_autosave = 'yes'
-let g:session_autosave_periodic = 5
-let g:session_autoload = 'yes'

@@ -32,13 +32,20 @@ if [ -d "$OH_MY_NEOVIM" ]; then
   printf "You'll need to remove $OH_MY_NEOVIM if you want to re-install.\n"
   exit
 fi
-grep -q "export OH_MY_NEOVIM=.*" ~/.zshrc || echo "export OH_MY_NEOVIM=$OH_MY_NEOVIM" >> ~/.zshrc
 
 # Set plugins
 if [ ! -n "$OH_MY_NEOVIM" ]; then
   OH_MY_NEOVIM_PLUGINS='default'
 fi
-grep -q "export OH_MY_NEOVIM_PLUGINS=.*" ~/.zshrc || echo "export OH_MY_NEOVIM_PLUGINS=$OH_MY_NEOVIM_PLUGINS" >> ~/.zshrc
+
+TEST_CURRENT_SHELL=$(expr "$SHELL" : '.*/\(.*\)')
+if [ "$TEST_CURRENT_SHELL" == "zsh" ]; then
+  grep -q "export OH_MY_NEOVIM=.*" ~/.zshrc || echo "export OH_MY_NEOVIM=$OH_MY_NEOVIM" >> ~/.zshrc
+  grep -q "export OH_MY_NEOVIM_PLUGINS=.*" ~/.zshrc || echo "export OH_MY_NEOVIM_PLUGINS=$OH_MY_NEOVIM_PLUGINS" >> ~/.zshrc
+elif [ "$TEST_CURRENT_SHELL" == "bash" ]; then
+  grep -q "export OH_MY_NEOVIM=.*" ~/.bashrc || echo "export OH_MY_NEOVIM=$OH_MY_NEOVIM" >> ~/.bashrc
+  grep -q "export OH_MY_NEOVIM_PLUGINS=.*" ~/.bashrc || echo "export OH_MY_NEOVIM_PLUGINS=$OH_MY_NEOVIM_PLUGINS" >> ~/.bashrc
+fi
 
 hash nvim >/dev/null 2>&1 || {
   echo "\n${RED}Error: neovim is not installed${NORMAL}\n"
@@ -81,8 +88,8 @@ if [ -f ~/.vimrc ] || [ -h ~/.vimrc ]; then
     mv -f ~/.vimrc ~/.vimrc.pre-oh-my-neovim
 fi
 
-printf "${BLUE}Using the Oh My Neovim init.vim file as ~/.config/nvim/init.vim${NORMAL}\n"
-ln -sf $OH_MY_NEOVIM/init.vim ~/.config/nvim/init.vim
+printf "${BLUE}Using the Oh My Neovim template file and adding it to ~/.config/nvim/init.vim${NORMAL}\n"
+cp -f $OH_MY_NEOVIM/init.vim ~/.config/nvim/init.vim
 
 printf "${BLUE}Checking plugin manager...${NORMAL}\n"
 if [ ! -f ~/.vim/autoload/plug.vim ]; then
@@ -103,5 +110,5 @@ env nvim -c ":UpdateRemotePlugins" -c ":qa!" --headless || {
   exit 1
 }
 
-printf "${GREEN}Oh my Neovim is now installed!${NORMAL}"
-printf "${GREEN}Please change the oh_my_neovim environments in your shell profile to select plugins, themes, and options.${NORMAL}"
+printf "\n${GREEN}Oh my Neovim is now installed!${NORMAL}"
+printf "\n${GREEN}Please change the oh_my_neovim environments in your shell profile to select plugins, themes, and options.${NORMAL}"
