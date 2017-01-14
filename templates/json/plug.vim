@@ -1,0 +1,1 @@
+Plug 'elzr/vim-json'
