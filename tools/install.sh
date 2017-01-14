@@ -110,5 +110,5 @@ env nvim -c ":UpdateRemotePlugins" -c ":qa!" --headless || {
   exit 1
 }
 
-printf "\n${GREEN}Oh my Neovim is now installed!${NORMAL}"
-printf "\n${GREEN}Please change the oh_my_neovim environments in your shell profile to select plugins, themes, and options.${NORMAL}"
+printf "\n${GREEN}Oh my Neovim is now installed!${NORMAL}\n"
+printf "${GREEN}Please change the oh_my_neovim environments in your shell profile to select plugins, themes, and options.${NORMAL}\n"

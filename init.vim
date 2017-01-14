@@ -1,5 +1,5 @@
 if (empty($OH_MY_NEOVIM))
-  let oh_my_neovim=~/.oh-my-neovim
+  let oh_my_neovim=$HOME . '/.oh-my-neovim'
 else
   let oh_my_neovim=$OH_MY_NEOVIM
 endif
