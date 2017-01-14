@@ -1,18 +1,5 @@
-" ~/.vimrc
-
-" Dependencies:
-" 1) install node npm editorconfig
-" 2) https://github.com/ryanoasis/nerd-fonts#font-installation
-" 3) npm install -g eslint jsonlint tern
-" 4) pip install yamllint ansible-lint
-" 5) https://github.com/ggreer/the_silver_searcher#installing
-" 6) optional ack package: http://beyondgrep.com/install/
-"
-" Load vim-plug
-if empty(glob("~/.vim/autoload/plug.vim"))
-  execute '!curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-              \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-endif
+let oh_my_neovim=$OH_MY_NEOVIM
+let oh_my_neovim_plugins=$OH_MY_NEOVIM_PLUGINS
 
 call plug#begin('~/.vim/plugged')
 
@@ -80,7 +67,10 @@ Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 Plug 'carlitux/deoplete-ternjs', {'do': 'cd ~/.vim && npm install tern@latest'}
 Plug 'heavenshell/vim-jsdoc'
 Plug 'maksimr/vim-jsbeautify'
-Plug 'ruanyl/vim-fixmyjs'
+
+if (index(oh_my_neovim_plugins, 'fixmyjs') >= 0)
+	Plug 'ruanyl/vim-fixmyjs'
+endif
 
 " json
 Plug 'elzr/vim-json'
