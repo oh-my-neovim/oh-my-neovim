@@ -36,7 +36,7 @@ grep -q "export OH_MY_NEOVIM=.*" ~/.zshrc || echo "export OH_MY_NEOVIM=$OH_MY_NE
 
 # Set plugins
 if [ ! -n "$OH_MY_NEOVIM" ]; then
-  OH_MY_NEOVIM_PLUGINS=[default]
+  OH_MY_NEOVIM_PLUGINS='default'
 fi
 grep -q "export OH_MY_NEOVIM_PLUGINS=.*" ~/.zshrc || echo "export OH_MY_NEOVIM_PLUGINS=$OH_MY_NEOVIM_PLUGINS" >> ~/.zshrc
 
