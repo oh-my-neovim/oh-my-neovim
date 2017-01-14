@@ -36,8 +36,8 @@ for oh_my_neovim_plugin in oh_my_neovim_plugins
 endfor
 " Load oh-my-neovim mapping
 for oh_my_neovim_plugin in oh_my_neovim_plugins
-  if empty(glob(oh_my_neovim . '/templates/' . oh_my_neovim_plugin . '/init.vim')) == 0
-    execute 'source' oh_my_neovim . '/templates/' . oh_my_neovim_plugin . '/init.vim'
+  if empty(glob(oh_my_neovim . '/templates/' . oh_my_neovim_plugin . '/map.vim')) == 0
+    execute 'source' oh_my_neovim . '/templates/' . oh_my_neovim_plugin . '/map.vim'
   endif
 endfor
 
