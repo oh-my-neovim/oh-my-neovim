@@ -1,15 +1,7 @@
 let oh_my_neovim=$OH_MY_NEOVIM
-let oh_my_neovim_plugins=$OH_MY_NEOVIM_PLUGINS
+let oh_my_neovim_plugins=split($OH_MY_NEOVIM_PLUGINS)
 
 call plug#begin('~/.vim/plugged')
-
-" interface and themes
-Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/nerdcommenter'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-"Plug 'altercation/vim-colors-solarized'
-Plug 'iCyMind/NeoSolarized'
 
 " search and replace
 Plug 'L9'
@@ -59,18 +51,9 @@ Plug 'zchee/deoplete-jedi'
 Plug 'artur-shaik/vim-javacomplete2'
 Plug 'derekwyatt/vim-scala'
 
-" javascript and nodejs
-Plug 'pangloss/vim-javascript'
-Plug 'moll/vim-node'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
-Plug 'carlitux/deoplete-ternjs', {'do': 'cd ~/.vim && npm install tern@latest'}
-Plug 'heavenshell/vim-jsdoc'
-Plug 'maksimr/vim-jsbeautify'
-
-if (index(oh_my_neovim_plugins, 'fixmyjs') >= 0)
-	Plug 'ruanyl/vim-fixmyjs'
-endif
+for plugin in oh_my_neovim_plugins
+  source oh_my_neovim . '/templates/' . plugin . '/init.vim'
+endfor
 
 " json
 Plug 'elzr/vim-json'

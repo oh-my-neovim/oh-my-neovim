@@ -34,6 +34,12 @@ if [ -d "$OH_MY_NEOVIM" ]; then
 fi
 grep -q "export OH_MY_NEOVIM=.*" ~/.zshrc || echo "export OH_MY_NEOVIM=$OH_MY_NEOVIM" >> ~/.zshrc
 
+# Set plugins
+if [ ! -n "$OH_MY_NEOVIM" ]; then
+  OH_MY_NEOVIM_PLUGINS=[default]
+fi
+grep -q "export OH_MY_NEOVIM_PLUGINS=.*" ~/.zshrc || echo "export OH_MY_NEOVIM_PLUGINS=$OH_MY_NEOVIM_PLUGINS" >> ~/.zshrc
+
 hash nvim >/dev/null 2>&1 || {
   echo "\n${RED}Error: neovim is not installed${NORMAL}\n"
   echo "${BLUE}https://github.com/neovim/neovim/wiki/Installing-Neovim${NORMAL}"
