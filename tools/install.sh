@@ -117,9 +117,8 @@ elif [ "$CURRENT_SHELL" = "bash" ]; then
   grep -q "export OH_MY_NEOVIM_PLUGINS=.*" ~/.bashrc || echo "export OH_MY_NEOVIM_PLUGINS=\"$OH_MY_NEOVIM_PLUGINS\"" >> ~/.bashrc
 fi
 
-echo -n "${GREEN}Would you like install dependencies? [y/N]${NORMAL} "
-read answer
-if [[ $answer == "Y" || $answer == "y" || $answer == "yes" || $answer == "Yes" ]];then
+read -r -p "${GREEN}Would you like install dependencies for selected plugins? [y/N]${NORMAL} " confirmation
+if [ "$confirmation" != y ] && [ "$confirmation" != Y ]; then
   OH_MY_NEOVIM_PLUGINS_ARRAY=$(echo "$OH_MY_NEOVIM_PLUGINS" | tr -d " ")
   for plugin in "${OH_MY_NEOVIM_PLUGINS_ARRAY[@]}"; do
     echo "$plugin"
