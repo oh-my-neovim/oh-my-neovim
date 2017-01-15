@@ -85,7 +85,16 @@ fi
 
 if [ ! -n "$OH_MY_NEOVIM_PLUGINS" ]; then
   if [ "$(uname)" = Darwin ]; then
-    OH_MY_NEOVIM_PLUGINS="default"
+    AVAILABLE_PLUGINS=""
+    for plugin in $(find $OH_MY_NEOVIM/templates/* -maxdepth 1 -type d -exec basename {} \;); do
+        if [ ! -n "$AVAILABLE_PLUGINS" ]; then
+            AVAILABLE_PLUGINS="\"$plugin\""
+        else
+            AVAILABLE_PLUGINS="$AVAILABLE_PLUGINS, \"$plugin\""
+        fi
+    done
+    SELECTED_PLUGINS=$(osascript -e "choose from list {$AVAILABLE_PLUGINS} with title \"Plugins selector\" with prompt \"Choose oh-my-neovim plugins to install\" OK button name \"OK\" cancel button name \"Cancel\" default items {\"default\"} with multiple selections allowed")
+    OH_MY_NEOVIM_PLUGINS=$(echo "$SELECTED_PLUGINS"| tr -d ',')
   else
     # Set plugins
     AVAILABLE_PLUGINS=$(find $OH_MY_NEOVIM/templates/* -maxdepth 1 -type d -exec basename {} \; -exec echo {} \; -exec echo ON \;)
@@ -99,13 +108,25 @@ if [ ! -n "$OH_MY_NEOVIM_PLUGINS" ]; then
   fi
 fi
 
-TEST_CURRENT_SHELL=$(expr "$SHELL" : '.*/\(.*\)')
-if [ "$TEST_CURRENT_SHELL" = "zsh" ]; then
+CURRENT_SHELL=$(expr "$SHELL" : '.*/\(.*\)')
+if [ "$CURRENT_SHELL" = "zsh" ]; then
   grep -q "export OH_MY_NEOVIM=.*" ~/.zshrc || echo "export OH_MY_NEOVIM=$OH_MY_NEOVIM" >> ~/.zshrc
   grep -q "export OH_MY_NEOVIM_PLUGINS=.*" ~/.zshrc || echo "export OH_MY_NEOVIM_PLUGINS=\"$OH_MY_NEOVIM_PLUGINS\"" >> ~/.zshrc
-elif [ "$TEST_CURRENT_SHELL" = "bash" ]; then
+elif [ "$CURRENT_SHELL" = "bash" ]; then
   grep -q "export OH_MY_NEOVIM=.*" ~/.bashrc || echo "export OH_MY_NEOVIM=$OH_MY_NEOVIM" >> ~/.bashrc
   grep -q "export OH_MY_NEOVIM_PLUGINS=.*" ~/.bashrc || echo "export OH_MY_NEOVIM_PLUGINS=\"$OH_MY_NEOVIM_PLUGINS\"" >> ~/.bashrc
+fi
+
+echo -n "${GREEN}Would you like install dependencies? [y/N]${NORMAL} "
+read answer
+if echo "$answer" | grep -iq "^y" ;then
+  OH_MY_NEOVIM_PLUGINS_ARRAY=$(echo $OH_MY_NEOVIM_PLUGINS | tr " ")
+  for plugin in "${OH_MY_NEOVIM_PLUGINS_ARRAY[@]}"; do
+    echo "$plugin"
+    env sh "$OH_MY_NEOVIM/templates/$plugin/install.sh" || {
+      printf "Error: Install dependencies for plugin \"$plugin\" failed\n"
+  }
+  done
 fi
 
 printf "${BLUE}Updating plugins...${NORMAL}\n"
@@ -123,4 +144,4 @@ env OH_MY_NEOVIM_PLUGINS="$OH_MY_NEOVIM_PLUGINS" nvim -c ":UpdateRemotePlugins" 
 
 printf "\n${GREEN}Oh my Neovim is now installed!${NORMAL}\n"
 printf "${GREEN}Please change the oh_my_neovim environments in your shell profile to select plugins, themes, and options.${NORMAL}\n"
-env $SHELL
+env $CURRENT_SHELL

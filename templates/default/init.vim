@@ -11,6 +11,7 @@ syntax on
 let g:neosolarized_vertSplitBgTrans = 0
 let g:gitgutter_override_sign_column_highlight = 0
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+silent! colorscheme NeoSolarized
 set number
 set tabstop=4
 set shiftwidth=4

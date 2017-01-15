@@ -3,10 +3,17 @@ if (empty($OH_MY_NEOVIM))
 else
   let oh_my_neovim=$OH_MY_NEOVIM
 endif
-if (empty($OH_MY_NEOVIM))
+
+if (empty($OH_MY_NEOVIM_PLUGINS))
   let oh_my_neovim_plugins=[]
 else
   let oh_my_neovim_plugins=split($OH_MY_NEOVIM_PLUGINS)
+endif
+
+if (empty($OH_MY_NEOVIM_MAPLEADER))
+  let mapleader=','
+else
+  let mapleader=$OH_MY_NEOVIM_MAPLEADER
 endif
 
 call plug#begin('~/.vim/plugged')
@@ -37,11 +44,7 @@ for oh_my_neovim_plugin in oh_my_neovim_plugins
 endfor
 
 " Your settings below
-let mapleader = ','
-
 set background=dark
-colorscheme NeoSolarized
 set encoding=utf-8
 set langmenu=en_US
-let $LANG = 'en_US'
-set guifont=SauceCodePro\ Nerd\ Font:h13
+let $LANG='en_US'
