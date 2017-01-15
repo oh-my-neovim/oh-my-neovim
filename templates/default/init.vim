@@ -8,16 +8,9 @@ if (empty($TMUX))
 endif
 
 syntax on
-set background=dark
 let g:neosolarized_vertSplitBgTrans = 0
 let g:gitgutter_override_sign_column_highlight = 0
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
-colorscheme NeoSolarized
-set encoding=utf-8
-set langmenu=en_US
-let $LANG = 'en_US'
-set guifont=SauceCodePro\ Nerd\ Font:h13
-let mapleader = ','
 set number
 set tabstop=4
 set shiftwidth=4

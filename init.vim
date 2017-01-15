@@ -11,13 +11,8 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-" Your plugins can be load here
-Plug 'terryma/vim-multiple-cursors'
-Plug 'YankRing.vim'
-Plug 'sjl/gundo.vim'
-Plug 'godlygeek/tabular'
-Plug 'easymotion/vim-easymotion'
-Plug 'BufOnly.vim'
+" Your plugins below
+" Plug 'sjl/gundo.vim' " Example
 
 " Load oh-my-neovim plugins
 for oh_my_neovim_plugin in oh_my_neovim_plugins
@@ -41,17 +36,12 @@ for oh_my_neovim_plugin in oh_my_neovim_plugins
   endif
 endfor
 
-" YOU CAN YOUR SETTINGS BELOW
-nnoremap <leader>q :q<CR>
-nnoremap <leader><leader>o :BufOnly<cr>
+" Your settings below
+let mapleader = ','
 
-" Multi cursor setting
-let g:multi_cursor_exit_from_visual_mode=0
-let g:multi_cursor_exit_from_insert_mode=0
-
-" Save file after lost focus
-au FocusLost * :wa
-
-" tagbar
-nmap <F8> :TagbarToggle<CR>
-
+set background=dark
+colorscheme NeoSolarized
+set encoding=utf-8
+set langmenu=en_US
+let $LANG = 'en_US'
+set guifont=SauceCodePro\ Nerd\ Font:h13

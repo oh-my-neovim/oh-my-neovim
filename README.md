@@ -6,17 +6,13 @@
 - https://github.com/neovim/neovim/wiki/Installing-Neovim
 - optional install another font: https://github.com/ryanoasis/nerd-fonts#font-installation
 
-#### Prepare workspace for oh-my-neovim (Linux/MacOS):
-
-`sh -c "$(curl -fsSL https://raw.githubusercontent.com/yacut/oh-my-neovim/master/prepare_workspace.sh)"`
-
 #### Install oh-my-neovim (Linux/MacOS):
 
-`sh -c "$(curl -fsSL https://raw.githubusercontent.com/yacut/oh-my-neovim/master/get_latest_vimrc_and_update_plugins.sh)"`
+`sh -c "$(curl -fsSL https://raw.githubusercontent.com/yacut/oh-my-neovim/master/tools/install.sh)"`
 
-#### Upgrade oh-my-neovim and workspace (Linux/MacOS):
+#### Prepare workspace for oh-my-neovim (Linux/MacOS):
 
-`sh -c "$(curl -fsSL https://raw.githubusercontent.com/yacut/oh-my-neovim/master/upgrade_workspace.sh)"`
+`sh -c "$(curl -fsSL https://raw.githubusercontent.com/yacut/oh-my-neovim/master/tools/prepare_workspace.sh)"`
 
 > Do not forget to set the "SauceCodePro NF" font and "Solarized Dark" color scheme in your terminal
 
@@ -31,6 +27,10 @@
 - Upgrade neovim providers
 - Upgrade global npm packages with yarn
 
+#### Upgrade oh-my-neovim and workspace (Linux/MacOS):
+
+`sh -c "$(curl -fsSL https://raw.githubusercontent.com/yacut/oh-my-neovim/master/tools/upgrade_workspace.sh)"`
+
 ### Recommendations
 
 #### Get [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
@@ -39,8 +39,8 @@
 
 #### Create dotfiles for a nodejs project
 
-`sh -c "$(curl -fsSL https://raw.githubusercontent.com/yacut/oh-my-neovim/master/nodejs/create_dotfiles.sh)"`
+`sh -c "$(curl -fsSL https://raw.githubusercontent.com/yacut/oh-my-neovim/master/templates/nodejs/create_dotfiles.sh)"`
 
 #### Create dotfiles for a react project
 
-`sh -c "$(curl -fsSL https://raw.githubusercontent.com/yacut/oh-my-neovim/master/react/create_dotfiles.sh)"`
+`sh -c "$(curl -fsSL https://raw.githubusercontent.com/yacut/oh-my-neovim/master/templates/react/create_dotfiles.sh)"`
