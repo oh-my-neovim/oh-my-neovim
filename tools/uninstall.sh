@@ -17,6 +17,6 @@ if [ -f ~/.config/nvim/init.vim.pre-oh-my-neovim ] || [ -h ~/.config/nvim/init.v
   echo "Your original neovim config was restored. Please restart your neovim."
 fi
 
-env OH_MY_NEOVIM=$OH_MY_NEOVIM sh "$OH_MY_NEOVIM/tools/uninstall_plugin_dependencies.sh"
+env OH_MY_NEOVIM="$OH_MY_NEOVIM" OH_MY_NEOVIM_PLUGINS="$OH_MY_NEOVIM_PLUGINS" sh "$OH_MY_NEOVIM/tools/uninstall_plugin_dependencies.sh"
 
 echo "Thanks for trying out Oh My Neovim. It's been uninstalled."

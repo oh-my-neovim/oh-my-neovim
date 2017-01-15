@@ -34,7 +34,7 @@ if [ "$confirmation" = y ] || [ "$confirmation" = Y ]; then
   for plugin in $plugins; do
     printf "${BLUE}Installing dependencies for $plugin ...${NORMAL}\n"
     if [ -f $OH_MY_NEOVIM/templates/$plugin/install.sh ]; then
-      env sh "$OH_MY_NEOVIM/templates/$plugin/install.sh" || {
+      env OH_MY_NEOVIM="$OH_MY_NEOVIM" OH_MY_NEOVIM_PLUGINS="$OH_MY_NEOVIM_PLUGINS" sh "$OH_MY_NEOVIM/templates/$plugin/install.sh" || {
         printf "Error: Install dependencies for plugin \"$plugin\" failed\n"
       }
     fi

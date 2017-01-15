@@ -20,7 +20,7 @@ else
   NORMAL=""
 fi
 
-env OH_MY_NEOVIM=$OH_MY_NEOVIM sh "$OH_MY_NEOVIM/tools/uninstall_plugin_dependencies.sh"
+env OH_MY_NEOVIM="$OH_MY_NEOVIM" OH_MY_NEOVIM_PLUGINS="$OH_MY_NEOVIM_PLUGINS" sh "$OH_MY_NEOVIM/tools/uninstall_plugin_dependencies.sh"
 
 if [ "$(uname)" = Darwin ]; then
   AVAILABLE_PLUGINS=""
@@ -60,11 +60,11 @@ else
   fi
 fi
 
-env OH_MY_NEOVIM_PLUGINS=$OH_MY_NEOVIM_PLUGINS sh $OH_MY_NEOVIM/tools/install_plugin_dependencies.sh || {
+env OH_MY_NEOVIM="$OH_MY_NEOVIM" OH_MY_NEOVIM_PLUGINS="$OH_MY_NEOVIM_PLUGINS" sh $OH_MY_NEOVIM/tools/install_plugin_dependencies.sh || {
   printf "Error: Plugin dependencies installation failed\n"
 }
 
-env OH_MY_NEOVIM_PLUGINS=$OH_MY_NEOVIM_PLUGINS sh $OH_MY_NEOVIM/tools/install_plugins.sh || {
+env OH_MY_NEOVIM="$OH_MY_NEOVIM" OH_MY_NEOVIM_PLUGINS="$OH_MY_NEOVIM_PLUGINS" sh $OH_MY_NEOVIM/tools/install_plugins.sh || {
   printf "Error: Plugins installation failed\n"
 }
 
