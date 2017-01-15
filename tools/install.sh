@@ -117,30 +117,19 @@ else
   grep -q "export OH_MY_NEOVIM_PLUGINS=.*" ~/.profile || echo "export OH_MY_NEOVIM_PLUGINS=\"$OH_MY_NEOVIM_PLUGINS\"" >> ~/.profile
 fi
 
-read -r -p "${GREEN}Would you like install dependencies for selected plugins? [y/N]${NORMAL} " confirmation
-if [ "$confirmation" = y ] && [ "$confirmation" = Y ]; then
-  OH_MY_NEOVIM_PLUGINS_ARRAY=$(echo "$OH_MY_NEOVIM_PLUGINS" | tr -d " ")
-  for plugin in "${OH_MY_NEOVIM_PLUGINS_ARRAY[@]}"; do
-    echo "$plugin"
-    if [ -f $OH_MY_NEOVIM/templates/$plugin/install.sh ]; then
-      env sh "$OH_MY_NEOVIM/templates/$plugin/install.sh" || {
-        printf "Error: Install dependencies for plugin \"$plugin\" failed\n"
-      }
-    fi
-  done
-fi
+env sh $OH_MY_NEOVIM/tools/install_plugin_dependencies.sh || {
+  printf "Error: Plugin dependencies installation failed\n"
+}
 
 printf "${BLUE}Updating plugins...${NORMAL}\n"
 env OH_MY_NEOVIM_PLUGINS="$OH_MY_NEOVIM_PLUGINS" nvim -c ":PlugInstall" -c ":qa!" --headless || {
   printf "Error: Update plugins failed\n"
   printf "Please start nvim and run ':PlugInstall' manually\n"
-  exit 1
 }
 
 env OH_MY_NEOVIM_PLUGINS="$OH_MY_NEOVIM_PLUGINS" nvim -c ":UpdateRemotePlugins" -c ":qa!" --headless || {
   printf "Error: Update remote plugins failed\n"
   printf "Please start nvim and run ':UpdateRemotePlugins' manually\n"
-  exit 1
 }
 
 printf "\n${GREEN}Oh my Neovim is now installed!${NORMAL}\n"
