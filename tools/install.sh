@@ -86,15 +86,16 @@ fi
 if [ ! -n "$OH_MY_NEOVIM_PLUGINS" ]; then
   if [ "$(uname)" = Darwin ]; then
     OH_MY_NEOVIM_PLUGINS="default"
-  fi
-  # Set plugins
-  AVAILABLE_PLUGINS=$(find $OH_MY_NEOVIM/templates/* -maxdepth 1 -type d -exec basename {} \; -exec echo {} \; -exec echo ON \;)
-  CHOOSED_PLUGINS=$(whiptail --checklist "Choose plugins to install" 28 70 20 ${AVAILABLE_PLUGINS} 3>&1 1>&2 2>&3)
-  exitstatus=$?
-  if [ $exitstatus = 0 ]; then
-    OH_MY_NEOVIM_PLUGINS=$(echo "$CHOOSED_PLUGINS"| tr -d '"')
   else
-    OH_MY_NEOVIM_PLUGINS="default"
+    # Set plugins
+    AVAILABLE_PLUGINS=$(find $OH_MY_NEOVIM/templates/* -maxdepth 1 -type d -exec basename {} \; -exec echo {} \; -exec echo ON \;)
+    CHOOSED_PLUGINS=$(whiptail --checklist "Choose plugins to install" 28 70 20 ${AVAILABLE_PLUGINS} 3>&1 1>&2 2>&3)
+    exitstatus=$?
+    if [ $exitstatus = 0 ]; then
+      OH_MY_NEOVIM_PLUGINS=$(echo "$CHOOSED_PLUGINS"| tr -d '"')
+    else
+      OH_MY_NEOVIM_PLUGINS="default"
+    fi
   fi
 fi
 
