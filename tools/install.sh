@@ -118,7 +118,7 @@ else
 fi
 
 read -r -p "${GREEN}Would you like install dependencies for selected plugins? [y/N]${NORMAL} " confirmation
-if [ "$confirmation" != y ] && [ "$confirmation" != Y ]; then
+if [ "$confirmation" = y ] && [ "$confirmation" = Y ]; then
   OH_MY_NEOVIM_PLUGINS_ARRAY=$(echo "$OH_MY_NEOVIM_PLUGINS" | tr -d " ")
   for plugin in "${OH_MY_NEOVIM_PLUGINS_ARRAY[@]}"; do
     echo "$plugin"
