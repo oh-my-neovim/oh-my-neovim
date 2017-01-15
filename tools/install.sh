@@ -112,24 +112,19 @@ CURRENT_SHELL=$(expr "$SHELL" : '.*/\(.*\)')
 if [ "$CURRENT_SHELL" = "zsh" ]; then
   grep -q "export OH_MY_NEOVIM=.*" ~/.zshrc || echo "export OH_MY_NEOVIM=$OH_MY_NEOVIM" >> ~/.zshrc
   grep -q "export OH_MY_NEOVIM_PLUGINS=.*" ~/.zshrc || echo "export OH_MY_NEOVIM_PLUGINS=\"$OH_MY_NEOVIM_PLUGINS\"" >> ~/.zshrc
+  grep -q "source $OH_MY_NEOVIM/tools/functions.sh" ~/.zshrc || echo "source $OH_MY_NEOVIM/tools/functions.sh" >> ~/.zshrc
 else
   grep -q "export OH_MY_NEOVIM=.*" ~/.profile || echo "export OH_MY_NEOVIM=$OH_MY_NEOVIM" >> ~/.profile
   grep -q "export OH_MY_NEOVIM_PLUGINS=.*" ~/.profile || echo "export OH_MY_NEOVIM_PLUGINS=\"$OH_MY_NEOVIM_PLUGINS\"" >> ~/.profile
+  grep -q "source $OH_MY_NEOVIM/tools/functions.sh" ~/.profile || echo "source $OH_MY_NEOVIM/tools/functions.sh" >> ~/.profile
 fi
 
-env sh $OH_MY_NEOVIM/tools/install_plugin_dependencies.sh || {
+env OH_MY_NEOVIM_PLUGINS=$OH_MY_NEOVIM_PLUGINS sh $OH_MY_NEOVIM/tools/install_plugin_dependencies.sh || {
   printf "Error: Plugin dependencies installation failed\n"
 }
 
-printf "${BLUE}Updating plugins...${NORMAL}\n"
-env OH_MY_NEOVIM_PLUGINS="$OH_MY_NEOVIM_PLUGINS" nvim -c ":PlugInstall" -c ":qa!" --headless || {
-  printf "Error: Update plugins failed\n"
-  printf "Please start nvim and run ':PlugInstall' manually\n"
-}
-
-env OH_MY_NEOVIM_PLUGINS="$OH_MY_NEOVIM_PLUGINS" nvim -c ":UpdateRemotePlugins" -c ":qa!" --headless || {
-  printf "Error: Update remote plugins failed\n"
-  printf "Please start nvim and run ':UpdateRemotePlugins' manually\n"
+env OH_MY_NEOVIM_PLUGINS=$OH_MY_NEOVIM_PLUGINS sh $OH_MY_NEOVIM/tools/install_plugins.sh || {
+  printf "Error: Plugins installation failed\n"
 }
 
 printf "\n${GREEN}Oh my Neovim is now installed!${NORMAL}\n"
