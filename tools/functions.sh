@@ -13,3 +13,7 @@ upgrade_oh_my_neovim () {
 uninstall_oh_my_neovim () {
   env OH_MY_NEOVIM="$OH_MY_NEOVIM" OH_MY_NEOVIM_PLUGINS="$OH_MY_NEOVIM_PLUGINS" sh $OH_MY_NEOVIM/tools/uninstall.sh
 }
+
+select_plugins_oh_my_neovim () {
+  env OH_MY_NEOVIM="$OH_MY_NEOVIM" OH_MY_NEOVIM_PLUGINS="$OH_MY_NEOVIM_PLUGINS" sh $OH_MY_NEOVIM/tools/select_plugins.sh
+}
