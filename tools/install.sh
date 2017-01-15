@@ -123,9 +123,11 @@ if echo "$answer" | grep -iq "^y" ;then
   OH_MY_NEOVIM_PLUGINS_ARRAY=$(echo $OH_MY_NEOVIM_PLUGINS | tr " ")
   for plugin in "${OH_MY_NEOVIM_PLUGINS_ARRAY[@]}"; do
     echo "$plugin"
-    env sh "$OH_MY_NEOVIM/templates/$plugin/install.sh" || {
-      printf "Error: Install dependencies for plugin \"$plugin\" failed\n"
-  }
+    if [ -f $OH_MY_NEOVIM/templates/$plugin/install.sh ]; then
+      env sh "$OH_MY_NEOVIM/templates/$plugin/install.sh" || {
+        printf "Error: Install dependencies for plugin \"$plugin\" failed\n"
+      }
+    fi
   done
 fi
 
