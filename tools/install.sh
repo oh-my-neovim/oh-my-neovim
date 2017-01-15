@@ -84,7 +84,7 @@ if [ ! -f ~/.vim/autoload/plug.vim ]; then
 fi
 
 if [ ! -n "$OH_MY_NEOVIM_PLUGINS" ]; then
-  if [ "$(OSTYPE)" = darwin* ]; then
+  if [ "$OSTYPE" = darwin* ]; then
     AVAILABLE_PLUGINS=""
     for plugin in $(find $OH_MY_NEOVIM/templates/* -maxdepth 1 -type d -exec basename {} \;); do
         if [ ! -n "$AVAILABLE_PLUGINS" ]; then
