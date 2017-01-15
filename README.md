@@ -1,7 +1,5 @@
 ## Oh My Neovim
 
-### Upgrade vim config
-
 #### Dependencies:
 - https://github.com/neovim/neovim/wiki/Installing-Neovim
 - optional install another font: https://github.com/ryanoasis/nerd-fonts#font-installation
