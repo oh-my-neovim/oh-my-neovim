@@ -30,8 +30,8 @@ fi
 CURRENT_SHELL=$(expr "$SHELL" : '.*/\(.*\)')
 if [ "$CURRENT_SHELL" = "zsh" ]; then
   grep -q "PATH=\"$(ruby -e 'print Gem.user_dir')/bin:\$PATH\"" ~/.zshrc || echo "PATH=\"$(ruby -e 'print Gem.user_dir')/bin:\$PATH\"" >> ~/.zshrc
-elif [ "$CURRENT_SHELL" = "bash" ]; then
-  grep -q "PATH=\"$(ruby -e 'print Gem.user_dir')/bin:\$PATH\"" ~/.bashrc || echo "PATH=\"$(ruby -e 'print Gem.user_dir')/bin:\$PATH\"" >> ~/.bashrc
+else
+  grep -q "PATH=\"$(ruby -e 'print Gem.user_dir')/bin:\$PATH\"" ~/.profile || echo "PATH=\"$(ruby -e 'print Gem.user_dir')/bin:\$PATH\"" >> ~/.profile
 fi
 
 # install neovim providers

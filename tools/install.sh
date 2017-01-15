@@ -112,9 +112,9 @@ CURRENT_SHELL=$(expr "$SHELL" : '.*/\(.*\)')
 if [ "$CURRENT_SHELL" = "zsh" ]; then
   grep -q "export OH_MY_NEOVIM=.*" ~/.zshrc || echo "export OH_MY_NEOVIM=$OH_MY_NEOVIM" >> ~/.zshrc
   grep -q "export OH_MY_NEOVIM_PLUGINS=.*" ~/.zshrc || echo "export OH_MY_NEOVIM_PLUGINS=\"$OH_MY_NEOVIM_PLUGINS\"" >> ~/.zshrc
-elif [ "$CURRENT_SHELL" = "bash" ]; then
-  grep -q "export OH_MY_NEOVIM=.*" ~/.bashrc || echo "export OH_MY_NEOVIM=$OH_MY_NEOVIM" >> ~/.bashrc
-  grep -q "export OH_MY_NEOVIM_PLUGINS=.*" ~/.bashrc || echo "export OH_MY_NEOVIM_PLUGINS=\"$OH_MY_NEOVIM_PLUGINS\"" >> ~/.bashrc
+else
+  grep -q "export OH_MY_NEOVIM=.*" ~/.profile || echo "export OH_MY_NEOVIM=$OH_MY_NEOVIM" >> ~/.profile
+  grep -q "export OH_MY_NEOVIM_PLUGINS=.*" ~/.profile || echo "export OH_MY_NEOVIM_PLUGINS=\"$OH_MY_NEOVIM_PLUGINS\"" >> ~/.profile
 fi
 
 read -r -p "${GREEN}Would you like install dependencies for selected plugins? [y/N]${NORMAL} " confirmation
