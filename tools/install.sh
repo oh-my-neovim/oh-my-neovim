@@ -84,7 +84,7 @@ if [ ! -f ~/.vim/autoload/plug.vim ]; then
 fi
 
 if [ ! -n "$OH_MY_NEOVIM_PLUGINS" ]; then
-  if [ "$(uname)" = Darwin ]; then
+  if [ "$(OSTYPE)" = darwin* ]; then
     AVAILABLE_PLUGINS=""
     for plugin in $(find $OH_MY_NEOVIM/templates/* -maxdepth 1 -type d -exec basename {} \;); do
         if [ ! -n "$AVAILABLE_PLUGINS" ]; then
@@ -119,7 +119,7 @@ fi
 
 echo -n "${GREEN}Would you like install dependencies? [y/N]${NORMAL} "
 read answer
-if echo "$answer" | grep -iq "^y" ;then
+if [[ $answer == "Y" || $answer == "y" || $answer == "yes" || $answer == "Yes" ]];then
   OH_MY_NEOVIM_PLUGINS_ARRAY=$(echo $OH_MY_NEOVIM_PLUGINS | tr " ")
   for plugin in "${OH_MY_NEOVIM_PLUGINS_ARRAY[@]}"; do
     echo "$plugin"
