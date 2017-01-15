@@ -26,8 +26,7 @@ set -e
 
 read -r -p "${GREEN}Would you like install dependencies for selected plugins? [y/N]${NORMAL} " confirmation
 if [ "$confirmation" = y ] || [ "$confirmation" = Y ]; then
-  set -A plugins $(echo "$OH_MY_NEOVIM_PLUGINS"| awk -F' ' '{for(i=1; i<=NF; i++){printf("%s ", $i)}}')
-  for plugin in $(plugins); do
+  for plugin in $(echo "$OH_MY_NEOVIM_PLUGINS"| awk -F' ' '{for(i=1; i<=NF; i++){printf("%s ", $i)}}'); do
     printf "${BLUE}Installing dependencies for $plugin ...${NORMAL}\n"
     if [ -f $OH_MY_NEOVIM/templates/$plugin/install.sh ]; then
       env sh "$OH_MY_NEOVIM/templates/$plugin/install.sh" || {
