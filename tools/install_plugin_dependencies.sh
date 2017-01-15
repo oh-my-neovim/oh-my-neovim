@@ -25,16 +25,17 @@ fi
 set -e
 
 read -r -p "${GREEN}Would you like install dependencies for selected plugins? [y/N]${NORMAL} " confirmation
-if [ "$confirmation" = y ] && [ "$confirmation" = Y ]; then
-  # IFS=" "
-  for plugin in $OH_MY_NEOVIM_PLUGINS; do
-    echo "$plugin"
+if [ "$confirmation" = y ] || [ "$confirmation" = Y ]; then
+  for plugin in $(echo "$OH_MY_NEOVIM_PLUGINS" | grep -o -e "[^ ]*"); do
+    printf "${BLUE}Installing dependencies for $plugin ...${NORMAL}\n"
     if [ -f $OH_MY_NEOVIM/templates/$plugin/install.sh ]; then
       env sh "$OH_MY_NEOVIM/templates/$plugin/install.sh" || {
         printf "Error: Install dependencies for plugin \"$plugin\" failed\n"
       }
     fi
   done
+else
+  exit 0
 fi
 
 printf "\n${GREEN}Oh my Neovim plugin dependencies are now installed!${NORMAL}\n"
