@@ -89,12 +89,12 @@ fi
 
 . $OH_MY_NEOVIM/tools/custom.sh
 
-printf "\n${GREEN}Selecting plugins...${NORMAL}\n"
+printf "${GREEN}Selecting plugins...${NORMAL}\n"
 if [ ! -n "$OH_MY_NEOVIM_PLUGINS" ]; then
   select_plugins_dialog
 fi
 
-printf "\n${GREEN}Configuring shell profile...${NORMAL}\n"
+printf "${GREEN}Configuring shell profile...${NORMAL}\n"
 add_to_shell_profile_if_pattern_not_found "export OH_MY_NEOVIM=.*" "export OH_MY_NEOVIM=$OH_MY_NEOVIM"
 add_to_shell_profile_if_pattern_not_found "export OH_MY_NEOVIM_PLUGINS=.*" "export OH_MY_NEOVIM_PLUGINS=\"$OH_MY_NEOVIM_PLUGINS\""
 add_to_shell_profile_if_pattern_not_found "source $OH_MY_NEOVIM/tools/functions.sh" "source $OH_MY_NEOVIM/tools/functions.sh"
