@@ -25,6 +25,7 @@ edit_pattern_in_shell_profile "export OH_MY_NEOVIM=.*" "export OH_MY_NEOVIM=$OH_
 edit_pattern_in_shell_profile "export OH_MY_NEOVIM_PLUGINS=.*" "export OH_MY_NEOVIM_PLUGINS=\"$OH_MY_NEOVIM_PLUGINS\""
 edit_pattern_in_shell_profile "source $OH_MY_NEOVIM/tools/functions.sh" "source $OH_MY_NEOVIM/tools/functions.sh"
 
-rm -rf $OH_MY_NEOVIM
-
-echo "Thanks for trying out Oh My Neovim. It's been uninstalled."
+if [ -d $OH_MY_NEOVIM ]; then
+  rm -rf $OH_MY_NEOVIM
+fi
+echo "\nThanks for trying out Oh My Neovim. It's been uninstalled."
