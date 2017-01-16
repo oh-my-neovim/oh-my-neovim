@@ -75,6 +75,7 @@ if [ -f ~/.vimrc ] || [ -h ~/.vimrc ]; then
 fi
 
 printf "${BLUE}Using the Oh My Neovim template file and adding it to ~/.config/nvim/init.vim${NORMAL}\n"
+mkdir -p ~/.config/nvim
 cp -f $OH_MY_NEOVIM/init.vim ~/.config/nvim/init.vim
 
 printf "${BLUE}Checking plugin manager...${NORMAL}\n"
