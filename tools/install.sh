@@ -84,6 +84,7 @@ if [ ! -f ~/.vim/autoload/plug.vim ]; then
 fi
 
 if [ ! -n "$OH_MY_NEOVIM_PLUGINS" ]; then
+  # Set plugins
   if [ "$(uname)" = Darwin ]; then
     AVAILABLE_PLUGINS=""
     for plugin in $(find $OH_MY_NEOVIM/templates/* -maxdepth 1 -type d -exec basename {} \;); do
@@ -96,19 +97,24 @@ if [ ! -n "$OH_MY_NEOVIM_PLUGINS" ]; then
     SELECTED_PLUGINS=$(osascript -e "choose from list {$AVAILABLE_PLUGINS} with title \"Plugins selector\" with prompt \"Choose oh-my-neovim plugins to install\" OK button name \"OK\" cancel button name \"Cancel\" default items {\"default\"} with multiple selections allowed")
     OH_MY_NEOVIM_PLUGINS=$(echo "$SELECTED_PLUGINS"| tr -d ',')
   else
-    # Set plugins
     if hash whiptail 2>/dev/null; then
-        dialog_tool=whiptail
+      dialog_tool=whiptail
+    elif hash dialog 2>/dev/null; then
+      dialog_tool=dialog
     else
-        dialog_tool=dialog
+      dialog_tool=
     fi
-    AVAILABLE_PLUGINS=$(find $OH_MY_NEOVIM/templates/* -maxdepth 1 -type d -exec basename {} \; -exec echo {} \; -exec echo ON \;)
-    CHOOSED_PLUGINS=$($dialog_tool --checklist "Choose plugins to install" 28 70 20 ${AVAILABLE_PLUGINS} 3>&1 1>&2 2>&3)
-    exitstatus=$?
-    if [ $exitstatus = 0 ]; then
-      OH_MY_NEOVIM_PLUGINS=$(echo "$CHOOSED_PLUGINS"| tr -d '"')
-    else
+    if [ ! -n "dialog_tool" ]; then
       OH_MY_NEOVIM_PLUGINS="default"
+    else
+      AVAILABLE_PLUGINS=$(find $OH_MY_NEOVIM/templates/* -maxdepth 1 -type d -exec basename {} \; -exec echo {} \; -exec echo ON \;)
+      CHOOSED_PLUGINS=$($dialog_tool --checklist "Choose plugins to install" 28 70 20 ${AVAILABLE_PLUGINS} 3>&1 1>&2 2>&3)
+      exitstatus=$?
+      if [ $exitstatus = 0 ]; then
+        OH_MY_NEOVIM_PLUGINS=$(echo "$CHOOSED_PLUGINS"| tr -d '"')
+      else
+        OH_MY_NEOVIM_PLUGINS="default"
+      fi
     fi
   fi
 fi
