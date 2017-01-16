@@ -82,7 +82,9 @@ printf "${BLUE}Checking plugin manager...${NORMAL}\n"
 if [ ! -f ~/.vim/autoload/plug.vim ]; then
   printf "${YELLOW}plug.vim not found...${NORMAL} ${GREEN}Downloading it from github...${NORMAL}\n"
   mkdir -p ~/.nvim/autoload
-  curl -sfLo ~/.nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  env curl -sfLo ~/.nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim || {
+    printf "Error: Download with curl failed\n"
+  }
 fi
 
 . $OH_MY_NEOVIM/tools/custom.sh
