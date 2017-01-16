@@ -1,4 +1,5 @@
 #!/bin/sh
+. $OH_MY_NEOVIM/tools/custom.sh
 read -r -p "Are you sure you want to remove Oh My Zsh? [y/N] " confirmation
 if [ "$confirmation" != y ] && [ "$confirmation" != Y ]; then
   echo "Uninstall cancelled"
@@ -18,5 +19,12 @@ if [ -f ~/.config/nvim/init.vim.pre-oh-my-neovim ] || [ -h ~/.config/nvim/init.v
 fi
 
 env OH_MY_NEOVIM="$OH_MY_NEOVIM" OH_MY_NEOVIM_PLUGINS="$OH_MY_NEOVIM_PLUGINS" sh "$OH_MY_NEOVIM/tools/uninstall_plugin_dependencies.sh"
+
+
+edit_pattern_in_shell_profile "export OH_MY_NEOVIM=.*" "export OH_MY_NEOVIM=$OH_MY_NEOVIM"
+edit_pattern_in_shell_profile "export OH_MY_NEOVIM_PLUGINS=.*" "export OH_MY_NEOVIM_PLUGINS=\"$OH_MY_NEOVIM_PLUGINS\""
+edit_pattern_in_shell_profile "source $OH_MY_NEOVIM/tools/functions.sh" "source $OH_MY_NEOVIM/tools/functions.sh"
+
+rm -rf $OH_MY_NEOVIM
 
 echo "Thanks for trying out Oh My Neovim. It's been uninstalled."

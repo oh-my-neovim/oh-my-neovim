@@ -83,52 +83,15 @@ if [ ! -f ~/.vim/autoload/plug.vim ]; then
   curl -sfLo ~/.nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
+. $OH_MY_NEOVIM/tools/custom.sh
+
 if [ ! -n "$OH_MY_NEOVIM_PLUGINS" ]; then
-  # Set plugins
-  if [ "$(uname)" = Darwin ]; then
-    AVAILABLE_PLUGINS=""
-    for plugin in $(find $OH_MY_NEOVIM/templates/* -maxdepth 1 -type d -exec basename {} \;); do
-        if [ ! -n "$AVAILABLE_PLUGINS" ]; then
-            AVAILABLE_PLUGINS="\"$plugin\""
-        else
-            AVAILABLE_PLUGINS="$AVAILABLE_PLUGINS, \"$plugin\""
-        fi
-    done
-    SELECTED_PLUGINS=$(osascript -e "choose from list {$AVAILABLE_PLUGINS} with title \"Plugins selector\" with prompt \"Choose oh-my-neovim plugins to install\" OK button name \"OK\" cancel button name \"Cancel\" default items {\"default\"} with multiple selections allowed")
-    OH_MY_NEOVIM_PLUGINS=$(echo "$SELECTED_PLUGINS"| tr -d ',')
-  else
-    if hash whiptail 2>/dev/null; then
-      dialog_tool=whiptail
-    elif hash dialog 2>/dev/null; then
-      dialog_tool=dialog
-    else
-      dialog_tool=
-    fi
-    if [ ! -n "dialog_tool" ]; then
-      OH_MY_NEOVIM_PLUGINS="default"
-    else
-      AVAILABLE_PLUGINS=$(find $OH_MY_NEOVIM/templates/* -maxdepth 1 -type d -exec basename {} \; -exec echo {} \; -exec echo ON \;)
-      CHOOSED_PLUGINS=$($dialog_tool --checklist "Choose plugins to install" 28 70 20 ${AVAILABLE_PLUGINS} 3>&1 1>&2 2>&3)
-      exitstatus=$?
-      if [ $exitstatus = 0 ]; then
-        OH_MY_NEOVIM_PLUGINS=$(echo "$CHOOSED_PLUGINS"| tr -d '"')
-      else
-        OH_MY_NEOVIM_PLUGINS="default"
-      fi
-    fi
-  fi
+  select_plugins_dialog
 fi
 
-CURRENT_SHELL=$(expr "$SHELL" : '.*/\(.*\)')
-if [ "$CURRENT_SHELL" = "zsh" ]; then
-  grep -q "export OH_MY_NEOVIM=.*" ~/.zshrc || echo "export OH_MY_NEOVIM=$OH_MY_NEOVIM" >> ~/.zshrc
-  grep -q "export OH_MY_NEOVIM_PLUGINS=.*" ~/.zshrc || echo "export OH_MY_NEOVIM_PLUGINS=\"$OH_MY_NEOVIM_PLUGINS\"" >> ~/.zshrc
-  grep -q "source $OH_MY_NEOVIM/tools/functions.sh" ~/.zshrc || echo "source $OH_MY_NEOVIM/tools/functions.sh" >> ~/.zshrc
-else
-  grep -q "export OH_MY_NEOVIM=.*" ~/.profile || echo "export OH_MY_NEOVIM=$OH_MY_NEOVIM" >> ~/.profile
-  grep -q "export OH_MY_NEOVIM_PLUGINS=.*" ~/.profile || echo "export OH_MY_NEOVIM_PLUGINS=\"$OH_MY_NEOVIM_PLUGINS\"" >> ~/.profile
-  grep -q "source $OH_MY_NEOVIM/tools/functions.sh" ~/.profile || echo "source $OH_MY_NEOVIM/tools/functions.sh" >> ~/.profile
-fi
+add_to_shell_profile_if_pattern_not_found "export OH_MY_NEOVIM=.*" "export OH_MY_NEOVIM=$OH_MY_NEOVIM"
+add_to_shell_profile_if_pattern_not_found "export OH_MY_NEOVIM_PLUGINS=.*" "export OH_MY_NEOVIM_PLUGINS=\"$OH_MY_NEOVIM_PLUGINS\""
+add_to_shell_profile_if_pattern_not_found "source $OH_MY_NEOVIM/tools/functions.sh" "source $OH_MY_NEOVIM/tools/functions.sh"
 
 env OH_MY_NEOVIM="$OH_MY_NEOVIM" OH_MY_NEOVIM_PLUGINS="$OH_MY_NEOVIM_PLUGINS" sh $OH_MY_NEOVIM/tools/install_plugin_dependencies.sh || {
   printf "Error: Plugin dependencies installation failed\n"
