@@ -1,0 +1,7 @@
+Plug 'altercation/vim-colors-solarized'
+Plug 'chriskempson/vim-tomorrow-theme'
+Plug 'sickill/vim-monokai'
+Plug 'jpo/vim-railscasts-theme'
+Plug 'nlknguyen/papercolor-theme'
+Plug 'joshdick/onedark.vim'
+Plug 'endel/vim-github-colorscheme'
