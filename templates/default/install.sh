@@ -8,7 +8,7 @@ if [ "$OS_TYPE" = Darwin ]; then
       unzip -o SourceCodePro.zip && rm SourceCodePro.zip
   fi
   # install dependencies
-  brew install python python3 ruby
+  brew install neovim python python3 ruby
 elif [ "$OS_TYPE" = Linux ]; then
   # install font
   if [ ! -f ~/.local/share/fonts/Sauce\ Code\ Pro\ Nerd\ Font\ Complete.ttf ]; then
@@ -20,9 +20,9 @@ elif [ "$OS_TYPE" = Linux ]; then
   fi
   # install dependencies
   if [ -f /etc/debian_version ]; then
-    sudo apt-get install -y -q python python3 python-pip xsel ruby ruby-dev python-dev
+    sudo apt-get install -y -qi neovim python python3 python-pip xsel ruby ruby-dev python-dev
   elif [ -f /etc/redhat-release ]; then
-    sudo yum -y install python-pip ruby ruby-devel python-devel
+    sudo yum -y install neovim python-pip ruby ruby-devel python-devel
   fi
 fi
 
