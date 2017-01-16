@@ -65,3 +65,11 @@ upgrade_oh_my_neovim
 ## Uninstalling Oh My Neovim
 
 If you want to uninstall `oh-my-neovim`, just run `uninstall_oh_my_neovim` from the command-line. It will remove itself and revert your previous `neovim` configuration.
+
+## Self-Promotion
+
+Like Oh My Neovim? Follow the repository on [https://github.com/yacut/oh-my-neovim](https://github.com/yacut/oh-my-neovim) and vote for it.
+
+## License
+
+Oh My Neovim is released under the [MIT license](LICENSE).
