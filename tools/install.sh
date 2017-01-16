@@ -101,6 +101,7 @@ env OH_MY_NEOVIM="$OH_MY_NEOVIM" OH_MY_NEOVIM_PLUGINS="$OH_MY_NEOVIM_PLUGINS" sh
   printf "Error: Plugins installation failed\n"
 }
 
+print_logo
 printf "\n${GREEN}Oh my Neovim is now installed!${NORMAL}\n"
 printf "${GREEN}Please change the oh_my_neovim environments in your shell profile to select plugins, themes, and options.${NORMAL}\n"
 env $CURRENT_SHELL
