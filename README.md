@@ -70,6 +70,10 @@ If you want to uninstall `oh-my-neovim`, just run `uninstall_oh_my_neovim` from 
 
 Like Oh My Neovim? Follow the repository on [https://github.com/yacut/oh-my-neovim](https://github.com/yacut/oh-my-neovim) and vote for it.
 
+## Credits
+
+I would like to thank [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) project, from which I borrowed install/upgrade/uninstall processes and another good ideas.
+
 ## License
 
 Oh My Neovim is released under the [MIT license](LICENSE).
