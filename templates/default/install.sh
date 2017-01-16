@@ -20,7 +20,7 @@ elif [ "$OS_TYPE" = Linux ]; then
   fi
   # install dependencies
   if [ -f /etc/debian_version ]; then
-    sudo apt-get install -y -qi neovim python python3 python-pip xsel ruby ruby-dev python-dev
+    sudo apt-get install -y -q neovim python python3 python-pip xsel ruby ruby-dev python-dev
   elif [ -f /etc/redhat-release ]; then
     sudo yum -y install neovim python-pip ruby ruby-devel python-devel
   fi
