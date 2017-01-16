@@ -71,7 +71,11 @@ select_plugins_dialog () {
         fi
     done
     SELECTED_PLUGINS=$(osascript -e "choose from list {$AVAILABLE_PLUGINS} with title \"Plugins selector\" with prompt \"Choose oh-my-neovim plugins to install\" OK button name \"OK\" cancel button name \"Cancel\" default items {\"default\"} with multiple selections allowed")
-    OH_MY_NEOVIM_PLUGINS=$(echo "$SELECTED_PLUGINS"| tr -d ',')
+    if [ "$SELECTED_PLUGINS" = false ]; then
+			OH_MY_NEOVIM_PLUGINS="default"
+		else
+    	OH_MY_NEOVIM_PLUGINS=$(echo "$SELECTED_PLUGINS"| tr -d ',')
+		fi
   else
     if hash whiptail 2>/dev/null; then
       dialog_tool=whiptail
