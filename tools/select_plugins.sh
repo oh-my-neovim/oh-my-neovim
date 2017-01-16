@@ -3,8 +3,6 @@
 
 env OH_MY_NEOVIM="$OH_MY_NEOVIM" OH_MY_NEOVIM_PLUGINS="$OH_MY_NEOVIM_PLUGINS" sh "$OH_MY_NEOVIM/tools/uninstall_plugin_dependencies.sh"
 
-. $OH_MY_NEOVIM/tools/custom.sh
-
 select_plugins_dialog
 edit_pattern_in_shell_profile "export OH_MY_NEOVIM_PLUGINS=\".*" "export OH_MY_NEOVIM_PLUGINS=\"$OH_MY_NEOVIM_PLUGINS\""
 
