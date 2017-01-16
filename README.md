@@ -18,7 +18,9 @@ Oh My Neovim is installed by running one of the following commands in your termi
 
 #### via curl
 
-`sh -c "$(curl -fsSL https://raw.githubusercontent.com/yacut/oh-my-neovim/master/tools/install.sh)"`
+```shell
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/yacut/oh-my-neovim/master/tools/install.sh)"`
+```
 
 #### via wget
 
