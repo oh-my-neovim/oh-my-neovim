@@ -84,7 +84,7 @@ select_plugins_dialog () {
     else
       dialog_tool=
     fi
-    if [ ! -n "dialog_tool" ]; then
+    if [ ! -n "$dialog_tool" ]; then
       OH_MY_NEOVIM_PLUGINS="default"
     else
       AVAILABLE_PLUGINS=$(find $OH_MY_NEOVIM/templates/* -maxdepth 1 -type d -exec basename {} \; -exec echo {} \; -exec echo ON \;)
