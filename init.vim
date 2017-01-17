@@ -41,6 +41,6 @@ for oh_my_neovim_plugin in oh_my_neovim_plugins
 endfor
 
 " Load your custom configuration 
-if empty(glob($HOME . '.config/nvim/custom.init.vim')) == 0
-  execute 'source' $HOME . '.config/nvim/custom.init.vim'
+if empty(glob($HOME . '/.config/nvim/custom.init.vim')) == 0
+  execute 'source' $HOME . '/.config/nvim/custom.init.vim'
 endif
