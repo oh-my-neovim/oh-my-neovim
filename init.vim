@@ -16,7 +16,7 @@ else
   let mapleader=$OH_MY_NEOVIM_MAPLEADER
 endif
 
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.local/share/nvim/plugged')
 
 " Your plugins below
 " Plug 'sjl/gundo.vim' " Example
