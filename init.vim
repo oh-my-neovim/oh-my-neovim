@@ -18,9 +18,6 @@ endif
 
 call plug#begin('~/.local/share/nvim/plugged')
 
-" Your plugins below
-" Plug 'sjl/gundo.vim' " Example
-
 " Load oh-my-neovim plugins
 for oh_my_neovim_plugin in oh_my_neovim_plugins
   if empty(glob(oh_my_neovim . '/templates/' . oh_my_neovim_plugin . '/plug.vim')) == 0
@@ -43,8 +40,7 @@ for oh_my_neovim_plugin in oh_my_neovim_plugins
   endif
 endfor
 
-" Your settings below
-set background=dark
-set encoding=utf-8
-set langmenu=en_US
-let $LANG='en_US'
+" Load your custom configuration 
+if empty(glob('./custom.init.vim')) == 0
+  execute 'source' . '/custom.init.vim'
+endif
