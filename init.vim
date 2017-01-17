@@ -42,5 +42,5 @@ endfor
 
 " Load your custom configuration 
 if empty(glob('./custom.init.vim')) == 0
-  execute 'source' . $HOME . '.config/nvim/custom.init.vim'
+  execute 'source' $HOME . '.config/nvim/custom.init.vim'
 endif
