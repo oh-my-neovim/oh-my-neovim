@@ -30,7 +30,7 @@ let g:NERDTreeShowHidden=1
 set laststatus=2
 
 " Neomake check after open and write
-autocmd! BufWritePost,BufEnter * Neomake
+autocmd! BufWritePost,BufEnter * silent! Neomake
 
 " Airline settings
 let g:airline#extensions#tabline#enabled=1
