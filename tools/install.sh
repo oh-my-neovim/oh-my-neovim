@@ -109,5 +109,5 @@ env OH_MY_NEOVIM="$OH_MY_NEOVIM" OH_MY_NEOVIM_PLUGINS="$OH_MY_NEOVIM_PLUGINS" sh
 print_logo
 printf "\n${GREEN}Oh my Neovim is now installed!${NORMAL}\n"
 printf "${GREEN}Please change the oh_my_neovim environments in your shell profile to select plugins, themes, and options.${NORMAL}\n"
-prints "${GREEN}Please put your own configurations to ~/.config/nvim/custom.init.vim${NORMAL}\n"
+printf "${GREEN}Please put your own configurations to ~/.config/nvim/custom.init.vim${NORMAL}\n"
 env $CURRENT_SHELL
