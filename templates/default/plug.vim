@@ -1,11 +1,13 @@
+" Tree explorer
 Plug 'scrooloose/nerdtree'
-
+" Status/tabline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-
+" Theme
 Plug 'iCyMind/NeoSolarized'
 
-Plug 'tpope/vim-surround'
+" Display keymap
+Plug 'hecal3/vim-leader-guide'
 
 " syntax checkers
 Plug 'benekastah/neomake'
