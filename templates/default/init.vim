@@ -43,4 +43,4 @@ let g:airline#extensions#branch#format = 1
 nnoremap <silent> <leader> :<c-u>LeaderGuide ','<CR>
 vnoremap <silent> <leader> :<c-u>LeaderGuideVisual ','<CR>
 let g:leaderGuide_max_size = 5
-let g:leaderGuide_submode_mappings = { '<Down>': 'page_down', '<Up>': 'page_up'}
+let g:leaderGuide_submode_mappings = { '<C-Down>': 'page_down', '<C-Up>': 'page_up'}
