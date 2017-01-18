@@ -44,4 +44,3 @@ let g:airline#extensions#branch#format = 1
 nnoremap <silent> <leader> :<c-u>LeaderGuide ','<CR>
 vnoremap <silent> <leader> :<c-u>LeaderGuideVisual ','<CR>
 autocmd FileType gitcommit  noremap <buffer> <leader> <Plug>leaderguide-buffer
-let g:lmap.g = ['', 'git (fugitive)']
