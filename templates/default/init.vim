@@ -43,3 +43,5 @@ let g:airline#extensions#branch#format = 1
 " call leaderGuide#register_prefix_descriptions(",", "g:lmap")
 nnoremap <silent> <leader> :<c-u>LeaderGuide ','<CR>
 vnoremap <silent> <leader> :<c-u>LeaderGuideVisual ','<CR>
+autocmd FileType gitcommit  noremap <buffer> <leader> <Plug>leaderguide-buffer
+let g:lmap.g = ['', 'git (fugitive)']
