@@ -40,11 +40,6 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#branch#format = 1
 
 " Leader guide settings
-nnoremap <localleader> :<c-u>LeaderGuide  ','<CR>
-vnoremap <localleader> :<c-u>LeaderGuideVisual  ','<CR>
-" This variant won't habe any group names.
-" Group names can be defined by filetype. Add the following lines:
-let g:llmap = {}
-autocmd FileType tex let g:llmap.l = { 'name' : 'vimtex' }
-call leaderGuide#register_prefix_descriptions(",", "g:llmap")
-" to name the <localleader>-n group vimtex in tex files.
+call leaderGuide#register_prefix_descriptions(",", "g:lmap")
+nnoremap <silent> <leader> :<c-u>LeaderGuide ','<CR>
+vnoremap <silent> <leader> :<c-u>LeaderGuideVisual ','<CR>
