@@ -21,6 +21,7 @@ nnoremap <leader>T :enew<cr>
 nnoremap gy :bnext<CR>
 nnoremap gt :bprevious<cr>
 nnoremap gd :bdelete<cr>
+nnoremap <leader>q :q<CR>
 
 " Press Enter on completion does a new line
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
