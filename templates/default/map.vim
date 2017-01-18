@@ -37,3 +37,6 @@ vnoremap <C-Up> :m '<-2<CR>gv=gv
 " Encode/Decode base64
 vnoremap <leader>64e c<c-r>=system('base64',@")<cr><esc>
 vnoremap <leader>64d c<c-r>=system('base64 --decode',@")<cr><esc>
+
+"Leader guide
+map <leader>. <Plug>leaderguide-global
