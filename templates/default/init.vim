@@ -40,6 +40,6 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#branch#format = 1
 
 " Leader guide settings
-call leaderGuide#register_prefix_descriptions(",", "g:lmap")
+" call leaderGuide#register_prefix_descriptions(",", "g:lmap")
 nnoremap <silent> <leader> :<c-u>LeaderGuide ','<CR>
 vnoremap <silent> <leader> :<c-u>LeaderGuideVisual ','<CR>
