@@ -1,1 +1,0 @@
-Plug 'mxw/vim-jsx'

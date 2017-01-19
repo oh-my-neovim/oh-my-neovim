@@ -6,6 +6,9 @@ Plug 'vim-airline/vim-airline-themes'
 " Theme
 Plug 'iCyMind/NeoSolarized'
 
+" Syntax
+Plug 'sheerun/vim-polyglot'
+
 " Display keymap
 Plug 'hecal3/vim-leader-guide'
 
