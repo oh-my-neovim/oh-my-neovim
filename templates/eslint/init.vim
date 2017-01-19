@@ -1,2 +1,5 @@
 let g:neomake_javascript_enabled_makers = ['eslint']
-let g:neomake_javascript_eslint_args = ['-f', 'compact', '--fix']
+"Autofix on save
+au BufWritePre *.js :silent! Fixmyjs
+au BufWritePre *.jsx :silent! Fixmyjs
+let g:fixmyjs_engine = 'eslint'
