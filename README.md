@@ -14,7 +14,7 @@ Oh My Neovim is an open source for managing your [neovim](https://neovim.io/) co
 
 ### Basic Installation
 
-Oh My Neovim is installed by running one of the following commands in your terminal. You can install this via the command-line with either `curl` or `wget`.
+Oh My Neovim is installed by running one of the following commands in your terminal. You can install this via the command-line with `curl`.
 
 ```shell
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/yacut/oh-my-neovim/master/tools/install.sh)"
