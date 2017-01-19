@@ -25,6 +25,11 @@ for oh_my_neovim_plugin in oh_my_neovim_plugins
   endif
 endfor
 
+" Load your custom plugins 
+if empty(glob($HOME . '/.config/nvim/custom.plug.vim')) == 0
+  execute 'source' $HOME . '/.config/nvim/custom.plug.vim'
+endif
+
 call plug#end()
 
 " Load oh-my-neovim configurations
