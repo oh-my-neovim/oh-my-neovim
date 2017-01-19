@@ -9,4 +9,4 @@ if [ "$CURRENT_SHELL" = "zsh" ]; then
 else
   grep -q "PATH=\"$HOME/.yarn-global/bin:\$PATH\"" ~/.profile || echo "PATH=\"$HOME/.yarn-global/bin:\$PATH\"" >> ~/.profile
 fi
-yarn global add tern --global-folder ~/.yarn-global
+yarn global add eslint --global-folder ~/.yarn-global

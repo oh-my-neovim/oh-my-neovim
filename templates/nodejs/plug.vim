@@ -1,0 +1,1 @@
+Plug 'moll/vim-node'
