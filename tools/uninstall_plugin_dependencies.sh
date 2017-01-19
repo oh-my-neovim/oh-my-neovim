@@ -9,8 +9,8 @@ if [ "$confirmation" = y ] || [ "$confirmation" = Y ]; then
     plugins=$(echo "$OH_MY_NEOVIM_PLUGINS" | grep -o -e "[^ ]*")
   fi
   for plugin in $plugins; do
-    printf "${BLUE}Uninstalling dependencies for $plugin ...${NORMAL}\n"
     if [ -f $OH_MY_NEOVIM/templates/$plugin/install.sh ]; then
+      printf "${BLUE}Uninstalling dependencies for $plugin ...${NORMAL}\n"
       env OH_MY_NEOVIM="$OH_MY_NEOVIM" OH_MY_NEOVIM_PLUGINS="$OH_MY_NEOVIM_PLUGINS" sh "$OH_MY_NEOVIM/templates/$plugin/uninstall.sh" || {
         printf "Error: Uninstall dependencies for plugin \"$plugin\" failed\n"
       }
