@@ -90,7 +90,10 @@ fi
 
 printf "${GREEN}Selecting plugins...${NORMAL}\n"
 if [ ! -n "$OH_MY_NEOVIM_PLUGINS" ]; then
-  select_plugins_dialog
+  read -r -p "${RED}Would you like to select oh-my-neovim plugins? [y/N]${NORMAL} " confirmation
+  if [ "$confirmation" = y ] || [ "$confirmation" = Y ]; then
+   select_plugins_dialog
+  fi
 fi
 
 printf "${GREEN}Configuring shell profile...${NORMAL}\n"
@@ -107,7 +110,8 @@ env OH_MY_NEOVIM="$OH_MY_NEOVIM" OH_MY_NEOVIM_PLUGINS="$OH_MY_NEOVIM_PLUGINS" sh
 }
 
 print_logo
-printf "\n${GREEN}Oh my Neovim is now installed!${NORMAL}\n"
+printf "\n${GREEN}${BOLD}Oh my Neovim is now installed!${NORMAL}\n"
 printf "${GREEN}Please change the oh_my_neovim environments in your shell profile to select plugins, themes, and options.${NORMAL}\n"
-printf "${GREEN}Please put your own configurations to ~/.config/nvim/custom.init.vim${NORMAL}\n"
+printf "${GREEN}IMPORTANT: 'default' plugins should be last in your OH_MY_NEOVIM_PLUGINS variable.${NORMAL}\n"
+printf "${GREEN}Please put your own configurations to ~/.config/nvim/custom.init.vim and plugins to ~/.config/nvim/custom.plug.vim${NORMAL}\n"
 env $SHELL

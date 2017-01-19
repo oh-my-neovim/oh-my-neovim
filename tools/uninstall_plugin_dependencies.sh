@@ -1,7 +1,7 @@
 #!/bin/sh
 . $OH_MY_NEOVIM/tools/custom.sh
 
-read -r -p "${RED}Would you like uninstall dependencies for selected plugins? [y/N]${NORMAL} " confirmation
+read -r -p "${RED}Would you like to uninstall dependencies for selected plugins? [y/N]${NORMAL} " confirmation
 if [ "$confirmation" = y ] || [ "$confirmation" = Y ]; then
   if [ "$(uname)" = Darwin ]; then
     plugins=$(echo $OH_MY_NEOVIM_PLUGINS | tr ' ' "\n")

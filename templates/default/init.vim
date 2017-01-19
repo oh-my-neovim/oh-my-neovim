@@ -11,6 +11,7 @@ syntax on
 let g:neosolarized_vertSplitBgTrans = 0
 let g:gitgutter_override_sign_column_highlight = 0
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+let g:WebDevIconsNerdTreeAfterGlyphPadding = ''
 silent! colorscheme NeoSolarized
 set number
 set tabstop=4
@@ -38,6 +39,8 @@ let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#branch#format = 1
+let g:webdevicons_enable_airline_tabline = 1
+let g:webdevicons_enable_airline_statusline = 1
 
 " Leader guide settings
 nnoremap <silent> <leader> :<c-u>LeaderGuide ','<CR>
