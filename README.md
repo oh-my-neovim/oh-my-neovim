@@ -8,7 +8,7 @@ Oh My Neovim is an open source for managing your [neovim](https://neovim.io/) co
 
 - Unix-like operating system (macOS or Linux)
 - Neovim should be installed, check the following instruction here: [Installing Neovim](https://github.com/neovim/neovim/wiki/Installing-Neovim)
-- `curl` or `wget` should be installed
+- `curl` should be installed
 - `git` should be installed
 - optional install another font: https://github.com/ryanoasis/nerd-fonts#font-installation
 
@@ -16,18 +16,9 @@ Oh My Neovim is an open source for managing your [neovim](https://neovim.io/) co
 
 Oh My Neovim is installed by running one of the following commands in your terminal. You can install this via the command-line with either `curl` or `wget`.
 
-#### via curl
-
 ```shell
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/yacut/oh-my-neovim/master/tools/install.sh)"
 ```
-
-#### via wget
-
-```shell
-sh -c "$(wget https://raw.githubusercontent.com/yacut/oh-my-neovim/master/tools/install.sh -O -)"
-```
-
 > Do not forget to set the Nerd font in your terminal
 
 ## Using Oh My Neovim
