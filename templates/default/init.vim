@@ -32,6 +32,9 @@ set laststatus=2
 " Do not open preview on completion
 set completeopt-=preview
 
+" SuperTab go from top to bottom
+let g:SuperTabDefaultCompletionType = "<c-n>"
+
 " Neomake check after open and write
 autocmd! BufWritePost,BufEnter * silent! Neomake
 
