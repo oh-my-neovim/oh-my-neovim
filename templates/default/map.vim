@@ -24,8 +24,8 @@ nnoremap gd :bdelete<cr>
 nnoremap <leader>q :q<CR>
 
 " Press Enter on completion does a new line
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-inoremap <silent><expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+"inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+"inoremap <silent><expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " Move line up and down
 nnoremap <C-Down> :m .+1<CR>==
