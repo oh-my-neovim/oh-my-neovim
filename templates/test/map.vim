@@ -1,2 +1,2 @@
-nmap <silent> <leader><leader>n :TestNearest<CR>
-nmap <silent> <leader><leader>t :TestFile<CR>
+nmap <silent> <leader>tn :TestNearest<CR>
+nmap <silent> <leader>tf :TestFile<CR>
