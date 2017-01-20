@@ -14,6 +14,9 @@ Plug 'sheerun/vim-polyglot'
 " Display keymap
 Plug 'hecal3/vim-leader-guide'
 
+" Tab to completion
+Plug 'ervandew/supertab'
+
 " syntax checkers
 Plug 'benekastah/neomake'
 " webdevicons must be loaded last
