@@ -41,3 +41,5 @@ vnoremap <leader>64d c<c-r>=system('base64 --decode',@")<cr><esc>
 
 "Leader guide
 map <leader>. <Plug>leaderguide-global
+nnoremap <silent> <leader> :<c-u>LeaderGuide ','<CR>
+vnoremap <silent> <leader> :<c-u>LeaderGuideVisual ','<CR>

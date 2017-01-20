@@ -43,8 +43,7 @@ let g:webdevicons_enable_airline_tabline = 1
 let g:webdevicons_enable_airline_statusline = 1
 
 " Leader guide settings
-nnoremap <silent> <leader> :<c-u>LeaderGuide ','<CR>
-vnoremap <silent> <leader> :<c-u>LeaderGuideVisual ','<CR>
+let g:leaderGuide_max_size = 20
 
 "NERDTree highlight
 let s:blue = "689FB6"
