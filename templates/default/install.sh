@@ -18,4 +18,5 @@ elif [ "$OS_TYPE" = Linux ]; then
   fi
 fi
 # add ruby to PATH
+. $OH_MY_NEOVIM/tools/custom.sh
 add_to_shell_profile_if_pattern_not_found "PATH=\"$(ruby -e 'print Gem.user_dir')/bin:\$PATH\"" "PATH=\"$(ruby -e 'print Gem.user_dir')/bin:\$PATH\""
