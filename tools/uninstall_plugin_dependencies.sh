@@ -22,7 +22,7 @@ if [ "$confirmation" = y ] || [ "$confirmation" = Y ]; then
     done
   fi
   # for linux
-  if [ "$OS_TYPE" = Linux ]; then
+  if [ "$(uname)" = Linux ]; then
     plugins=$(echo "$OH_MY_NEOVIM_PLUGINS" | grep -o -e "[^ ]*")
     for plugin in $plugins; do
       # debian based system
