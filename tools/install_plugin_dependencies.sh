@@ -89,7 +89,7 @@ if [ "$confirmation" = y ] || [ "$confirmation" = Y ]; then
         node_package_manager_command="yarn global add --global-folder $NPM_GLOBAL_FOLDER"
         yarn config set prefix $NPM_GLOBAL_FOLDER
       elif hash npm 2>/dev/null; then
-        node_package_manager_command="npm install --global"
+        node_package_manager_command="npm install --global --silent"
         npm config set prefix $NPM_GLOBAL_FOLDER
       else
         echo "Error: npm or yarn is not installed"
