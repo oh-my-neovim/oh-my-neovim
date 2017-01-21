@@ -14,5 +14,6 @@ env OH_MY_NEOVIM="$OH_MY_NEOVIM" OH_MY_NEOVIM_PLUGINS="$OH_MY_NEOVIM_PLUGINS" sh
   printf "Error: Plugins installation failed\n"
 }
 
+print_logo
 printf "\n${GREEN}New Oh my Neovim plugins is now installed!${NORMAL}\n"
 env $SHELL
