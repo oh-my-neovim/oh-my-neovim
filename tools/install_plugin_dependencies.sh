@@ -3,7 +3,7 @@
 
 read -r -p "${GREEN}Would you like to install dependencies for selected plugins? [y/N]${NORMAL} " confirmation
 if [ "$confirmation" = y ] || [ "$confirmation" = Y ]; then
-  # runs on macos
+  # for macos
   if [ "$(uname)" = Darwin ]; then
     plugins=$(echo $OH_MY_NEOVIM_PLUGINS | tr ' ' "\n")
     hash brew >/dev/null 2>&1 || {
@@ -21,30 +21,34 @@ if [ "$confirmation" = y ] || [ "$confirmation" = Y ]; then
       fi
     done
   fi
-  # runs on linux
+  # for linux
   if [ "$(uname)" = Linux ]; then
     plugins=$(echo "$OH_MY_NEOVIM_PLUGINS" | grep -o -e "[^ ]*")
-    # debian based system
-    if [ -f /etc/debian_version ]; then
-      if [ -f $OH_MY_NEOVIM/templates/$plugin/apt ]; then
-        apt_packages=$(cat $OH_MY_NEOVIM/templates/$plugin/apt)
-        printf "${BLUE}Install $apt_packages with apt for $plugin plugin...${NORMAL}\n"
-        printf "${RED}sudo permissions required${NORMAL}\n"
-        sudo apt-get install -y -q $apt_packages || {
-          printf "Error [apt]: Installation for plugin \"$plugin\" failed\n"
-        }
+    for plugin in $plugins; do
+      # debian based system
+      if [ -f /etc/debian_version ]; then
+        if [ -f $OH_MY_NEOVIM/templates/$plugin/apt ]; then
+          apt_packages=$(cat $OH_MY_NEOVIM/templates/$plugin/apt)
+          printf "${BLUE}Install $apt_packages with apt for $plugin plugin...${NORMAL}\n"
+          printf "${RED}sudo permissions required${NORMAL}\n"
+          sudo apt-get install -y -q $apt_packages || {
+            printf "Error [apt]: Installation for plugin \"$plugin\" failed\n"
+          }
+        fi
+      elif [ -f /etc/redhat-release ]; then
+        if [ -f $OH_MY_NEOVIM/templates/$plugin/yum ]; then
+          yum_packages=$(cat $OH_MY_NEOVIM/templates/$plugin/yum)
+          printf "${BLUE}Install $yum_packages with apt for $plugin plugin...${NORMAL}\n"
+          printf "${RED}sudo permissions required${NORMAL}\n"
+          sudo yum -y install $yum_packages || {
+            printf "Error [yum]: Installation for plugin \"$plugin\" failed\n"
+          }
+        fi
       fi
-    elif [ -f /etc/redhat-release ]; then
-      if [ -f $OH_MY_NEOVIM/templates/$plugin/yum ]; then
-        yum_packages=$(cat $OH_MY_NEOVIM/templates/$plugin/yum)
-        printf "${BLUE}Install $yum_packages with apt for $plugin plugin...${NORMAL}\n"
-        printf "${RED}sudo permissions required${NORMAL}\n"
-        sudo yum -y install $yum_packages || {
-          printf "Error [yum]: Installation for plugin \"$plugin\" failed\n"
-        }
-      fi
-    fi
+    done
   fi
+
+  # for all systems
   for plugin in $plugins; do
     # custom shell scripts
     if [ -f $OH_MY_NEOVIM/templates/$plugin/install.sh ]; then
