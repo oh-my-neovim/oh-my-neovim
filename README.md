@@ -17,7 +17,7 @@ Oh My Neovim is an open source for managing your [neovim](https://neovim.io/) co
 Oh My Neovim is installed by running one of the following commands in your terminal. You can install this via the command-line with `curl`.
 
 ```shell
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/yacut/oh-my-neovim/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/oh-my-neovim/oh-my-neovim/master/tools/install.sh)"
 ```
 > Do not forget to set the Nerd font in your terminal
 
@@ -47,11 +47,11 @@ upgrade_oh_my_neovim
 
 #### Create dotfiles for a nodejs project
 
-`sh -c "$(curl -fsSL https://raw.githubusercontent.com/yacut/oh-my-neovim/master/templates/nodejs/create_dotfiles.sh)"`
+`sh -c "$(curl -fsSL https://raw.githubusercontent.com/oh-my-neovim/oh-my-neovim/master/templates/nodejs/create_dotfiles.sh)"`
 
 #### Create dotfiles for a react project
 
-`sh -c "$(curl -fsSL https://raw.githubusercontent.com/yacut/oh-my-neovim/master/templates/react/create_dotfiles.sh)"`
+`sh -c "$(curl -fsSL https://raw.githubusercontent.com/oh-my-neovim/oh-my-neovim/master/templates/react/create_dotfiles.sh)"`
 
 ## Uninstalling Oh My Neovim
 
@@ -59,7 +59,7 @@ If you want to uninstall `oh-my-neovim`, just run `uninstall_oh_my_neovim` from 
 
 ## Self-Promotion
 
-Like Oh My Neovim? Follow the repository on [https://github.com/yacut/oh-my-neovim](https://github.com/yacut/oh-my-neovim) and vote for it.
+Like Oh My Neovim? Follow the repository on [https://github.com/oh-my-neovim/oh-my-neovim](https://github.com/oh-my-neovim/oh-my-neovim) and vote for it.
 
 ## Credits
 

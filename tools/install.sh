@@ -59,7 +59,7 @@ if [ "$OSTYPE" = cygwin ]; then
     exit 1
   fi
 fi
-env git clone --depth=1 https://github.com/yacut/oh-my-neovim.git $OH_MY_NEOVIM || {
+env git clone --depth=1 https://github.com/oh-my-neovim/oh-my-neovim.git $OH_MY_NEOVIM || {
   printf "Error: git clone of oh-my-neovim repo failed\n"
   exit 1
 }
