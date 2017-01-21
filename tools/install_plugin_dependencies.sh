@@ -31,7 +31,7 @@ if [ "$confirmation" = y ] || [ "$confirmation" = Y ]; then
           apt_packages=$(cat $OH_MY_NEOVIM/templates/$plugin/apt)
           printf "${BLUE}Install $apt_packages with apt for $plugin plugin...${NORMAL}\n"
           printf "${RED}sudo permissions required${NORMAL}\n"
-          sudo apt-get install -y -q $apt_packages || {
+          sudo apt-get install -y $apt_packages || {
             printf "Error [apt]: Installation for plugin \"$plugin\" failed\n"
           }
         fi
@@ -61,7 +61,7 @@ if [ "$confirmation" = y ] || [ "$confirmation" = Y ]; then
     if [ -f $OH_MY_NEOVIM/templates/$plugin/pip2 ]; then
       pip2_packages=$(cat $OH_MY_NEOVIM/templates/$plugin/pip2)
       printf "${BLUE}Install $pip2_packages with pip2 for $plugin plugin...${NORMAL}\n"
-      pip2 install --quiet --user --upgrade $pip2_packages || {
+      pip2 install --user --upgrade $pip2_packages || {
         printf "Error [pip2]: Install dependencies for plugin \"$plugin\" failed\n"
       }
     fi
@@ -69,7 +69,7 @@ if [ "$confirmation" = y ] || [ "$confirmation" = Y ]; then
     if [ -f $OH_MY_NEOVIM/templates/$plugin/pip3 ]; then
       pip3_packages=$(cat $OH_MY_NEOVIM/templates/$plugin/pip3)
       printf "${BLUE}Install $pip3_packages with pip3 for $plugin plugin...${NORMAL}\n"
-      pip3 install --quiet --user --upgrade $pip3_packages || {
+      pip3 install --user --upgrade $pip3_packages || {
         printf "Error [pip3]: Install dependencies for plugin \"$plugin\" failed\n"
       }
     fi
@@ -93,7 +93,7 @@ if [ "$confirmation" = y ] || [ "$confirmation" = Y ]; then
         node_package_manager_command="yarn global add --global-folder $NPM_GLOBAL_FOLDER"
         yarn config set prefix $NPM_GLOBAL_FOLDER
       elif hash npm 2>/dev/null; then
-        node_package_manager_command="npm install --global --silent"
+        node_package_manager_command="npm install --global"
         npm config set prefix $NPM_GLOBAL_FOLDER
       else
         echo "Error: npm or yarn is not installed"

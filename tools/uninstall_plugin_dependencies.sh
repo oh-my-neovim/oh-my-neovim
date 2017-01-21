@@ -31,7 +31,7 @@ if [ "$confirmation" = y ] || [ "$confirmation" = Y ]; then
           apt_packages=$(cat $OH_MY_NEOVIM/templates/$plugin/apt)
           printf "${BLUE}Remove $apt_packages with apt for $plugin plugin...${NORMAL}\n"
           printf "${RED}sudo permissions required${NORMAL}\n"
-          sudo apt-get uninstall -y -q $apt_packages || {
+          sudo apt-get uninstall -y $apt_packages || {
             printf "Error [apt]: Removing dependencies for plugin \"$plugin\" failed\n"
           }
         fi
@@ -61,7 +61,7 @@ if [ "$confirmation" = y ] || [ "$confirmation" = Y ]; then
     if [ -f $OH_MY_NEOVIM/templates/$plugin/pip2 ]; then
       pip2_packages=$(cat $OH_MY_NEOVIM/templates/$plugin/pip2)
       printf "${BLUE}Uninstall $pip2_packages with pip2 for $plugin plugin...${NORMAL}\n"
-      pip2 uninstall --quiet --user $pip2_packages || {
+      pip2 uninstall --user $pip2_packages || {
         printf "Error [pip2]: Removing dependencies for plugin \"$plugin\" failed\n"
       }
     fi
@@ -69,7 +69,7 @@ if [ "$confirmation" = y ] || [ "$confirmation" = Y ]; then
     if [ -f $OH_MY_NEOVIM/templates/$plugin/pip3 ]; then
       pip3_packages=$(cat $OH_MY_NEOVIM/templates/$plugin/pip3)
       printf "${BLUE}Uninstall $pip3_packages with pip3 for $plugin plugin...${NORMAL}\n"
-      pip3 uninstall --quiet --user $pip3_packages || {
+      pip3 uninstall --user $pip3_packages || {
         printf "Error [pip3]: Removing dependencies for plugin \"$plugin\" failed\n"
       }
     fi
