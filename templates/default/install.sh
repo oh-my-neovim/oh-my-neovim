@@ -7,8 +7,6 @@ if [ "$OS_TYPE" = Darwin ]; then
       curl -sfLo "SourceCodePro.zip" https://github.com/ryanoasis/nerd-fonts/releases/download/v1.0.0/SourceCodePro.zip && \
       unzip -o SourceCodePro.zip && rm SourceCodePro.zip
   fi
-  # install dependencies
-  brew install neovim python python3 ruby
 elif [ "$OS_TYPE" = Linux ]; then
   # install font
   if [ ! -f ~/.local/share/fonts/Sauce\ Code\ Pro\ Nerd\ Font\ Complete.ttf ]; then
@@ -18,23 +16,6 @@ elif [ "$OS_TYPE" = Linux ]; then
       curl -sfLo "SourceCodePro.zip" https://github.com/ryanoasis/nerd-fonts/releases/download/v1.0.0/SourceCodePro.zip && \
       unzip -o SourceCodePro.zip && rm SourceCodePro.zip
   fi
-  # install dependencies
-  if [ -f /etc/debian_version ]; then
-    sudo apt-get install -y -q neovim python python3 python-pip xsel ruby ruby-dev python-dev
-  elif [ -f /etc/redhat-release ]; then
-    sudo yum -y install neovim python-pip ruby ruby-devel python-devel
-  fi
 fi
-
 # add ruby to PATH
-CURRENT_SHELL=$(expr "$SHELL" : '.*/\(.*\)')
-if [ "$CURRENT_SHELL" = "zsh" ]; then
-  grep -q "PATH=\"$(ruby -e 'print Gem.user_dir')/bin:\$PATH\"" ~/.zshrc || echo "PATH=\"$(ruby -e 'print Gem.user_dir')/bin:\$PATH\"" >> ~/.zshrc
-else
-  grep -q "PATH=\"$(ruby -e 'print Gem.user_dir')/bin:\$PATH\"" ~/.profile || echo "PATH=\"$(ruby -e 'print Gem.user_dir')/bin:\$PATH\"" >> ~/.profile
-fi
-
-# install neovim providers
-pip2 install --quiet --user --upgrade neovim
-pip3 install --quiet --user --upgrade neovim
-gem install --user-install neovim
+add_to_shell_profile_if_pattern_not_found "PATH=\"$(ruby -e 'print Gem.user_dir')/bin:\$PATH\"" "PATH=\"$(ruby -e 'print Gem.user_dir')/bin:\$PATH\""
