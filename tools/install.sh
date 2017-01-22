@@ -77,8 +77,14 @@ fi
 printf "${BLUE}Using the Oh My Neovim template file and adding it to ~/.config/nvim/init.vim${NORMAL}\n"
 mkdir -p ~/.config/nvim
 cp -f $OH_MY_NEOVIM/init.vim ~/.config/nvim/init.vim
-echo "silent! colorscheme NeoSolarized" > ~/.config/nvim/custom.init.vim
-echo "" > ~/.config/nvim/custom.plug.vim
+
+if [ ! -f ~/.config/nvim/custom.init.vim ]; then
+  echo "\"Custom configurations\nsilent! colorscheme NeoSolarized" > ~/.config/nvim/custom.init.vim
+fi
+
+if [ ! -f ~/.config/nvim/custom.plug.vim ]; then
+  echo "\"Custom plugins" > ~/.config/nvim/custom.plug.vim
+fi
 
 printf "${BLUE}Checking plugin manager...${NORMAL}\n"
 if [ ! -f ~/.local/share/nvim/site/autoload/plug.vim ]; then
