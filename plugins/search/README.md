@@ -14,3 +14,5 @@
 * Enables smart search
 * Enables icons for CtrlP
 * Adds node_modules and *.logs to wildignore
+* Key mapping see [here](map.vim)
+

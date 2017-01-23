@@ -9,3 +9,5 @@
 * Installs npm packages:
     - tern
 * Enables manual complete by `Ctrl-Space`
+* Key mapping see [here](map.vim)
+

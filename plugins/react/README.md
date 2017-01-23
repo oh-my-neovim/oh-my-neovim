@@ -6,3 +6,5 @@
     - eslint
     - babel-eslint
     - eslint-plugin-react
+* Key mapping see [here](map.vim)
+
