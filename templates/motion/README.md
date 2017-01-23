@@ -1,0 +1,4 @@
+## Motion plugin
+
+* Installs plugins
+    - [vim-easymotion](https://github.com/easymotion/vim-easymotion)
