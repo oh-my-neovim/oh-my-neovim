@@ -27,15 +27,15 @@ set -e
 add_to_shell_profile_if_pattern_not_found () {
   CURRENT_SHELL=$(expr "$SHELL" : '.*/\(.*\)')
   if [ "$CURRENT_SHELL" = "zsh" ]; then
-    grep -q "$1" ~/.zshrc || echo "$2" >> ~/.zshrc
+    grep -q "$1" ~/.zshrc || echo "\n$2" >> ~/.zshrc
   elif [ "$CURRENT_SHELL" = "bash" ]; then
     if [ "$(uname)" = Darwin ]; then
-      grep -q "$1" ~/.bash_profile || echo "$2" >> ~/.bash_profile
+      grep -q "$1" ~/.bash_profile || echo "\n$2" >> ~/.bash_profile
     else
-      grep -q "$1" ~/.bashrc || echo "$2" >> ~/.bashrc
+      grep -q "$1" ~/.bashrc || echo "\n$2" >> ~/.bashrc
     fi
   else
-    grep -q "$1" ~/.profile || echo "$2" >> ~/.profile
+    grep -q "$1" ~/.profile || echo "\n$2" >> ~/.profile
   fi
 }
 

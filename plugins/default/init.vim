@@ -18,7 +18,6 @@ set shiftwidth=4
 set expandtab
 set noswapfile
 set diffopt+=vertical
-set spell spelllang=en_us
 set lazyredraw
 set noshowmode
 set clipboard+=unnamedplus
