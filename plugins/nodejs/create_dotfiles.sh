@@ -26,15 +26,15 @@ fi
 set -e
 
 printf "${GREEN}Downloading .editorconfig gist file from github...${NORMAL}\n"
-curl -s -O -L https://raw.githubusercontent.com/oh-my-neovim/workspace/master/.editorconfig
+curl -s -O -L https://raw.githubusercontent.com/oh-my-neovim/oh-my-neovim/master/.editorconfig
 
 printf "${GREEN}Downloading .eslintrc gist file from github...${NORMAL}\n"
-curl -s -O -L https://raw.githubusercontent.com/oh-my-neovim/workspace/master/plugins/nodejs/.eslintrc.json
+curl -s -O -L https://raw.githubusercontent.com/oh-my-neovim/oh-my-neovim/master/plugins/nodejs/.eslintrc.json
 
 printf "${GREEN}Downloading .tern-project gist file from github...${NORMAL}\n"
-curl -s -O -L https://raw.githubusercontent.com/oh-my-neovim/workspace/master/plugins/javascript/.tern-project
+curl -s -O -L https://raw.githubusercontent.com/oh-my-neovim/oh-my-neovim/master/plugins/javascript/.tern-project
 
 printf "${GREEN}Downloading .jsbeautifyrc gist file from github...${NORMAL}\n"
-curl -s -O -L https://raw.githubusercontent.com/oh-my-neovim/workspace/master/plugins/javascript/.jsbeautifyrc
+curl -s -O -L https://raw.githubusercontent.com/oh-my-neovim/oh-my-neovim/master/plugins/javascript/.jsbeautifyrc
 
 printf "${GREEN}Config files for nodejs project created!${NORMAL}\n"
