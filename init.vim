@@ -20,12 +20,12 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 " Load oh-my-neovim plugins
 for oh_my_neovim_plugin in oh_my_neovim_plugins
-  if empty(glob(oh_my_neovim . '/templates/' . oh_my_neovim_plugin . '/plug.vim')) == 0
-    execute 'source' oh_my_neovim . '/templates/' . oh_my_neovim_plugin . '/plug.vim'
+  if empty(glob(oh_my_neovim . '/plugins/' . oh_my_neovim_plugin . '/plug.vim')) == 0
+    execute 'source' oh_my_neovim . '/plugins/' . oh_my_neovim_plugin . '/plug.vim'
   endif
 endfor
 
-" Load your custom plugins 
+" Load your custom plugins
 if empty(glob($HOME . '/.config/nvim/custom.plug.vim')) == 0
   execute 'source' $HOME . '/.config/nvim/custom.plug.vim'
 endif
@@ -34,18 +34,18 @@ call plug#end()
 
 " Load oh-my-neovim configurations
 for oh_my_neovim_plugin in oh_my_neovim_plugins
-  if empty(glob(oh_my_neovim . '/templates/' . oh_my_neovim_plugin . '/init.vim')) == 0
-    execute 'source' oh_my_neovim . '/templates/' . oh_my_neovim_plugin . '/init.vim'
+  if empty(glob(oh_my_neovim . '/plugins/' . oh_my_neovim_plugin . '/init.vim')) == 0
+    execute 'source' oh_my_neovim . '/plugins/' . oh_my_neovim_plugin . '/init.vim'
   endif
 endfor
 " Load oh-my-neovim mapping
 for oh_my_neovim_plugin in oh_my_neovim_plugins
-  if empty(glob(oh_my_neovim . '/templates/' . oh_my_neovim_plugin . '/map.vim')) == 0
-    execute 'source' oh_my_neovim . '/templates/' . oh_my_neovim_plugin . '/map.vim'
+  if empty(glob(oh_my_neovim . '/plugins/' . oh_my_neovim_plugin . '/map.vim')) == 0
+    execute 'source' oh_my_neovim . '/plugins/' . oh_my_neovim_plugin . '/map.vim'
   endif
 endfor
 
-" Load your custom configuration 
+" Load your custom configuration
 if empty(glob($HOME . '/.config/nvim/custom.init.vim')) == 0
   execute 'source' $HOME . '/.config/nvim/custom.init.vim'
 endif

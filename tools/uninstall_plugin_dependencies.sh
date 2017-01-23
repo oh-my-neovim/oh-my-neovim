@@ -12,8 +12,8 @@ if [ "$confirmation" = y ] || [ "$confirmation" = Y ]; then
       exit 0
     }
     for plugin in $plugins; do
-      if [ -f $OH_MY_NEOVIM/templates/$plugin/brew ]; then
-        brew_packages=$(cat $OH_MY_NEOVIM/templates/$plugin/brew)
+      if [ -f $OH_MY_NEOVIM/plugins/$plugin/brew ]; then
+        brew_packages=$(cat $OH_MY_NEOVIM/plugins/$plugin/brew)
         printf "${BLUE}Remove $brew_packages with brew for $plugin plugin...${NORMAL}\n"
         brew uninstall $brew_packages || {
           printf "Error [brew]: Removing dependencies for plugin \"$plugin\" failed\n"
@@ -27,8 +27,8 @@ if [ "$confirmation" = y ] || [ "$confirmation" = Y ]; then
     for plugin in $plugins; do
       # debian based system
       if [ -f /etc/debian_version ]; then
-        if [ -f $OH_MY_NEOVIM/templates/$plugin/apt ]; then
-          apt_packages=$(cat $OH_MY_NEOVIM/templates/$plugin/apt)
+        if [ -f $OH_MY_NEOVIM/plugins/$plugin/apt ]; then
+          apt_packages=$(cat $OH_MY_NEOVIM/plugins/$plugin/apt)
           printf "${BLUE}Remove $apt_packages with apt for $plugin plugin...${NORMAL}\n"
           printf "${RED}sudo permissions required${NORMAL}\n"
           sudo apt-get uninstall -y $apt_packages || {
@@ -36,8 +36,8 @@ if [ "$confirmation" = y ] || [ "$confirmation" = Y ]; then
           }
         fi
       elif [ -f /etc/redhat-release ]; then
-        if [ -f $OH_MY_NEOVIM/templates/$plugin/yum ]; then
-          yum_packages=$(cat $OH_MY_NEOVIM/templates/$plugin/yum)
+        if [ -f $OH_MY_NEOVIM/plugins/$plugin/yum ]; then
+          yum_packages=$(cat $OH_MY_NEOVIM/plugins/$plugin/yum)
           printf "${BLUE}Remove $yum_packages with apt for $plugin plugin...${NORMAL}\n"
           printf "${RED}sudo permissions required${NORMAL}\n"
           sudo yum -y uninstall $yum_packages || {
@@ -51,39 +51,39 @@ if [ "$confirmation" = y ] || [ "$confirmation" = Y ]; then
   # for all systems
   for plugin in $plugins; do
     # custom shell scripts
-    if [ -f $OH_MY_NEOVIM/templates/$plugin/uninstall.sh ]; then
+    if [ -f $OH_MY_NEOVIM/plugins/$plugin/uninstall.sh ]; then
       printf "${BLUE}Remove dependencies for $plugin plugin...${NORMAL}\n"
-      env OH_MY_NEOVIM="$OH_MY_NEOVIM" OH_MY_NEOVIM_PLUGINS="$OH_MY_NEOVIM_PLUGINS" sh "$OH_MY_NEOVIM/templates/$plugin/uninstall.sh" || {
+      env OH_MY_NEOVIM="$OH_MY_NEOVIM" OH_MY_NEOVIM_PLUGINS="$OH_MY_NEOVIM_PLUGINS" sh "$OH_MY_NEOVIM/plugins/$plugin/uninstall.sh" || {
         printf "Error [sh]: Removing dependencies for plugin \"$plugin\" failed\n"
       }
     fi
     # pip2
-    if [ -f $OH_MY_NEOVIM/templates/$plugin/pip2 ]; then
-      pip2_packages=$(cat $OH_MY_NEOVIM/templates/$plugin/pip2)
+    if [ -f $OH_MY_NEOVIM/plugins/$plugin/pip2 ]; then
+      pip2_packages=$(cat $OH_MY_NEOVIM/plugins/$plugin/pip2)
       printf "${BLUE}Uninstall $pip2_packages with pip2 for $plugin plugin...${NORMAL}\n"
       pip2 uninstall --user $pip2_packages || {
         printf "Error [pip2]: Removing dependencies for plugin \"$plugin\" failed\n"
       }
     fi
     # pip3
-    if [ -f $OH_MY_NEOVIM/templates/$plugin/pip3 ]; then
-      pip3_packages=$(cat $OH_MY_NEOVIM/templates/$plugin/pip3)
+    if [ -f $OH_MY_NEOVIM/plugins/$plugin/pip3 ]; then
+      pip3_packages=$(cat $OH_MY_NEOVIM/plugins/$plugin/pip3)
       printf "${BLUE}Uninstall $pip3_packages with pip3 for $plugin plugin...${NORMAL}\n"
       pip3 uninstall --user $pip3_packages || {
         printf "Error [pip3]: Removing dependencies for plugin \"$plugin\" failed\n"
       }
     fi
     # gem
-    if [ -f $OH_MY_NEOVIM/templates/$plugin/gem ]; then
-      gem_packages=$(cat $OH_MY_NEOVIM/templates/$plugin/gem)
+    if [ -f $OH_MY_NEOVIM/plugins/$plugin/gem ]; then
+      gem_packages=$(cat $OH_MY_NEOVIM/plugins/$plugin/gem)
       printf "${BLUE}Uninstall $gem_packages with gem for $plugin plugin...${NORMAL}\n"
       gem uninstall --user-install $gem_packages || {
         printf "Error [gem]: Removing dependencies for plugin \"$plugin\" failed\n"
       }
     fi
     # npm
-    if [ -f $OH_MY_NEOVIM/templates/$plugin/npm ]; then
-      npm_packages=$(cat $OH_MY_NEOVIM/templates/$plugin/npm)
+    if [ -f $OH_MY_NEOVIM/plugins/$plugin/npm ]; then
+      npm_packages=$(cat $OH_MY_NEOVIM/plugins/$plugin/npm)
       if hash yarn 2>/dev/null; then
         node_package_manager_command="yarn global remove --global-folder $NPM_GLOBAL_FOLDER"
       elif hash npm 2>/dev/null; then
