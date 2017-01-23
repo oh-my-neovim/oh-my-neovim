@@ -23,7 +23,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/oh-my-neovim/oh-my-neovim/
 
 ## Using Oh My Neovim
 
-#### Select [[Plugins]]
+#### Select [Plugins](plugins)
 
 If you'd like to select plugins at any point in time you just need to run:
 
