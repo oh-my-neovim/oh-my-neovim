@@ -75,7 +75,7 @@ select_plugins_dialog () {
 			OH_MY_NEOVIM_PLUGINS="default"
 		else
     	OH_MY_NEOVIM_PLUGINS=$(echo "$SELECTED_PLUGINS"| tr -d ',')
-    	OH_MY_NEOVIM_PLUGINS="$OH_MY_NEOVIM_PLUGINS default"
+    	OH_MY_NEOVIM_PLUGINS="default $OH_MY_NEOVIM_PLUGINS"
 		fi
   else
     if hash whiptail 2>/dev/null; then
@@ -93,7 +93,7 @@ select_plugins_dialog () {
       exitstatus=$?
       if [ $exitstatus = 0 ]; then
         OH_MY_NEOVIM_PLUGINS=$(echo "$CHOOSED_PLUGINS"| tr -d '"')
-        OH_MY_NEOVIM_PLUGINS="$OH_MY_NEOVIM_PLUGINS default"
+        OH_MY_NEOVIM_PLUGINS="default $OH_MY_NEOVIM_PLUGINS"
       else
         OH_MY_NEOVIM_PLUGINS="default"
       fi
