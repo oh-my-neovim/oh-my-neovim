@@ -220,10 +220,5 @@
                 "exceptRange": true
             }
         ]
-    },
-    "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        }
     }
 }
