@@ -37,12 +37,12 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/oh-my-neovim/oh-my-neovim/
 
 ## Using Oh My Neovim
 
-#### Select [Plugins](plugins)
+#### Select [Extensions](extensions)
 
-If you'd like to select plugins at any point in time you just need to run:
+If you'd like to select extensions at any point in time you just need to run:
 
 ```shell
-select_plugins_oh_my_neovim
+select_extensions_oh_my_neovim
 ```
 
 #### Manual Updates
@@ -61,11 +61,11 @@ upgrade_oh_my_neovim
 
 #### Create dotfiles for a nodejs project
 
-`sh -c "$(curl -fsSL https://raw.githubusercontent.com/oh-my-neovim/oh-my-neovim/master/plugins/nodejs/create_dotfiles.sh)"`
+`sh -c "$(curl -fsSL https://raw.githubusercontent.com/oh-my-neovim/oh-my-neovim/master/extensions/nodejs/create_dotfiles.sh)"`
 
 #### Create dotfiles for a react project
 
-`sh -c "$(curl -fsSL https://raw.githubusercontent.com/oh-my-neovim/oh-my-neovim/master/plugins/react/create_dotfiles.sh)"`
+`sh -c "$(curl -fsSL https://raw.githubusercontent.com/oh-my-neovim/oh-my-neovim/master/extensions/react/create_dotfiles.sh)"`
 
 ## Uninstalling Oh My Neovim
 

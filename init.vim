@@ -4,10 +4,10 @@ else
   let oh_my_neovim=$OH_MY_NEOVIM
 endif
 
-if (empty($OH_MY_NEOVIM_PLUGINS))
-  let oh_my_neovim_plugins=[]
+if (empty($OH_MY_NEOVIM_EXTENSIONS))
+  let oh_my_neovim_extensions=[]
 else
-  let oh_my_neovim_plugins=split($OH_MY_NEOVIM_PLUGINS)
+  let oh_my_neovim_extensions=split($OH_MY_NEOVIM_EXTENSIONS)
 endif
 
 if (empty($OH_MY_NEOVIM_MAPLEADER))
@@ -18,14 +18,14 @@ endif
 
 call plug#begin('~/.local/share/nvim/plugged')
 
-" Load oh-my-neovim plugins
-for oh_my_neovim_plugin in oh_my_neovim_plugins
-  if empty(glob(oh_my_neovim . '/plugins/' . oh_my_neovim_plugin . '/plug.vim')) == 0
-    execute 'source' oh_my_neovim . '/plugins/' . oh_my_neovim_plugin . '/plug.vim'
+" Load oh-my-neovim extensions
+for oh_my_neovim_extension in oh_my_neovim_extensions
+  if empty(glob(oh_my_neovim . '/extensions/' . oh_my_neovim_extension . '/plug.vim')) == 0
+    execute 'source' oh_my_neovim . '/extensions/' . oh_my_neovim_extension . '/plug.vim'
   endif
 endfor
 
-" Load your custom plugins
+" Load your custom extensions
 if empty(glob($HOME . '/.config/nvim/custom.plug.vim')) == 0
   execute 'source' $HOME . '/.config/nvim/custom.plug.vim'
 endif
@@ -33,15 +33,15 @@ endif
 call plug#end()
 
 " Load oh-my-neovim configurations
-for oh_my_neovim_plugin in oh_my_neovim_plugins
-  if empty(glob(oh_my_neovim . '/plugins/' . oh_my_neovim_plugin . '/init.vim')) == 0
-    execute 'source' oh_my_neovim . '/plugins/' . oh_my_neovim_plugin . '/init.vim'
+for oh_my_neovim_extension in oh_my_neovim_extensions
+  if empty(glob(oh_my_neovim . '/extensions/' . oh_my_neovim_extension . '/init.vim')) == 0
+    execute 'source' oh_my_neovim . '/extensions/' . oh_my_neovim_extension . '/init.vim'
   endif
 endfor
 " Load oh-my-neovim mapping
-for oh_my_neovim_plugin in oh_my_neovim_plugins
-  if empty(glob(oh_my_neovim . '/plugins/' . oh_my_neovim_plugin . '/map.vim')) == 0
-    execute 'source' oh_my_neovim . '/plugins/' . oh_my_neovim_plugin . '/map.vim'
+for oh_my_neovim_extension in oh_my_neovim_extensions
+  if empty(glob(oh_my_neovim . '/extensions/' . oh_my_neovim_extension . '/map.vim')) == 0
+    execute 'source' oh_my_neovim . '/extensions/' . oh_my_neovim_extension . '/map.vim'
   endif
 endfor
 

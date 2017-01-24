@@ -60,22 +60,22 @@ else
 fi
 }
 
-select_plugins_dialog () {
+select_extensions_dialog () {
   if [ "$(uname)" = Darwin ]; then
-    AVAILABLE_PLUGINS=""
-    for plugin in $(find $OH_MY_NEOVIM/plugins/* -maxdepth 1 -not -path '*default*' -type d -exec basename {} \;); do
-        if [ ! -n "$AVAILABLE_PLUGINS" ]; then
-            AVAILABLE_PLUGINS="\"$plugin\""
+    AVAILABLE_EXTENSIONS=""
+    for extension in $(find $OH_MY_NEOVIM/extensions/* -maxdepth 1 -not -path '*default*' -type d -exec basename {} \;); do
+        if [ ! -n "$AVAILABLE_EXTENSIONS" ]; then
+            AVAILABLE_EXTENSIONS="\"$extension\""
         else
-            AVAILABLE_PLUGINS="$AVAILABLE_PLUGINS, \"$plugin\""
+            AVAILABLE_EXTENSIONS="$AVAILABLE_EXTENSIONS, \"$extension\""
         fi
     done
-    SELECTED_PLUGINS=$(osascript -e "choose from list {$AVAILABLE_PLUGINS} with title \"Plugins selector\" with prompt \"Choose oh-my-neovim plugins to install\" OK button name \"OK\" cancel button name \"Cancel\" default items {\"default\"} with multiple selections allowed")
-    if [ "$SELECTED_PLUGINS" = false ]; then
-			OH_MY_NEOVIM_PLUGINS="default"
+    SELECTED_EXTENSIONS=$(osascript -e "choose from list {$AVAILABLE_EXTENSIONS} with title \"Extensions selector\" with prompt \"Choose oh-my-neovim extensions to install\" OK button name \"OK\" cancel button name \"Cancel\" default items {\"default\"} with multiple selections allowed")
+    if [ "$SELECTED_EXTENSIONS" = false ]; then
+			OH_MY_NEOVIM_EXTENSIONS="default"
 		else
-    	OH_MY_NEOVIM_PLUGINS=$(echo "$SELECTED_PLUGINS"| tr -d ',')
-    	OH_MY_NEOVIM_PLUGINS="default $OH_MY_NEOVIM_PLUGINS"
+    	OH_MY_NEOVIM_EXTENSIONS=$(echo "$SELECTED_EXTENSIONS"| tr -d ',')
+    	OH_MY_NEOVIM_EXTENSIONS="default $OH_MY_NEOVIM_EXTENSIONS"
 		fi
   else
     if hash whiptail 2>/dev/null; then
@@ -86,16 +86,16 @@ select_plugins_dialog () {
       dialog_tool=
     fi
     if [ ! -n "$dialog_tool" ]; then
-      OH_MY_NEOVIM_PLUGINS="default"
+      OH_MY_NEOVIM_EXTENSIONS="default"
     else
-      AVAILABLE_PLUGINS=$(find $OH_MY_NEOVIM/plugins/* -maxdepth 1 -not -path '*default*' -type d -exec basename {} \; -exec echo {} \; -exec echo ON \;)
-      CHOOSED_PLUGINS=$($dialog_tool --checklist "Choose plugins to install" 28 80 20 ${AVAILABLE_PLUGINS} 3>&1 1>&2 2>&3)
+      AVAILABLE_EXTENSIONS=$(find $OH_MY_NEOVIM/extensions/* -maxdepth 1 -not -path '*default*' -type d -exec basename {} \; -exec echo {} \; -exec echo ON \;)
+      CHOOSED_EXTENSIONS=$($dialog_tool --checklist "Choose extensions to install" 28 80 20 ${AVAILABLE_EXTENSIONS} 3>&1 1>&2 2>&3)
       exitstatus=$?
       if [ $exitstatus = 0 ]; then
-        OH_MY_NEOVIM_PLUGINS=$(echo "$CHOOSED_PLUGINS"| tr -d '"')
-        OH_MY_NEOVIM_PLUGINS="default $OH_MY_NEOVIM_PLUGINS"
+        OH_MY_NEOVIM_EXTENSIONS=$(echo "$CHOOSED_EXTENSIONS"| tr -d '"')
+        OH_MY_NEOVIM_EXTENSIONS="default $OH_MY_NEOVIM_EXTENSIONS"
       else
-        OH_MY_NEOVIM_PLUGINS="default"
+        OH_MY_NEOVIM_EXTENSIONS="default"
       fi
     fi
   fi

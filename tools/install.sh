@@ -96,30 +96,29 @@ fi
 
 . $OH_MY_NEOVIM/tools/custom.sh
 
-printf "${GREEN}Selecting plugins...${NORMAL}\n"
-if [ ! -n "$OH_MY_NEOVIM_PLUGINS" ]; then
-  read -r -p "${RED}Would you like to select oh-my-neovim plugins? [y/N]${NORMAL} " confirmation
+printf "${GREEN}Selecting extensions...${NORMAL}\n"
+if [ ! -n "$OH_MY_NEOVIM_EXTENSIONS" ]; then
+  read -r -p "${RED}Would you like to select oh-my-neovim extensions? [y/N]${NORMAL} " confirmation
   if [ "$confirmation" = y ] || [ "$confirmation" = Y ]; then
-   select_plugins_dialog
+   select_extensions_dialog
   fi
 fi
 
 printf "${GREEN}Configuring shell profile...${NORMAL}\n"
 add_to_shell_profile_if_pattern_not_found "export OH_MY_NEOVIM=.*" "export OH_MY_NEOVIM=$OH_MY_NEOVIM"
-add_to_shell_profile_if_pattern_not_found "export OH_MY_NEOVIM_PLUGINS=.*" "export OH_MY_NEOVIM_PLUGINS=\"$OH_MY_NEOVIM_PLUGINS\""
+add_to_shell_profile_if_pattern_not_found "export OH_MY_NEOVIM_EXTENSIONS=.*" "export OH_MY_NEOVIM_EXTENSIONS=\"$OH_MY_NEOVIM_EXTENSIONS\""
 add_to_shell_profile_if_pattern_not_found "source $OH_MY_NEOVIM/tools/functions.sh" "source $OH_MY_NEOVIM/tools/functions.sh"
 
-env OH_MY_NEOVIM="$OH_MY_NEOVIM" OH_MY_NEOVIM_PLUGINS="$OH_MY_NEOVIM_PLUGINS" sh $OH_MY_NEOVIM/tools/install_plugin_dependencies.sh || {
-  printf "Error: Plugin dependencies installation failed\n"
+env OH_MY_NEOVIM="$OH_MY_NEOVIM" OH_MY_NEOVIM_EXTENSIONS="$OH_MY_NEOVIM_EXTENSIONS" sh $OH_MY_NEOVIM/tools/install_extension_dependencies.sh || {
+  printf "Error: extension dependencies installation failed\n"
 }
 
-env OH_MY_NEOVIM="$OH_MY_NEOVIM" OH_MY_NEOVIM_PLUGINS="$OH_MY_NEOVIM_PLUGINS" sh $OH_MY_NEOVIM/tools/install_plugins.sh || {
-  printf "Error: Plugins installation failed\n"
+env OH_MY_NEOVIM="$OH_MY_NEOVIM" OH_MY_NEOVIM_EXTENSIONS="$OH_MY_NEOVIM_EXTENSIONS" sh $OH_MY_NEOVIM/tools/install_extensions.sh || {
+  printf "Error: extensions installation failed\n"
 }
 
 print_logo
 printf "\n${GREEN}${BOLD}Oh my Neovim is now installed!${NORMAL}\n"
-printf "${GREEN}Please change the oh_my_neovim environments in your shell profile to select plugins, themes, and options.${NORMAL}\n"
-printf "${GREEN}IMPORTANT: 'default' plugins should be last in your OH_MY_NEOVIM_PLUGINS variable.${NORMAL}\n"
+printf "${GREEN}Please change the oh_my_neovim environments in your shell profile to select extensions and other options.${NORMAL}\n"
 printf "${GREEN}Please put your own configurations to ~/.config/nvim/custom.init.vim and plugins to ~/.config/nvim/custom.plug.vim${NORMAL}\n"
 env $SHELL

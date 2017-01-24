@@ -18,11 +18,11 @@ if [ -f ~/.config/nvim/init.vim.pre-oh-my-neovim ] || [ -h ~/.config/nvim/init.v
   echo "Your original neovim config was restored. Please restart your neovim."
 fi
 
-env OH_MY_NEOVIM="$OH_MY_NEOVIM" OH_MY_NEOVIM_PLUGINS="$OH_MY_NEOVIM_PLUGINS" sh "$OH_MY_NEOVIM/tools/uninstall_plugin_dependencies.sh"
+env OH_MY_NEOVIM="$OH_MY_NEOVIM" OH_MY_NEOVIM_EXTENSIONS="$OH_MY_NEOVIM_EXTENSIONS" sh "$OH_MY_NEOVIM/tools/uninstall_extension_dependencies.sh"
 
 
 edit_pattern_in_shell_profile "export OH_MY_NEOVIM=.*" "export OH_MY_NEOVIM=$OH_MY_NEOVIM"
-edit_pattern_in_shell_profile "export OH_MY_NEOVIM_PLUGINS=.*" "export OH_MY_NEOVIM_PLUGINS=\"$OH_MY_NEOVIM_PLUGINS\""
+edit_pattern_in_shell_profile "export OH_MY_NEOVIM_EXTENSIONS=.*" "export OH_MY_NEOVIM_EXTENSIONS=\"$OH_MY_NEOVIM_EXTENSIONS\""
 edit_pattern_in_shell_profile "source $OH_MY_NEOVIM/tools/functions.sh" "source $OH_MY_NEOVIM/tools/functions.sh"
 
 if [ -d $OH_MY_NEOVIM ]; then
