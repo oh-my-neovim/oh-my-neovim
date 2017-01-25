@@ -21,7 +21,6 @@ Oh My Neovim is a project that has the following goals:
 ### Prerequisites
 
 - Unix-like operating system (macOS or Linux)
-- Neovim should be installed, check the following instruction here: [Installing Neovim](https://github.com/neovim/neovim/wiki/Installing-Neovim)
 - `curl` should be installed
 - `git` should be installed
 
