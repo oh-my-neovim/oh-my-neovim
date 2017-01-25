@@ -63,14 +63,22 @@ fi
 select_extensions_dialog () {
   if [ "$(uname)" = Darwin ]; then
     AVAILABLE_EXTENSIONS=""
+    SELECTED_AVAILABLE_EXTENSIONS=""
     for extension in $(find $OH_MY_NEOVIM/extensions/* -maxdepth 1 -not -path '*default*' -type d -exec basename {} \;); do
+        if echo $OH_MY_NEOVIM_EXTENSIONS | grep -q "$extension"; then
+          if [ ! -n "$SELECTED_AVAILABLE_EXTENSIONS" ]; then
+              SELECTED_AVAILABLE_EXTENSIONS="\"$extension\""
+          else
+              SELECTED_AVAILABLE_EXTENSIONS="$SELECTED_AVAILABLE_EXTENSIONS, \"$extension\""
+          fi
+        fi
         if [ ! -n "$AVAILABLE_EXTENSIONS" ]; then
             AVAILABLE_EXTENSIONS="\"$extension\""
         else
             AVAILABLE_EXTENSIONS="$AVAILABLE_EXTENSIONS, \"$extension\""
         fi
     done
-    SELECTED_EXTENSIONS=$(osascript -e "choose from list {$AVAILABLE_EXTENSIONS} with title \"Extensions selector\" with prompt \"Choose oh-my-neovim extensions to install\" OK button name \"OK\" cancel button name \"Cancel\" default items {\"default\"} with multiple selections allowed")
+    SELECTED_EXTENSIONS=$(osascript -e "choose from list {$AVAILABLE_EXTENSIONS} with title \"Extensions selector\" with prompt \"Choose oh-my-neovim extensions to install\" OK button name \"OK\" cancel button name \"Cancel\" default items {$SELECTED_AVAILABLE_EXTENSIONS} with multiple selections allowed")
     if [ "$SELECTED_EXTENSIONS" = false ]; then
 			OH_MY_NEOVIM_EXTENSIONS="default"
 		else
