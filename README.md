@@ -6,7 +6,7 @@ Oh My Neovim is an open source for managing your [Neovim](https://neovim.io/) co
 
 One of the big problems of [Neovim](https://neovim.io/) is to find right plugins, if you want more features for your text editor. In addition you have to install all dependencies and configure plugins correctly. 
 
-For example [YouCompleteMe](https://github.com/valloric/youcompleteme) is great project, but you do not know whether your desired programming language supported and if you want use it you need to understand how to install and configure it. Of course you can find everything on the Internet, but that costs your time. And you just want to use your text editor.
+For example [deoplete](https://github.com/Shougo/deoplete.nvim) is great project, but you do not know whether your desired programming language supported and if you want use it you need to understand how to install and configure it. Of course you can find everything on the Internet, but that costs your time. And you just want to use your text editor.
 
 Another issue is if you lost your configuration, you have to search again the plugins, install the dependencies and configure it.
 
