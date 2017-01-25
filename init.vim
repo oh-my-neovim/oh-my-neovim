@@ -10,12 +10,6 @@ else
   let oh_my_neovim_extensions=split($OH_MY_NEOVIM_EXTENSIONS)
 endif
 
-if (empty($OH_MY_NEOVIM_MAPLEADER))
-  let mapleader=','
-else
-  let mapleader=$OH_MY_NEOVIM_MAPLEADER
-endif
-
 call plug#begin('~/.local/share/nvim/plugged')
 
 " Load oh-my-neovim extensions
@@ -49,3 +43,10 @@ endfor
 if empty(glob($HOME . '/.config/nvim/custom.init.vim')) == 0
   execute 'source' $HOME . '/.config/nvim/custom.init.vim'
 endif
+
+if (empty($OH_MY_NEOVIM_MAPLEADER))
+  let mapleader=','
+else
+  let mapleader=$OH_MY_NEOVIM_MAPLEADER
+endif
+

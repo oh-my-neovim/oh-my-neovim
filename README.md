@@ -53,6 +53,14 @@ If you'd like to upgrade at any point in time you just need to run:
 upgrade_oh_my_neovim
 ```
 
+#### Advanced
+
+- The default <leader> key is ',' (comma). If you'd like to set another you need to add the OH_MY_NEOVIM_MAPLEADER environment variable to your shell profile. For example set <leader> to <space>:
+
+```shell
+OH_MY_NEOVIM_MAPLEADER="\<Space>"
+```
+
 ### Recommendations
 
 #### Get [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
