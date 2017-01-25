@@ -8,6 +8,7 @@ if (empty($TMUX))
 endif
 
 syntax on
+let mapleader=','
 let g:neosolarized_vertSplitBgTrans = 0
 let g:gitgutter_override_sign_column_highlight = 0
 set number

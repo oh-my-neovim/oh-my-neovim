@@ -55,12 +55,14 @@ upgrade_oh_my_neovim
 
 #### Advanced
 
-##### Leader key
+##### Custom configurations
 
-The default <leader> key is ',' (comma). If you'd like to set another you need to add the OH_MY_NEOVIM_MAPLEADER environment variable to your shell profile. For example set <leader> to <space>:
+The installation process will create `~/.config/nvim/custom.plug.vim` and `~/.config/nvim/custom.init.vim` files which you can use to add your own plugins and configurations accordingly.
+
+For example to set another colorscheme:
 
 ```shell
-OH_MY_NEOVIM_MAPLEADER="\<Space>"
+echo "\ncolorscheme monokai" >> ~/.config/nvim/custom.init.vim
 ```
 
 ### Recommendations
