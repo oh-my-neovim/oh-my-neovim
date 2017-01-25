@@ -1,6 +1,6 @@
 ## Oh My Neovim
 
-Oh My Neovim is an open source for managing your [Neovim](https://neovim.io/) configurations, plugins and dependencies for it.
+Oh My Neovim is an open source toolkit for managing your [Neovim](https://neovim.io/) configurations, plugins and dependencies for it.
 
 ### Motivation
 
