@@ -55,7 +55,9 @@ upgrade_oh_my_neovim
 
 #### Advanced
 
-- The default <leader> key is ',' (comma). If you'd like to set another you need to add the OH_MY_NEOVIM_MAPLEADER environment variable to your shell profile. For example set <leader> to <space>:
+##### Leader key
+
+The default <leader> key is ',' (comma). If you'd like to set another you need to add the OH_MY_NEOVIM_MAPLEADER environment variable to your shell profile. For example set <leader> to <space>:
 
 ```shell
 OH_MY_NEOVIM_MAPLEADER="\<Space>"
