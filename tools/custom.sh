@@ -80,7 +80,9 @@ select_extensions_dialog () {
     done
     SELECTED_EXTENSIONS=$(osascript -e "choose from list {$AVAILABLE_EXTENSIONS} with title \"Extensions selector\" with prompt \"Choose oh-my-neovim extensions to install\" OK button name \"OK\" cancel button name \"Cancel\" default items {$SELECTED_AVAILABLE_EXTENSIONS} with multiple selections allowed")
     if [ "$SELECTED_EXTENSIONS" = false ]; then
-			OH_MY_NEOVIM_EXTENSIONS="default"
+      if [ ! -n "$OH_MY_NEOVIM_EXTENSIONS" ]; then 
+			  OH_MY_NEOVIM_EXTENSIONS="default"
+      fi
 		else
     	OH_MY_NEOVIM_EXTENSIONS=$(echo "$SELECTED_EXTENSIONS"| tr -d ',')
     	OH_MY_NEOVIM_EXTENSIONS="default $OH_MY_NEOVIM_EXTENSIONS"
