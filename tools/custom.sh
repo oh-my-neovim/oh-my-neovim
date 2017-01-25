@@ -88,7 +88,7 @@ select_extensions_dialog () {
     if [ ! -n "$dialog_tool" ]; then
       OH_MY_NEOVIM_EXTENSIONS="default"
     else
-      AVAILABLE_EXTENSIONS=$(find $OH_MY_NEOVIM/extensions/* -maxdepth 1 -not -path '*default*' -type d -exec basename {} \; -exec echo {} \; -exec echo ON \;)
+      AVAILABLE_EXTENSIONS=$(find $OH_MY_NEOVIM/extensions/* -maxdepth 1 -not -path '*default*' -type d -exec basename {} \; -exec echo {} \; -exec echo OFF \;)
       CHOOSED_EXTENSIONS=$($dialog_tool --checklist "Choose extensions to install" 28 80 20 ${AVAILABLE_EXTENSIONS} 3>&1 1>&2 2>&3)
       exitstatus=$?
       if [ $exitstatus = 0 ]; then
