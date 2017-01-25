@@ -14,7 +14,7 @@ Oh My Neovim is a project that has the following goals:
 
 - Simplify the installation process of plugins and its dependencies
 - Simplify the configuration overhead
-- Build a big library that helps users to get batch of features for the [Neovim](https://neovim.io/) with just one command
+- Build a big extensions library that helps users to get batch of features for the [Neovim](https://neovim.io/) with just one command
 
 ## Getting Started
 
@@ -24,7 +24,6 @@ Oh My Neovim is a project that has the following goals:
 - Neovim should be installed, check the following instruction here: [Installing Neovim](https://github.com/neovim/neovim/wiki/Installing-Neovim)
 - `curl` should be installed
 - `git` should be installed
-- optional install another font: https://github.com/ryanoasis/nerd-fonts#font-installation
 
 ### Basic Installation
 
@@ -33,7 +32,7 @@ Oh My Neovim is installed by running one of the following commands in your termi
 ```shell
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/oh-my-neovim/oh-my-neovim/master/tools/install.sh)"
 ```
-> Do not forget to set the Nerd font in your terminal
+> Do not forget to set the [Nerd font](https://github.com/ryanoasis/nerd-fonts#font-installation) in your terminal
 
 ## Using Oh My Neovim
 
