@@ -33,12 +33,6 @@ if [ -d "$OH_MY_NEOVIM" ]; then
   exit
 fi
 
-hash nvim >/dev/null 2>&1 || {
-  echo "\n${RED}Error: neovim is not installed${NORMAL}\n"
-  echo "${BLUE}https://github.com/neovim/neovim/wiki/Installing-Neovim${NORMAL}"
-  exit 1
-}
-
 # Prevent the cloned repository from having insecure permissions. Failing to do
 # so causes compinit() calls to fail with "command not found: compdef" errors
 # for users with insecure umasks (e.g., "002", allowing group writability). Note
@@ -74,9 +68,9 @@ if [ -f ~/.vimrc ] || [ -h ~/.vimrc ]; then
     mv -f ~/.vimrc ~/.vimrc.pre-oh-my-neovim
 fi
 
-printf "${BLUE}Using the Oh My Neovim template file and adding it to ~/.config/nvim/init.vim${NORMAL}\n"
+printf "${BLUE}Linking the Oh My Neovim configuration file to ~/.config/nvim/init.vim${NORMAL}\n"
 mkdir -p ~/.config/nvim
-cp -f $OH_MY_NEOVIM/init.vim ~/.config/nvim/init.vim
+ln -sf ~/.oh-my-neovim/init.vim ~/.config/nvim/init.vim
 
 if [ ! -f ~/.config/nvim/custom.init.vim ]; then
   echo "\"Custom configurations\nsilent! colorscheme NeoSolarized" > ~/.config/nvim/custom.init.vim
