@@ -12,7 +12,7 @@ One more thing can be that you do not even know that you can improve your text e
 
 Oh My Neovim is a project that has the following goals:
 
-- Simplify the installation process of plugins and its dependencies
+- Simplify the installation process of plugins and its dependencies (e.g. the [default extension](https://github.com/oh-my-neovim/oh-my-neovim/tree/master/extensions/default) will install all Neovim dependencies)
 - Simplify the configuration overhead
 - Build a big extensions library that helps users to get batch of features for the [Neovim](https://neovim.io/) with just one command
 
