@@ -16,3 +16,6 @@ Plug 'hecal3/vim-leader-guide'
 
 " Tab to completion
 Plug 'ervandew/supertab'
+
+" Syntax checker
+Plug 'w0rp/ale'
