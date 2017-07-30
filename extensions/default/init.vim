@@ -32,3 +32,4 @@ let g:airline#extensions#branch#format = 1
 " Leader guide settings
 let g:leaderGuide_max_size = 20
 
+let g:ale_fixers = {}
