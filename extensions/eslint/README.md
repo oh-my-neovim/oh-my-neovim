@@ -1,7 +1,5 @@
 ## Eslint extension
 
-* Installs plugins
-    - [fixmyjs](https://github.com/ruanyl/vim-fixmyjs)
 * Installs npm packages:
     - eslint
     - eslint_d
