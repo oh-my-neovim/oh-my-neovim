@@ -1,1 +1,0 @@
-Plug 'ruanyl/vim-fixmyjs'
