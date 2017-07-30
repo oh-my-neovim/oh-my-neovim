@@ -2,7 +2,7 @@
 map <F5> :let &background = ( &background == "dark"? "light" : "dark" )<CR>
 " NERDTree settings
 nnoremap <leader>d :NERDTreeToggle<CR>
-nnoremap <leader>f :NERDTreeFind<CR>
+nnoremap <leader><leader>f :NERDTreeFind<CR>
 
 command! Cnext try | cnext | catch | cfirst | catch | endtry
 command! Cprev try | cprev | catch | clast | catch | endtry
