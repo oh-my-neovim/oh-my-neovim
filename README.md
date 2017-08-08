@@ -73,14 +73,6 @@ echo "\ncolorscheme monokai" >> ~/.config/nvim/custom.init.vim
 
 `sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"`
 
-#### Create dotfiles for a nodejs project
-
-`sh -c "$(curl -fsSL https://raw.githubusercontent.com/oh-my-neovim/oh-my-neovim/master/extensions/nodejs/create_dotfiles.sh)"`
-
-#### Create dotfiles for a react project
-
-`sh -c "$(curl -fsSL https://raw.githubusercontent.com/oh-my-neovim/oh-my-neovim/master/extensions/react/create_dotfiles.sh)"`
-
 ## Uninstalling Oh My Neovim
 
 If you want to uninstall `oh-my-neovim`, just run `uninstall_oh_my_neovim` from the command-line. It will remove itself and revert your previous [Neovim](https://neovim.io/) configuration.
