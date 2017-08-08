@@ -20,9 +20,6 @@ set completeopt-=preview
 " SuperTab go from top to bottom
 let g:SuperTabDefaultCompletionType = "<c-n>"
 
-" Neomake check after open and write
-autocmd! BufWritePost,BufEnter * silent! Neomake
-
 " Airline settings
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#fnamemod = ':t'
