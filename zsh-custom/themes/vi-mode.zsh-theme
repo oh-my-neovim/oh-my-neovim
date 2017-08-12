@@ -54,7 +54,7 @@ function zle-keymap-select zle-line-init zle-line-finish {
 
 # Prompt format
 PROMPT='
-%{$BLUE_BOLD%}%n@%m%{$WHITE%}:%{$YELLOW%}%~%u$(parse_git_dirty)$(git_prompt_ahead)%{$RESET_COLOR%}
+%{$BLUE_BOLD%}%~%u$(parse_git_dirty)$(git_prompt_ahead)%{$RESET_COLOR%}
 $VI_PROMPT ➤%{$RESET_COLOR%} '
 
 RPROMPT='%{$GREEN_BOLD%}$(current_branch)$(git_prompt_short_sha)$(git_prompt_status)%{$RESET_COLOR%}'
