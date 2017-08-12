@@ -52,9 +52,10 @@ function zle-keymap-select zle-line-init zle-line-finish {
   zle -R
 }
 
+local ret_status="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
 # Prompt format
 PROMPT='
 %{$BLUE_BOLD%}%~%u$(parse_git_dirty)$(git_prompt_ahead)%{$RESET_COLOR%}
-$VI_PROMPT ➤%{$RESET_COLOR%} '
+$VI_PROMPT ${ret_status} %{$RESET_COLOR%} '
 
 RPROMPT='%{$GREEN_BOLD%}$(current_branch)$(git_prompt_short_sha)$(git_prompt_status)%{$RESET_COLOR%}'
