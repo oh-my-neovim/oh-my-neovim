@@ -43,8 +43,8 @@ ZSH_THEME_GIT_PROMPT_SHA_BEFORE=" %{$WHITE%}[%{$YELLOW%}"
 ZSH_THEME_GIT_PROMPT_SHA_AFTER="%{$WHITE%}]"
 
 # Format for VI mode
-INSERT_MODE="%{$GREEN%}--INSERT--"
-NORMAL_MODE="%{$RED%}--NORMAL--"
+INSERT_MODE="%{$BLUE%}--INSERT--"
+NORMAL_MODE="%{$GREEN%}--NORMAL--"
 VI_PROMPT="$INSERT_MODE"
 function zle-keymap-select zle-line-init zle-line-finish {
   VI_PROMPT="${${KEYMAP/vicmd/$NORMAL_MODE}/(main|viins)/$INSERT_MODE}"
