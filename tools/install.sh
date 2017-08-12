@@ -99,6 +99,7 @@ if [ ! -n "$OH_MY_NEOVIM_EXTENSIONS" ]; then
 fi
 
 printf "${GREEN}Configuring shell profile...${NORMAL}\n"
+add_to_shell_profile_if_pattern_not_found "export EDITOR=.*" "export EDITOR='nvim'"
 add_to_shell_profile_if_pattern_not_found "export OH_MY_NEOVIM=.*" "export OH_MY_NEOVIM=$OH_MY_NEOVIM"
 add_to_shell_profile_if_pattern_not_found "export OH_MY_NEOVIM_EXTENSIONS=.*" "export OH_MY_NEOVIM_EXTENSIONS=\"$OH_MY_NEOVIM_EXTENSIONS\""
 add_to_shell_profile_if_pattern_not_found "source $OH_MY_NEOVIM/tools/functions.sh" "source $OH_MY_NEOVIM/tools/functions.sh"
