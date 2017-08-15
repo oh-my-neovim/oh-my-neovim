@@ -73,7 +73,7 @@ mkdir -p ~/.config/nvim
 ln -sf ~/.oh-my-neovim/init.vim ~/.config/nvim/init.vim
 
 if [ ! -f ~/.config/nvim/custom.init.vim ]; then
-  echo "\"Custom configurations\nsilent! colorscheme NeoSolarized" > ~/.config/nvim/custom.init.vim
+  echo "\"Custom configurations\nsilent! colorscheme one" > ~/.config/nvim/custom.init.vim
 fi
 
 if [ ! -f ~/.config/nvim/custom.plug.vim ]; then
