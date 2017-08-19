@@ -1,1 +1,1 @@
-imap <silent> <unique> <leader>j <Plug>JiraComplete
+nnoremap <leader>j <Plug>JiraComplete
