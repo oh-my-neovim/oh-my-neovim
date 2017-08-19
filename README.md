@@ -47,6 +47,8 @@ If you'd like to select extensions at any point in time you just need to run:
 select_extensions_oh_my_neovim
 ```
 
+> extension set example: `export OH_MY_NEOVIM_EXTENSIONS="default ansible clang code_style coffee denite eslint git go icons java javascript json motion nodejs python react ruby search session snippet spell sublime test themes typescript undo vim web xml yaml mouse"`
+
 #### Manual Updates
 
 If you'd like to upgrade at any point in time you just need to run:
