@@ -30,3 +30,4 @@ let g:airline#extensions#branch#format = 1
 let g:leaderGuide_max_size = 20
 
 let g:ale_fixers = {}
+au BufNewFile,BufRead Jenkinsfile setf groovy
