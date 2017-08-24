@@ -75,6 +75,10 @@ echo "\ncolorscheme monokai" >> ~/.config/nvim/custom.init.vim
 
 `sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"`
 
+##### Use search in zsh with fzf
+
+brew install fzf && /usr/local/opt/fzf/install
+
 ## Uninstalling Oh My Neovim
 
 If you want to uninstall `oh-my-neovim`, just run `uninstall_oh_my_neovim` from the command-line. It will remove itself and revert your previous [Neovim](https://neovim.io/) configuration.
