@@ -61,52 +61,28 @@ fi
 }
 
 select_extensions_dialog () {
-  if [ "$(uname)" = Darwin ]; then
-    AVAILABLE_EXTENSIONS=""
-    SELECTED_AVAILABLE_EXTENSIONS=""
-    for extension in $(find $OH_MY_NEOVIM/extensions/* -maxdepth 1 -not -path '*default*' -type d -exec basename {} \;); do
-        if echo $OH_MY_NEOVIM_EXTENSIONS | grep -q "$extension"; then
-          if [ ! -n "$SELECTED_AVAILABLE_EXTENSIONS" ]; then
-              SELECTED_AVAILABLE_EXTENSIONS="\"$extension\""
-          else
-              SELECTED_AVAILABLE_EXTENSIONS="$SELECTED_AVAILABLE_EXTENSIONS, \"$extension\""
-          fi
-        fi
-        if [ ! -n "$AVAILABLE_EXTENSIONS" ]; then
-            AVAILABLE_EXTENSIONS="\"$extension\""
-        else
-            AVAILABLE_EXTENSIONS="$AVAILABLE_EXTENSIONS, \"$extension\""
-        fi
-    done
-    SELECTED_EXTENSIONS=$(osascript -e "choose from list {$AVAILABLE_EXTENSIONS} with title \"Extensions selector\" with prompt \"Choose oh-my-neovim extensions to install\" OK button name \"OK\" cancel button name \"Cancel\" default items {$SELECTED_AVAILABLE_EXTENSIONS} with multiple selections allowed")
-    if [ "$SELECTED_EXTENSIONS" = false ]; then
-      if [ ! -n "$OH_MY_NEOVIM_EXTENSIONS" ]; then 
-			  OH_MY_NEOVIM_EXTENSIONS="default"
-      fi
-		else
-    	OH_MY_NEOVIM_EXTENSIONS=$(echo "$SELECTED_EXTENSIONS"| tr -d ',')
-    	OH_MY_NEOVIM_EXTENSIONS="default $OH_MY_NEOVIM_EXTENSIONS"
-		fi
+  if [ "$(uname)" = Darwin ] && hash brew 2>/dev/null && ! hash whiptail 2>/dev/null; then
+    brew install newt
+  fi
+
+  if hash whiptail 2>/dev/null; then
+    dialog_tool=whiptail
+  elif hash dialog 2>/dev/null; then
+    dialog_tool=dialog
   else
-    if hash whiptail 2>/dev/null; then
-      dialog_tool=whiptail
-    elif hash dialog 2>/dev/null; then
-      dialog_tool=dialog
+    dialog_tool=
+  fi
+  if [ ! -n "$dialog_tool" ]; then
+    OH_MY_NEOVIM_EXTENSIONS="default"
+  else
+    AVAILABLE_EXTENSIONS=$( find $OH_MY_NEOVIM/extensions/* -maxdepth 1 -not -path '*default*' -type d -exec basename {} \; -exec echo {} \; -exec sh -c 'ext=$(basename $0);if echo $OH_MY_NEOVIM_EXTENSIONS | grep -q "$ext"; then echo ON; else echo OFF; fi' {} \;)
+    CHOOSED_EXTENSIONS=$($dialog_tool --checklist "Choose extensions to install" 28 80 20 ${AVAILABLE_EXTENSIONS} 3>&1 1>&2 2>&3)
+    exitstatus=$?
+    if [ $exitstatus = 0 ]; then
+      OH_MY_NEOVIM_EXTENSIONS=$(echo "$CHOOSED_EXTENSIONS"| tr -d '"')
+      OH_MY_NEOVIM_EXTENSIONS="default $OH_MY_NEOVIM_EXTENSIONS"
     else
-      dialog_tool=
-    fi
-    if [ ! -n "$dialog_tool" ]; then
       OH_MY_NEOVIM_EXTENSIONS="default"
-    else
-      AVAILABLE_EXTENSIONS=$( find $OH_MY_NEOVIM/extensions/* -maxdepth 1 -not -path '*default*' -type d -exec basename {} \; -exec echo {} \; -exec sh -c 'ext=$(basename $0);if echo $OH_MY_NEOVIM_EXTENSIONS | grep -q "$ext"; then echo ON; else echo OFF; fi' {} \;)
-      CHOOSED_EXTENSIONS=$($dialog_tool --checklist "Choose extensions to install" 28 80 20 ${AVAILABLE_EXTENSIONS} 3>&1 1>&2 2>&3)
-      exitstatus=$?
-      if [ $exitstatus = 0 ]; then
-        OH_MY_NEOVIM_EXTENSIONS=$(echo "$CHOOSED_EXTENSIONS"| tr -d '"')
-        OH_MY_NEOVIM_EXTENSIONS="default $OH_MY_NEOVIM_EXTENSIONS"
-      else
-        OH_MY_NEOVIM_EXTENSIONS="default"
-      fi
     fi
   fi
 }
