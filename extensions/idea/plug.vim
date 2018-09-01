@@ -1,1 +1,1 @@
-Plug 'BufOnly.vim'
+Plug 'vim-scripts/BufOnly.vim'
