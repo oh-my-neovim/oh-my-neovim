@@ -1,3 +1,3 @@
 Plug 'sjl/gundo.vim'
-Plug 'YankRing.vim'
+Plug 'vim-scripts/YankRing.vim'
 
