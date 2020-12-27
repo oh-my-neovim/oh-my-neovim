@@ -1,6 +1,6 @@
 #!/bin/sh
 . $OH_MY_NEOVIM/tools/custom.sh
-read -r -p "Are you sure you want to remove Oh My Zsh? [y/N] " confirmation
+read -r -p "Are you sure you want to remove Oh My NeoVim? [y/N] " confirmation
 if [ "$confirmation" != y ] && [ "$confirmation" != Y ]; then
   echo "Uninstall cancelled"
   exit
