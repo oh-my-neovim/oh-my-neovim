@@ -1,13 +1,13 @@
 " Fugitive mapping
-nnoremap <leader>gs :Gstatus<CR>
-nnoremap <leader>gpl :Gpull<CR>
-nnoremap <leader>gps :Gpush<CR>
-nnoremap <leader>gc :Gcommit -v -q<CR>
-nnoremap <leader>gd :Gdiff<CR>
-nnoremap <leader>gbl :Gblame<CR>
+nnoremap <leader>gs :Git<CR>
+nnoremap <leader>gpl :Git pull<CR>
+nnoremap <leader>gps :Git push<CR>
+nnoremap <leader>gc :Git commit --signoff -v -q<CR>
+nnoremap <leader>gd :Git diff<CR>
+nnoremap <leader>gbl :Git blame<CR>
 nnoremap <leader>gb :Git branch<Space>
 nnoremap <leader>go :Git checkout<Space>
-nnoremap <leader>gm :Gmerge<CR>
+nnoremap <leader>gm :Git merge<CR>
 map <F11> [c " <F11> moves to previous change location
 map <F12> ]c " <F12> moves to next change location
 
