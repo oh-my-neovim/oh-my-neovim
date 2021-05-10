@@ -22,3 +22,6 @@ fi
 # add ruby to PATH
 . $OH_MY_NEOVIM/tools/custom.sh
 add_to_shell_profile_if_pattern_not_found "PATH=\"$(ruby -e 'print Gem.user_dir')/bin:\$PATH\"" "PATH=\"$(ruby -e 'print Gem.user_dir')/bin:\$PATH\""
+
+npm install --no-progress -g neovim > /dev/null || true
+pyenv install 2.7.18 --skip-existing > /dev/null || true

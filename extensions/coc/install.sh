@@ -35,3 +35,5 @@ env OH_MY_NEOVIM="$OH_MY_NEOVIM" OH_MY_NEOVIM_EXTENSIONS="$OH_MY_NEOVIM_EXTENSIO
 env OH_MY_NEOVIM="$OH_MY_NEOVIM" OH_MY_NEOVIM_EXTENSIONS="$OH_MY_NEOVIM_EXTENSIONS" nvim -c ":CocInstall coc-python" -c ":qa!" --headless || {
   printf "Error: Install coc plugins failed\nPlease start nvim and run ':CocInstall coc-python' manually\n"
 }
+
+npm install --no-progress -g prettier eslint markdownlint > /dev/null || true
