@@ -61,17 +61,21 @@ if [ "$confirmation" = y ] || [ "$confirmation" = Y ]; then
     if [ -f $OH_MY_NEOVIM/extensions/$extension/pip2 ]; then
       pip2_packages=$(cat $OH_MY_NEOVIM/extensions/$extension/pip2)
       printf "${BLUE}Install $pip2_packages with pip2 for $extension extension...${NORMAL}\n"
-      pip2 install --user --upgrade $pip2_packages || {
+      pyenv activate neovim2 > /dev/null 2>&1 || true
+      pip install --user --upgrade $pip2_packages || {
         printf "Error [pip2]: Install dependencies for extension \"$extension\" failed\n"
       }
+      pyenv deactivate > /dev/null 2>&1 || true
     fi
     # pip3
     if [ -f $OH_MY_NEOVIM/extensions/$extension/pip3 ]; then
       pip3_packages=$(cat $OH_MY_NEOVIM/extensions/$extension/pip3)
       printf "${BLUE}Install $pip3_packages with pip3 for $extension extension...${NORMAL}\n"
-      pip3 install --user --upgrade $pip3_packages || {
+      pyenv activate neovim2 > /dev/null 2>&1 || true
+      pip install --user --upgrade $pip3_packages || {
         printf "Error [pip3]: Install dependencies for extension \"$extension\" failed\n"
       }
+      pyenv deactivate > /dev/null 2>&1 || true
     fi
     # gem
     if [ -f $OH_MY_NEOVIM/extensions/$extension/gem ]; then
