@@ -23,5 +23,17 @@ fi
 . $OH_MY_NEOVIM/tools/custom.sh
 add_to_shell_profile_if_pattern_not_found "PATH=\"$(ruby -e 'print Gem.user_dir')/bin:\$PATH\"" "PATH=\"$(ruby -e 'print Gem.user_dir')/bin:\$PATH\""
 
-npm install --no-progress -g neovim > /dev/null || true
-pyenv install 2.7.18 --skip-existing > /dev/null || true
+npm install --no-progress -g neovim > /dev/null 2>&1 || true
+
+pyenv install 2.7.18 --skip-existing > /dev/null 2>&1 || true
+pyenv install 3.9.4 --skip-existing > /dev/null 2>&1 || true
+
+pyenv virtualenv 2.7.18 neovim2 > /dev/null 2>&1 || true
+pyenv activate neovim2 > /dev/null 2>&1 || true
+pip install neovim > /dev/null 2>&1 || true
+pyenv deactivate > /dev/null 2>&1 || true
+
+pyenv virtualenv 3.9.4 neovim3 > /dev/null 2>&1 || true
+pyenv activate neovim3 > /dev/null 2>&1 || true
+pip install neovim > /dev/null 2>&1 || true
+pyenv deactivate > /dev/null 2>&1 || true

@@ -31,3 +31,9 @@ let g:leaderGuide_max_size = 20
 
 let g:ale_fixers = {}
 au BufNewFile,BufRead Jenkinsfile setf groovy
+
+" Python provider
+if has("nvim")
+    let g:python_host_prog = $HOME . "/.pyenv/versions/neovim2/bin/python"
+    let g:python3_host_prog = $HOME . "/.pyenv/versions/neovim3/bin/python"
+endif
