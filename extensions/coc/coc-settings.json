@@ -41,8 +41,30 @@
             "enable": true,
             "filetypes": ["json"]
         },
+        "prettier": {
+            "filetypes": [
+                "javascript",
+                "javascriptreact",
+                "typescript",
+                "typescriptreact",
+                "html",
+                "vue",
+                "markdown",
+                "json",
+                "css"
+            ]
+        },
         "eslint": {
-            "autoFixOnSave": true
+            "autoFixOnSave": true,
+            "filetypes": [
+                "javascript",
+                "javascriptreact",
+                "typescript",
+                "typescriptreact",
+                "html",
+                "vue",
+                "markdown"
+            ]
         },
         "tsserver": {
             "enable": true,
