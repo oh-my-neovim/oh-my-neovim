@@ -6,20 +6,56 @@
             "trace.server": "verbose",
             "filetypes": ["go"]
         },
+        "java": {
+            "filetypes": ["java"],
+            "configuration.runtimes": [
+                {
+                    "name": "JavaSE-11",
+                    "default": true,
+                    "path": "/Library/Java/JavaVirtualMachines/adoptopenjdk-11.jdk/Contents/Home"
+                },
+                {
+                    "name": "JavaSE-1.8",
+                    "default": false,
+                    "path": "/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home"
+                }
+            ],
+            "completion.importOrder": ["java", "javax", "com", "org"],
+            "project.importOnFirstTimeStartup": "automatic",
+            "test.report.showAfterExecution": "always",
+            "test.config": [
+                {
+                    "name": "Unit Tests",
+                    "workingDirectory": "${workspaceFolder}",
+                    "args": ["--include-classname", ".*Test"]
+                },
+                {
+                    "name": "Integration Tests",
+                    "workingDirectory": "${workspaceFolder}",
+                    "args": ["--include-classname", ".*IT"]
+                }
+            ],
+            "test.defaultConfig": "Unit Tests"
+        },
         "json": {
-            "enable": true
+            "enable": true,
+            "filetypes": ["json"]
         },
         "tsserver": {
             "enable": true,
-            "enableJavascript": true
+            "enableJavascript": true,
+            "filetypes": ["ts", "tsx", "js", "jsx"]
         },
         "html": {
-            "enable": true
+            "enable": true,
+            "filetypes": ["html"]
         },
-        "markdownlint": {},
+        "markdownlint": {
+            "filetypes": ["markdown", "md"]
+        },
         "terraform": {
             "command": "terraform-lsp",
-            "filetypes": ["terraform"],
+            "filetypes": ["terraform", "tf"],
             "initializationOptions": {}
         },
         "python": {
