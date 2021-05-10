@@ -18,9 +18,9 @@ nnoremap <leader><space> :noh<cr>
 
 " Buffers
 nnoremap <leader>T :enew<cr>
-nnoremap gy :bnext<CR>
-nnoremap gt :bprevious<cr>
-nnoremap gd :bdelete<cr>
+nnoremap by :bnext<CR>
+nnoremap bt :bprevious<cr>
+nnoremap bd :bdelete<cr>
 nnoremap <leader>q :q<CR>
 
 " Press Enter on completion does a new line
