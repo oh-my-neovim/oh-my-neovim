@@ -21,6 +21,7 @@ nnoremap <leader>T :enew<cr>
 nnoremap by :bnext<CR>
 nnoremap bt :bprevious<cr>
 nnoremap bd :bdelete<cr>
+nnoremap bo :BufOnly<cr>
 nnoremap <leader>q :q<CR>
 
 " Press Enter on completion does a new line
