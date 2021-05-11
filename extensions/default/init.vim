@@ -11,7 +11,7 @@ set clipboard+=unnamedplus
 filetype indent on
 set backspace=indent,eol,start
 
-"let g:nerdtree_tabs_autofind=1
+let g:nerdtree_tabs_autofind=1
 "let g:NERDTreeShowHidden=1
 set laststatus=2
 " Do not open preview on completion
@@ -39,4 +39,4 @@ if has("nvim")
 endif
 
 " Synchronize NERDTree with current opened file
-autocmd BufEnter * if &modifiable | NERDTreeFind | wincmd p | endif
+"autocmd BufEnter * if &modifiable | NERDTreeFind | wincmd p | endif
