@@ -1,0 +1,20 @@
+{
+  "coc.preferences.jumpCommand": "drop",
+  "prettier.eslintIntegration": true,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "markdown",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "json"
+  ],
+  "eslint.filetypes": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "files.insertFinalNewline": true
+}
