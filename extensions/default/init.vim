@@ -18,7 +18,7 @@ set laststatus=2
 set completeopt-=preview
 
 " SuperTab go from top to bottom
-" let g:SuperTabDefaultCompletionType = "<c-n>"
+let g:SuperTabDefaultCompletionType = "<c-n>"
 
 " Airline settings
 let g:airline#extensions#tabline#enabled=1
