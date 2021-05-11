@@ -1,9 +1,5 @@
 #!/bin/sh
 
-if [ ! -f ~/.config/nvim/coc-settings.json ]; then
-  cp ~/.oh-my-neovim/extensions/coc/coc-settings.json ~/.config/nvim/coc-settings.json
-fi
-
 env OH_MY_NEOVIM="$OH_MY_NEOVIM" OH_MY_NEOVIM_EXTENSIONS="$OH_MY_NEOVIM_EXTENSIONS" nvim -c ":CocInstall coc-go" -c ":qa!" --headless || {
   printf "Error: Install coc plugins failed\nPlease start nvim and run ':CocInstall coc-go' manually\n"
 }
@@ -36,4 +32,6 @@ env OH_MY_NEOVIM="$OH_MY_NEOVIM" OH_MY_NEOVIM_EXTENSIONS="$OH_MY_NEOVIM_EXTENSIO
   printf "Error: Install coc plugins failed\nPlease start nvim and run ':CocInstall coc-python' manually\n"
 }
 
-npm install --no-progress -g prettier eslint markdownlint > /dev/null || true
+env OH_MY_NEOVIM="$OH_MY_NEOVIM" OH_MY_NEOVIM_EXTENSIONS="$OH_MY_NEOVIM_EXTENSIONS" nvim -c ":CocInstall coc-prettier" -c ":qa!" --headless || {
+  printf "Error: Install coc plugins failed\nPlease start nvim and run ':CocInstall coc-prettier' manually\n"
+}
