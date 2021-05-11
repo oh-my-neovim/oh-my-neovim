@@ -58,6 +58,7 @@
         "eslint": {
             "command": "eslint",
             "autoFixOnSave": true,
+            "debug": true,
             "filetypes": [
                 "javascript",
                 "javascriptreact",
@@ -75,7 +76,7 @@
         },
         "html": {
             "enable": true,
-            "filetypes": ["html"]
+            "filetypes": ["html", "handlebars", "htmldjango", "blade"]
         },
         "markdownlint": {
             "command": "markdownlint",

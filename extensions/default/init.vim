@@ -12,7 +12,7 @@ filetype indent on
 set backspace=indent,eol,start
 
 let g:nerdtree_tabs_autofind=1
-let g:NERDTreeShowHidden=1
+"let g:NERDTreeShowHidden=1
 set laststatus=2
 " Do not open preview on completion
 set completeopt-=preview
