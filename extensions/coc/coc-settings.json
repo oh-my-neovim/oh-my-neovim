@@ -1,6 +1,7 @@
 {
   "coc.preferences.jumpCommand": "drop",
   "prettier.eslintIntegration": true,
+  "prettier.tslintIntegration": true,
   "coc.preferences.formatOnSaveFiletypes": [
     "css",
     "markdown",
@@ -16,5 +17,17 @@
     "typescript",
     "typescriptreact"
   ],
-  "files.insertFinalNewline": true
+  "files.insertFinalNewline": true,
+  "languageserver": {
+		"terraform": {
+			"command": "terraform-ls",
+			"args": ["serve"],
+			"filetypes": [
+				"terraform",
+				"tf"
+			],
+			"initializationOptions": {},
+			"settings": {}
+		}
+	}
 }

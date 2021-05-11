@@ -24,10 +24,6 @@ env OH_MY_NEOVIM="$OH_MY_NEOVIM" OH_MY_NEOVIM_EXTENSIONS="$OH_MY_NEOVIM_EXTENSIO
   printf "Error: Install coc plugins failed\nPlease start nvim and run ':CocInstall coc-markdownlint' manually\n"
 }
 
-env OH_MY_NEOVIM="$OH_MY_NEOVIM" OH_MY_NEOVIM_EXTENSIONS="$OH_MY_NEOVIM_EXTENSIONS" nvim -c ":CocInstall coc-terraform" -c ":qa!" --headless || {
-  printf "Error: Install coc plugins failed\nPlease start nvim and run ':CocInstall coc-terraform' manually\n"
-}
-
 env OH_MY_NEOVIM="$OH_MY_NEOVIM" OH_MY_NEOVIM_EXTENSIONS="$OH_MY_NEOVIM_EXTENSIONS" nvim -c ":CocInstall coc-python" -c ":qa!" --headless || {
   printf "Error: Install coc plugins failed\nPlease start nvim and run ':CocInstall coc-python' manually\n"
 }
