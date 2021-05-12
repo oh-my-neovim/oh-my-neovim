@@ -19,3 +19,6 @@ Plug 'ervandew/supertab'
 
 " Syntax checker
 Plug 'w0rp/ale'
+
+" vim-commentary
+Plug 'tpope/vim-commentary'
