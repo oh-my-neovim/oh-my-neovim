@@ -18,8 +18,8 @@ nnoremap <leader><space> :noh<cr>
 
 " Buffers
 nnoremap <leader>T :enew<cr>
-nnoremap by :bnext<CR>
-nnoremap bt :bprevious<cr>
+nnoremap bn :bnext<CR>
+nnoremap bp :bprevious<cr>
 nnoremap bd :bdelete<cr>
 nnoremap bo :BufOnly<cr>
 nnoremap <leader>q :q<CR>
