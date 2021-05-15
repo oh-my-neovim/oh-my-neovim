@@ -1,5 +1,5 @@
 " Fugitive mapping
-nnoremap <leader>gs :Git<CR>
+nnoremap <leader>gs :Gedit :<CR>
 nnoremap <leader>gpl :Git pull<CR>
 nnoremap <leader>gps :Git push<CR>
 nnoremap <leader>gc :Git commit --signoff -v -q<CR>
