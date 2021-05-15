@@ -20,8 +20,8 @@ nnoremap <leader><space> :noh<cr>
 nnoremap <leader>T :enew<cr>
 nnoremap gt :bnext<CR>
 nnoremap gT :bprevious<cr>
-nnoremap bd :bdelete<cr>
-nnoremap bo :BufOnly<cr>
+nnoremap <Leader>x :bdelete<cr>
+nnoremap <Leader>o :BufOnly<cr>
 nnoremap <Leader>1 :1b<CR>
 nnoremap <Leader>2 :2b<CR>
 nnoremap <Leader>3 :3b<CR>

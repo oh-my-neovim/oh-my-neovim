@@ -8,6 +8,7 @@ nnoremap <leader>gbl :Git blame<CR>
 nnoremap <leader>gb :Git branch<Space>
 nnoremap <leader>go :Git checkout<Space>
 nnoremap <leader>gm :Git merge<CR>
+nnoremap <Leader>gx :windo diffoff!<cr><c-w>h:bd<cr>
 map <F11> [c " <F11> moves to previous change location
 map <F12> ]c " <F12> moves to next change location
 
