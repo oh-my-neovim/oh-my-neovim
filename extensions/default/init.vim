@@ -12,8 +12,6 @@ filetype indent on
 set backspace=indent,eol,start
 set list
 set listchars=tab:➞\ ,nbsp:･,space:･
-highlight NonText guifg=#657b83 ctermbg=NONE guibg=NONE
-highlight SpecialKey guifg=#657b83 ctermbg=NONE guibg=NONE
 
 let g:nerdtree_tabs_autofind=1
 let g:NERDTreeShowHidden=1
@@ -59,3 +57,6 @@ if system("defaults read -g AppleInterfaceStyle") =~ '^Dark'
 else
   set background=light
 endif
+
+highlight NonText guifg=#657b83 ctermbg=NONE guibg=NONE
+highlight SpecialKey guifg=#657b83 ctermbg=NONE guibg=NONE
