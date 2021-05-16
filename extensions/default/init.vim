@@ -12,8 +12,8 @@ filetype indent on
 set backspace=indent,eol,start
 set list
 set listchars=tab:➞\ ,nbsp:･,space:･
-highlight NonText guifg=#4a4a59
-highlight SpecialKey guifg=#4a4a59
+highlight NonText guifg=#657b83
+highlight SpecialKey guifg=#657b83
 
 let g:nerdtree_tabs_autofind=1
 let g:NERDTreeShowHidden=1
