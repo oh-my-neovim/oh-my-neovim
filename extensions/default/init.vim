@@ -54,11 +54,8 @@ silent! colorscheme NeoSolarized
 set background=dark
 
 " dark mode enabled?
-let s:uname = system("uname -s")
-if s:uname == "Darwin"
-  if system("defaults read -g AppleInterfaceStyle") =~ '^Dark'
-    set background=dark
-  else
-    set background=light
-  endif
+if system("defaults read -g AppleInterfaceStyle") =~ '^Dark'
+  set background=dark
+else
+  set background=light
 endif
