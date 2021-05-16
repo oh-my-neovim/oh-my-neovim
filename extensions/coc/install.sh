@@ -8,6 +8,10 @@ env OH_MY_NEOVIM="$OH_MY_NEOVIM" OH_MY_NEOVIM_EXTENSIONS="$OH_MY_NEOVIM_EXTENSIO
   printf "Error: Install coc plugins failed\nPlease start nvim and run ':CocInstall coc-java' manually\n"
 }
 
+env OH_MY_NEOVIM="$OH_MY_NEOVIM" OH_MY_NEOVIM_EXTENSIONS="$OH_MY_NEOVIM_EXTENSIONS" nvim -c ":CocInstall coc-java-debug" -c ":qa!" --headless || {
+  printf "Error: Install coc plugins failed\nPlease start nvim and run ':CocInstall coc-java' manually\n"
+}
+
 env OH_MY_NEOVIM="$OH_MY_NEOVIM" OH_MY_NEOVIM_EXTENSIONS="$OH_MY_NEOVIM_EXTENSIONS" nvim -c ":CocInstall coc-json" -c ":qa!" --headless || {
   printf "Error: Install coc plugins failed\nPlease start nvim and run ':CocInstall coc-json' manually\n"
 }
