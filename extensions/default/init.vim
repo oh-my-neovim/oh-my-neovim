@@ -12,8 +12,8 @@ filetype indent on
 set backspace=indent,eol,start
 set list
 set listchars=tab:➞\ ,nbsp:･,space:･
-highlight NonText guifg=#657b83
-highlight SpecialKey guifg=#657b83
+highlight NonText guifg=#657b83 ctermbg=NONE guibg=NONE
+highlight SpecialKey guifg=#657b83 ctermbg=NONE guibg=NONE
 
 let g:nerdtree_tabs_autofind=1
 let g:NERDTreeShowHidden=1
@@ -54,13 +54,11 @@ silent! colorscheme NeoSolarized
 set background=dark
 
 " dark mode enabled?
-if has("unix")
-  let s:uname = system("uname -s")
-  if s:uname == "Darwin"
-    if system("defaults read -g AppleInterfaceStyle") =~ '^Dark'
-      set background=dark
-    else
-      set background=light
-    endif
+let s:uname = system("uname -s")
+if s:uname == "Darwin"
+  if system("defaults read -g AppleInterfaceStyle") =~ '^Dark'
+    set background=dark
+  else
+    set background=light
   endif
 endif
