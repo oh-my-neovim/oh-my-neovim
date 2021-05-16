@@ -22,3 +22,6 @@ Plug 'w0rp/ale'
 
 " vim-commentary
 Plug 'tpope/vim-commentary'
+
+" css colors highlight
+Plug 'ap/vim-css-color'
