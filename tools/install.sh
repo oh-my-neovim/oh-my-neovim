@@ -72,6 +72,9 @@ printf "${BLUE}Linking the Oh My Neovim configuration file to ~/.config/nvim/ini
 mkdir -p ~/.config/nvim
 ln -sf ~/.oh-my-neovim/init.vim ~/.config/nvim/init.vim
 
+printf "${BLUE}Linking the Oh My Neovim configuration file to ~/.vimrc${NORMAL}\n"
+ln -sf ~/.config/nvim/init.vim ~/.vimrc
+
 if [ ! -f ~/.config/nvim/custom.init.vim ]; then
   echo "\"Custom configurations\nsilent! colorscheme one" > ~/.config/nvim/custom.init.vim
 fi

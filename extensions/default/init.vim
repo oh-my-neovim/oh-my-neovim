@@ -44,3 +44,23 @@ endif
 
 " Synchronize NERDTree with current opened file
 "autocmd BufEnter * if &modifiable | NERDTreeFind | wincmd p | endif
+
+" Theme
+if has("nvim")
+  set termguicolors
+endif
+
+silent! colorscheme NeoSolarized
+set background=dark
+
+" dark mode enabled?
+if has("unix")
+  let s:uname = system("uname -s")
+  if s:uname == "Darwin"
+    if system("defaults read -g AppleInterfaceStyle") =~ '^Dark'
+      set background=dark
+    else
+      set background=light
+    endif
+  endif
+endif
