@@ -12,6 +12,7 @@ filetype indent on
 set backspace=indent,eol,start
 set list
 set listchars=tab:➞\ ,nbsp:･,space:･
+set redrawtime=10000
 
 let g:nerdtree_tabs_autofind=1
 let g:NERDTreeShowHidden=1
