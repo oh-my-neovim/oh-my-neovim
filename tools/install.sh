@@ -92,7 +92,7 @@ if [ ! -f ~/.local/share/nvim/site/autoload/plug.vim ]; then
 fi
 if [ ! -f ~/.vim/autoload/plug.vim ]; then
   printf "${YELLOW}plug.vim for vim not found...${NORMAL} ${GREEN}Downloading it from github...${NORMAL}\n"
-  env curl -sfL ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim || {
+  env curl -sfLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim || {
     printf "Error: Download with curl failed\n"
   }
 fi
