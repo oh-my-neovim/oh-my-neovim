@@ -7,3 +7,4 @@ Plug 'taiansu/nerdtree-ag'
 Plug 'eugen0329/vim-esearch'
 Plug 'https://github.com/will133/vim-dirdiff.git'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'brooth/far.vim'
