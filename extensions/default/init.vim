@@ -17,6 +17,8 @@ set regexpengine=0
 
 let g:nerdtree_tabs_autofind=1
 let g:NERDTreeShowHidden=1
+let g:NERDTreeWinSize=45
+
 set laststatus=2
 " Do not open preview on completion
 set completeopt-=preview
