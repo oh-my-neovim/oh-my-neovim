@@ -17,4 +17,3 @@ let g:esearch = {
   \}
 
 set lazyredraw            " improve scrolling performance when navigating through large results
-set regexpengine=1        " use old regexp engine
