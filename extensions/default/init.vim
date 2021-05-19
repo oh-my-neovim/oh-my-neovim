@@ -64,3 +64,6 @@ endif
 
 highlight NonText guifg=#657b83 ctermbg=NONE guibg=NONE
 highlight SpecialKey guifg=#657b83 ctermbg=NONE guibg=NONE
+
+let g:startify_session_autoload = 1
+let g:startify_session_persistence = 1
