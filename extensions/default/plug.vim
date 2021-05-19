@@ -7,6 +7,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " Theme
 Plug 'iCyMind/NeoSolarized'
+Plug 'morhetz/gruvbox'
 
 " Syntax
 Plug 'sheerun/vim-polyglot'
