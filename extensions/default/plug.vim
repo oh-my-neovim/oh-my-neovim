@@ -26,3 +26,6 @@ Plug 'tpope/vim-commentary'
 
 " css colors highlight
 Plug 'ap/vim-css-color'
+
+" Startify
+Plug 'mhinz/vim-startify'
