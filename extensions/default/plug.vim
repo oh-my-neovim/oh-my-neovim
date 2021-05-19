@@ -17,8 +17,8 @@ Plug 'hecal3/vim-leader-guide'
 " Tab to completion
 Plug 'ervandew/supertab'
 
-" Syntax checker
-Plug 'w0rp/ale'
+" Linter
+Plug 'dense-analysis/ale'
 
 " vim-commentary
 Plug 'tpope/vim-commentary'
