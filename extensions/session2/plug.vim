@@ -1,0 +1,1 @@
+Plug 'rmagatti/auto-session'
