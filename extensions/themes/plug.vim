@@ -7,3 +7,4 @@ Plug 'joshdick/onedark.vim'
 Plug 'endel/vim-github-colorscheme'
 Plug 'rakr/vim-one'
 Plug 'arcticicestudio/nord-vim'
+Plug 'sonph/onehalf', { 'rtp': 'vim' }
