@@ -26,7 +26,7 @@ function! RestoreSess()
     if bufexists(1)
         for l in range(1, bufnr('$'))
             if bufwinnr(l) == -1
-                exec 'sbuffer ' . l
+                silent! execute 'sbuffer ' . l
             endif
         endfor
     endif
