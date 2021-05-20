@@ -17,6 +17,7 @@ endfunction
 
 function! SaveSess()
     let sess_file = GetSessFile()
+    silent! execute 'tabdo NERDTreeClose'
     silent! execute 'mksession! ' sess_file
 endfunction
 
