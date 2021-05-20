@@ -17,12 +17,12 @@ endfunction
 
 function! SaveSess()
     let sess_file = GetSessFile()
-    execute 'mksession! ' sess_file
+    silent! execute 'mksession! ' sess_file
 endfunction
 
 function! RestoreSess()
     let sess_file = GetSessFile()
-    execute 'source ' sess_file
+    silent! execute 'source ' sess_file
     if bufexists(1)
         for l in range(1, bufnr('$'))
             if bufwinnr(l) == -1
