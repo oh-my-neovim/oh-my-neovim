@@ -55,11 +55,31 @@ endif
 silent! colorscheme NeoSolarized
 set background=dark
 
-" dark mode enabled?
-if system("defaults read -g AppleInterfaceStyle") =~ '^Dark'
-  set background=dark
-else
-  set background=light
+if has("mac")
+  " ChangeBackground changes the background mode based on macOS's `Appearance`
+  " setting. We also refresh the statusline colors to reflect the new mode.
+  function! ChangeBackground()
+    if system("defaults read -g AppleInterfaceStyle 2>/dev/null") =~ '^Dark'
+      set background=dark   " for dark version of theme
+    else
+      set background=light  " for light version of theme
+    endif
+
+    try
+      execute "AirlineRefresh"
+    catch
+    endtry
+  endfunction
+
+  " initialize the colorscheme for the first run
+  call ChangeBackground()
+
+  augroup AutoChangeBackground
+    autocmd!
+    autocmd FocusGained,BufEnter * call ChangeBackground()
+  augroup END
+
+  " call timer_start(3000, "SyncDarkMode", {"repeat": -1})
 endif
 
 highlight NonText guifg=#657b83 ctermbg=NONE guibg=NONE
