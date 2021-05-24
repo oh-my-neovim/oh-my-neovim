@@ -6,11 +6,11 @@ set gdefault
 set incsearch
 set showmatch
 set hlsearch
-if has("nvim")
-  let g:far#source = 'rgnvim'
-else
-  let g:far#source = 'rg'
-endif
+" if has("nvim")
+"   let g:far#source = 'rgnvim'
+" else
+"   let g:far#source = 'rg'
+" endif
 if filereadable(".gitignore")
   let g:far#ignore_files=['.gitignore']
 endif
