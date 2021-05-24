@@ -11,12 +11,12 @@ if has("nvim")
 else
   let g:far#source = 'rg'
 endif
-if filereadable(".gitignore")
-  let g:far#ignore_files=['$HOME/.oh-my-neovim/extensions/search/farignore', '.gitignore']
-else
-  let g:far#ignore_files=['$HOME/.oh-my-neovim/extensions/search/farignore']
-endif
-let g:far#file_mask_favorites=['%', '**/*.*', '**/*.ts?x', '**/*.html', '**/*.js', '**/*.css', '**/*.go', '**/*.java']
+" if filereadable(".gitignore")
+"   let g:far#ignore_files=['$HOME/.oh-my-neovim/extensions/search/farignore', '.gitignore']
+" else
+"   let g:far#ignore_files=['$HOME/.oh-my-neovim/extensions/search/farignore']
+" endif
+let g:far#file_mask_favorites=['%', '**/*.*', '**/*.ts', '**/*.html', '**/*.js', '**/*.css', '**/*.go', '**/*.java']
 let g:webdevicons_enable_ctrlp = 1
 let g:esearch = {
   \ 'adapter':    'ag',
