@@ -11,7 +11,9 @@ if has("nvim")
 else
   let g:far#source = 'ag'
 endif
-let g:far#ignore_files=['.git/*', '*.pyc', '__pycache__/*', '*/node_modules/*']
+if filereadable(".gitignore")
+  let g:far#ignore_files=['.gitignore']
+endif
 let g:far#file_mask_favorites=['%', '**/*.*', '**/*.ts?x', '**/*.html', '**/*.js', '**/*.css', '**/*.go', '**/*.java']
 let g:webdevicons_enable_ctrlp = 1
 let g:esearch = {
