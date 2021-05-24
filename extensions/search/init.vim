@@ -6,7 +6,12 @@ set gdefault
 set incsearch
 set showmatch
 set hlsearch
-let g:far#source = 'agnvim'
+if has("nvim")
+  let g:far#source = 'agnvim'
+else
+  let g:far#source = 'ag'
+endif
+let g:far#ignore_files=['.git/', '*.pyc', '__pycache__/', 'node_modules/']
 let g:webdevicons_enable_ctrlp = 1
 let g:esearch = {
   \ 'adapter':    'ag',
