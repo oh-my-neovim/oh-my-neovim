@@ -6,7 +6,7 @@ set gdefault
 set incsearch
 set showmatch
 set hlsearch
-let g:far#file_mask_favorites=['%', '**/*.*', '**/*.ts', '**/*.html', '**/*.js', '**/*.css', '**/*.go', '**/*.java']
+let g:far#file_mask_favorites=['%', '**/*.*', '**/*.{ts,tsx}', '**/*.html', '**/*.{js,jsx}', '**/*.css', '**/*.go', '**/*.java','**/*.sh','**/*.tf']
 let g:webdevicons_enable_ctrlp = 1
 let g:esearch = {
   \ 'adapter':    'ag',
