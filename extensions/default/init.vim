@@ -2,7 +2,6 @@ syntax on
 let mapleader=','
 let g:neosolarized_vertSplitBgTrans = 0
 let g:gitgutter_override_sign_column_highlight = 0
-set number
 set tabstop=4
 set shiftwidth=4
 set dir=~/.swap-files
@@ -14,6 +13,13 @@ set list
 set listchars=tab:➞\ ,nbsp:･,space:･
 set redrawtime=10000
 set regexpengine=0
+
+set number relativenumber
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
 
 let g:nerdtree_tabs_autofind=1
 let g:NERDTreeShowHidden=1
