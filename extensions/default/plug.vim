@@ -29,3 +29,6 @@ Plug 'ap/vim-css-color'
 
 " Startify
 Plug 'mhinz/vim-startify'
+
+" Maximizer
+Plug 'szw/vim-maximizer'
