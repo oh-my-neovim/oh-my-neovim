@@ -11,11 +11,7 @@ set lazyredraw
 
 if has('nvim-0.5')
 lua <<EOF
-require'nvim-treesitter.configs'.setup {
-  highlight = {
-    enable = true
-  },
-}
+require'nvim-treesitter.configs'.setup {}
 EOF
 else
   let g:far#file_mask_favorites=['%', '**/*.*', '**/*.{ts,tsx}', '**/*.html', '**/*.{js,jsx}', '**/*.css', '**/*.go', '**/*.java','**/*.sh','**/*.tf']
