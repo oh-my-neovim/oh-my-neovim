@@ -14,6 +14,7 @@ set listchars=tab:➞\ ,nbsp:･,space:･
 set redrawtime=10000
 set regexpengine=0
 
+set signcolumn=yes
 set number relativenumber
 augroup numbertoggle
   autocmd!
