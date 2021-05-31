@@ -32,3 +32,10 @@ Plug 'mhinz/vim-startify'
 
 " Maximizer
 Plug 'szw/vim-maximizer'
+
+if has('nvim-0.5')
+  Plug 'nvim-lua/popup.nvim'
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+  Plug 'nvim-treesitter/playground'
+endif
