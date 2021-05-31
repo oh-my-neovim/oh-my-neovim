@@ -61,6 +61,7 @@ endif
 
 silent! colorscheme NeoSolarized
 set background=dark
+let $BAT_THEME='Solarized (dark)'
 
 if has("mac")
   " ChangeBackground changes the background mode based on macOS's `Appearance`
@@ -68,8 +69,10 @@ if has("mac")
   function! ChangeBackground()
     if system("defaults read -g AppleInterfaceStyle 2>/dev/null") =~ '^Dark'
       set background=dark   " for dark version of theme
+      let $BAT_THEME='Solarized (dark)'
     else
       set background=light  " for light version of theme
+      let $BAT_THEME='Solarized (light)'
     endif
 
     try
