@@ -35,3 +35,7 @@ env OH_MY_NEOVIM="$OH_MY_NEOVIM" OH_MY_NEOVIM_EXTENSIONS="$OH_MY_NEOVIM_EXTENSIO
 env OH_MY_NEOVIM="$OH_MY_NEOVIM" OH_MY_NEOVIM_EXTENSIONS="$OH_MY_NEOVIM_EXTENSIONS" nvim -c ":CocInstall coc-prettier" -c ":qa!" --headless || {
   printf "Error: Install coc plugins failed\nPlease start nvim and run ':CocInstall coc-prettier' manually\n"
 }
+
+if [ ! -f $HOME/.config/nvim/coc-settings.json ]; then
+   cp $HOME/.oh-my-neovim/extensions/coc/coc-settings.json $HOME/.config/nvim/coc-settings.json || true
+fi

@@ -33,5 +33,5 @@ function! RestoreSess()
     endif
 endfunction
 
-autocmd VimLeave * call SaveSess()
-autocmd VimEnter * call RestoreSess()
+autocmd VimLeave * silent! call SaveSess()
+autocmd VimEnter * silent! call RestoreSess()
