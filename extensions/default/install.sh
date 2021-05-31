@@ -38,11 +38,7 @@ pyenv activate neovim3 > /dev/null 2>&1 || true
 pip install neovim > /dev/null 2>&1 || true
 pyenv deactivate > /dev/null 2>&1 || true
 
-LANGUAGES=("go" "gomod" "bash" "python" "java" "javascript" "typescript" "tsx" "json" "yaml" "html" "css" "scss")
-LANGUAGES_LENGTH=${#LANGUAGES[@]}
-for (( j=0; j<${LANGUAGES_LENGTH}; j++ )); do
-  env OH_MY_NEOVIM="$OH_MY_NEOVIM" OH_MY_NEOVIM_EXTENSIONS="$OH_MY_NEOVIM_EXTENSIONS" nvim -c ":TSInstall ${LANGUAGES[$j]}" -c ":qa!" --headless || {
-    printf "Error: Install plugin dependency failed\nPlease start nvim and run ':TSInstall ${LANGUAGES[$j]}' manually\n"
-  }
-done
+env OH_MY_NEOVIM="$OH_MY_NEOVIM" OH_MY_NEOVIM_EXTENSIONS="$OH_MY_NEOVIM_EXTENSIONS" nvim -c ":TSInstall all" -c ":qa!" --headless || {
+  printf "Error: Install plugin dependency failed\nPlease start nvim and run ':TSInstall all' manually\n"
+}
 
