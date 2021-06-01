@@ -40,8 +40,4 @@ if has('nvim-0.5')
   Plug 'nvim-treesitter/playground'
 endif
 
-" Workspace - undo and restore
-" Plug 'thaerkh/vim-workspace'
-Plug 'tpope/vim-obsession'
-Plug 'dhruvasagar/vim-prosession'
 
