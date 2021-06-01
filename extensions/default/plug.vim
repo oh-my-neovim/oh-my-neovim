@@ -27,9 +27,6 @@ Plug 'tpope/vim-commentary'
 " css colors highlight
 Plug 'ap/vim-css-color'
 
-" Startify
-Plug 'mhinz/vim-startify'
-
 " Maximizer
 Plug 'szw/vim-maximizer'
 
@@ -40,4 +37,5 @@ if has('nvim-0.5')
   Plug 'nvim-treesitter/playground'
 endif
 
-
+" Workspace - undo and restore
+Plug 'thaerkh/vim-workspace'
