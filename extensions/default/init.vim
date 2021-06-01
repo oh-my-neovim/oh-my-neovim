@@ -99,6 +99,7 @@ let g:startify_session_autoload = 1
 let g:startify_session_persistence = 1
 
 " Workspace
+let g:workspace_autosave_always = 1
 let g:workspace_create_new_tabs = 1
 if has("win64") || has("win32") || has("win16")
   let g:workspace_session_directory = $HOME . '/AppData/Local/nvim/sessions'
@@ -107,4 +108,3 @@ else
 endif
 let g:workspace_persist_undo_history = 1
 let g:workspace_undodir= $HOME . '/.config/nvim/undo'
-let g:workspace_autosave_ignore = ['gitcommit']
