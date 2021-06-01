@@ -22,7 +22,7 @@ augroup numbertoggle
   autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 augroup END
 
-let g:nerdtree_tabs_autofind=1
+" let g:nerdtree_tabs_autofind=1
 let g:NERDTreeShowHidden=1
 let g:NERDTreeWinSize=45
 
@@ -97,7 +97,7 @@ highlight SpecialKey guifg=#657b83 ctermbg=NONE guibg=NONE
 
 " Workspace
 let g:workspace_autosave_always = 1
-let g:workspace_create_new_tabs = 1
+let g:workspace_create_new_tabs = 0
 if has("win64") || has("win32") || has("win16")
   let g:workspace_session_directory = $HOME . '/AppData/Local/nvim/sessions'
 else
@@ -106,3 +106,4 @@ endif
 let g:workspace_persist_undo_history = 1
 let g:workspace_undodir= $HOME . '/.config/nvim/undo'
 let g:workspace_autosave_ignore = ['gitcommit']
+let g:workspace_session_disable_on_args = 1
