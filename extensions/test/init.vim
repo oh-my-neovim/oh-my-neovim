@@ -3,3 +3,4 @@ let test#strategy = "neovim"
 " let test#javascript#mocha#options = '--bail'
 " If you want set NODE_ENV
 " let $NODE_ENV .= 'test'
+let g:ultest_use_pty = 1
