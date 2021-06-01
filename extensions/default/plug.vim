@@ -39,3 +39,6 @@ if has('nvim-0.5')
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   Plug 'nvim-treesitter/playground'
 endif
+
+" Workspace - undo and restore
+Plug 'thaerkh/vim-workspace'
