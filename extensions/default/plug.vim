@@ -1,5 +1,6 @@
 " Tree explorer
 Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 " Status/tabline
