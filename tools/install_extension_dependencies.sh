@@ -15,7 +15,7 @@ if [ "$confirmation" = y ] || [ "$confirmation" = Y ]; then
       if [ -f $OH_MY_NEOVIM/extensions/$extension/brew ]; then
         brew_packages=$(cat $OH_MY_NEOVIM/extensions/$extension/brew)
         printf "${BLUE}Install $brew_packages with brew for $extension extension...${NORMAL}\n"
-        brew install $brew_packages || {
+        brew install --force $brew_packages || {
           printf "Error [brew]: Installation for extension \"$extension\" failed\n"
         }
       fi
@@ -62,7 +62,7 @@ if [ "$confirmation" = y ] || [ "$confirmation" = Y ]; then
       pip2_packages=$(cat $OH_MY_NEOVIM/extensions/$extension/pip2)
       printf "${BLUE}Install $pip2_packages with pip2 for $extension extension...${NORMAL}\n"
       pyenv activate neovim2 > /dev/null 2>&1 || true
-      pip install --user --upgrade $pip2_packages || {
+      pip install --upgrade $pip2_packages || {
         printf "Error [pip2]: Install dependencies for extension \"$extension\" failed\n"
       }
       pyenv deactivate > /dev/null 2>&1 || true
@@ -72,7 +72,7 @@ if [ "$confirmation" = y ] || [ "$confirmation" = Y ]; then
       pip3_packages=$(cat $OH_MY_NEOVIM/extensions/$extension/pip3)
       printf "${BLUE}Install $pip3_packages with pip3 for $extension extension...${NORMAL}\n"
       pyenv activate neovim3 > /dev/null 2>&1 || true
-      pip install --user --upgrade $pip3_packages || {
+      pip install --upgrade $pip3_packages || {
         printf "Error [pip3]: Install dependencies for extension \"$extension\" failed\n"
       }
       pyenv deactivate > /dev/null 2>&1 || true
