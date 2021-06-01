@@ -4,7 +4,7 @@ Oh My Neovim is an open source toolkit for managing your [Neovim](https://neovim
 
 ### Motivation
 
-One of the big problems of [Neovim](https://neovim.io/) is to find right plugins, if you want more features for your text editor. In addition you have to install all dependencies and configure plugins correctly. 
+One of the big problems of [Neovim](https://neovim.io/) is to find right plugins, if you want more features for your text editor. In addition you have to install all dependencies and configure plugins correctly.
 
 For example [deoplete](https://github.com/Shougo/deoplete.nvim) is great project, but you do not know whether your desired programming language supported and if you want use it you need to understand how to install and configure it. Of course you can find everything on the Internet, but that costs your time. And you just want to use your text editor.
 
@@ -35,6 +35,7 @@ Oh My Neovim is installed by running one of the following commands in your termi
 ```shell
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/oh-my-neovim/oh-my-neovim/master/tools/install.sh)"
 ```
+
 > Do not forget to set the [Nerd font](https://github.com/ryanoasis/nerd-fonts#font-installation) in your terminal
 
 ## Using Oh My Neovim

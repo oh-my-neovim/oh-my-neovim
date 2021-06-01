@@ -41,4 +41,7 @@ if has('nvim-0.5')
 endif
 
 " Workspace - undo and restore
-Plug 'thaerkh/vim-workspace'
+" Plug 'thaerkh/vim-workspace'
+Plug 'tpope/vim-obsession'
+Plug 'dhruvasagar/vim-prosession'
+
