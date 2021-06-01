@@ -15,7 +15,7 @@ if [ "$confirmation" = y ] || [ "$confirmation" = Y ]; then
       if [ -f $OH_MY_NEOVIM/extensions/$extension/brew ]; then
         brew_packages=$(cat $OH_MY_NEOVIM/extensions/$extension/brew)
         printf "${BLUE}Install $brew_packages with brew for $extension extension...${NORMAL}\n"
-        brew install --force $brew_packages || {
+        brew install $brew_packages > /dev/null 2>&1 || {
           printf "Error [brew]: Installation for extension \"$extension\" failed\n"
         }
       fi
