@@ -97,7 +97,7 @@ highlight SpecialKey guifg=#657b83 ctermbg=NONE guibg=NONE
 
 " Workspace
 set sessionoptions-=blank
-let g:workspace_autosave_always = 1
+let g:workspace_autosave_always = 0
 let g:workspace_create_new_tabs = 0
 if has("win64") || has("win32") || has("win16")
   let g:workspace_session_directory = $HOME . '/AppData/Local/nvim/sessions'
